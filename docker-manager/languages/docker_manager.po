@@ -64,6 +64,10 @@ msgstr ""
 msgid "License: GPLv3   Author: alex_q_2000 (C) 2021   URL: https://linuxforum.ru"
 msgstr ""
 
+#: unit1.sdockernotrunning
+msgid "Docker Manager: Warning! Docker not running or no superuser privileges!"
+msgstr ""
+
 #: unit1.spullcaption
 msgid "Pull image"
 msgstr ""

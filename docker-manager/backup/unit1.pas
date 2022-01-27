@@ -74,6 +74,7 @@ resourcestring
   SRunImage = 'Run image';
   SRunImageCommand = 'Enter the command (optional)';
   SRunImageRm = 'Run image with --rm';
+  SDockerNotRunning = 'Docker Manager: Warning! Docker not running or no root privileges!';
 
 implementation
 
@@ -186,7 +187,9 @@ begin
   FDContainers := DContainers.Create(False);
   FDContainers.Priority := tpHighest;
 
-  StartProcess('[[ $(systemctl is-active docker) != "active" ]] && echo "Warning: Docker not running!"');
+  //Проверка активности docker.service
+  StartProcess('[[ $(systemctl is-active docker) != "active" ]] && echo "' +
+    SDockerNotRunning + '"');
 end;
 
 procedure TMainForm.ImageBoxDrawItem(Control: TWinControl; Index: integer;
@@ -225,9 +228,9 @@ procedure TMainForm.MenuItem11Click(Sender: TObject);
 var
   FStartDockerCommand: TThread;
 begin
-    DockerCmd := Trim('docker inspect ' + ContainerID);
-    FStartDockerCommand := StartDockerCommand.Create(False);
-    FStartDockerCommand.Priority := tpNormal;
+  DockerCmd := Trim('docker inspect ' + ContainerID);
+  FStartDockerCommand := StartDockerCommand.Create(False);
+  FStartDockerCommand.Priority := tpNormal;
 end;
 
 //Старт Image с командой

@@ -64,6 +64,10 @@ msgstr "Запустить и зайти в Shell >bash"
 msgid "License: GPLv3   Author: alex_q_2000 (C) 2021   URL: https://linuxforum.ru"
 msgstr "Лицензия: GPLv3   Автор: alex_q_2000 (C) 2021   URL: https://linuxforum.ru"
 
+#: unit1.sdockernotrunning
+msgid "Docker Manager: Warning! Docker not running or no superuser privileges!"
+msgstr "Docker Manager: Внимание! Docker не запущен или нет прав суперпользователя!"
+
 #: unit1.spullcaption
 msgid "Pull image"
 msgstr "Получить образ"
