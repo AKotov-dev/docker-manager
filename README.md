@@ -5,7 +5,6 @@ There is a [Bug 29096](https://bugs.mageia.org/show_bug.cgi?id=29096) in Mageia 
 
 **Dependencies:** docker, sakura, polkit, systemd, (docker.io for Ubuntu)
 
-**Opportunities:**
 + Getting/Downloading images from Docker storage
 + Launching/Stopping images and containers with and without additional commands
 + Launching images and containers + logging into BASH (editing containers)
