@@ -6,11 +6,13 @@
 {"hash":258759593,"name":"tmainform.menuitem8.caption","sourcebytes":[82,117,110,32,105,109,97,103,101,32,119,105,116,104,32,99,111,109,109,97,110,100,32,45,45,114,109,32,40,111,112,116,105,111,110,97,108,41],"value":"Run image with command --rm (optional)"},
 {"hash":245859464,"name":"tmainform.menuitem9.caption","sourcebytes":[82,117,110,32,97,110,100,32,103,111,116,111,32,83,104,101,108,108,32,62,98,97,115,104],"value":"Run and goto Shell >bash"},
 {"hash":163917832,"name":"tmainform.menuitem10.caption","sourcebytes":[82,117,110,32,97,110,100,32,103,111,116,111,32,83,104,101,108,108,32,119,105,116,104,32,45,45,114,109,32,62,32,98,97,115,104],"value":"Run and goto Shell with --rm > bash"},
+{"hash":67502642,"name":"tmainform.menuitem13.caption","sourcebytes":[66,97,99,107,117,112,32,116,104,105,115,32,105,109,97,103,101,32,116,111,32,102,105,108,101,110,97,109,101,46,116,97,114],"value":"Backup this image to filename.tar"},
+{"hash":165985490,"name":"tmainform.menuitem14.caption","sourcebytes":[82,101,115,116,111,114,101,32,100,111,99,107,101,114,32,105,109,97,103,101,32,102,114,111,109,32,102,105,108,101,110,97,109,101,46,116,97,114],"value":"Restore docker image from filename.tar"},
 {"hash":19472581,"name":"tmainform.menuitem2.caption","sourcebytes":[68,101,108,101,116,101,32,116,104,101,32,115,101,108,101,99,116,101,100,32,105,109,97,103,101],"value":"Delete the selected image"},
 {"hash":221368770,"name":"tmainform.menuitem3.caption","sourcebytes":[83,116,97,114,116,32,99,111,110,116,97,105,110,101,114],"value":"Start container"},
 {"hash":157581192,"name":"tmainform.menuitem6.caption","sourcebytes":[83,116,97,114,116,32,97,110,100,32,103,111,116,111,32,83,104,101,108,108,32,62,32,98,97,115,104],"value":"Start and goto Shell > bash"},
 {"hash":247835330,"name":"tmainform.menuitem4.caption","sourcebytes":[83,116,111,112,32,99,111,110,116,97,105,110,101,114],"value":"Stop container"},
-{"hash":46989538,"name":"tmainform.menuitem12.caption","sourcebytes":[67,114,101,97,116,101,32,97,32,110,101,119,32,73,109,97,103,101,32,102,114,111,109,32,116,104,105,115,32,67,111,110,116,97,105,110,101,114],"value":"Create a new Image from this Container"},
+{"hash":46981250,"name":"tmainform.menuitem12.caption","sourcebytes":[67,114,101,97,116,101,32,97,32,110,101,119,32,105,109,97,103,101,32,102,114,111,109,32,116,104,105,115,32,99,111,110,116,97,105,110,101,114],"value":"Create a new image from this container"},
 {"hash":267639982,"name":"tmainform.menuitem11.caption","sourcebytes":[208,161,111,110,116,97,105,110,101,114,32,118,101,114,115,105,111,110,32,105,110,102,111,114,109,97,116,105,111,110],"value":"\u0421ontainer version information"},
 {"hash":45542290,"name":"tmainform.menuitem5.caption","sourcebytes":[68,101,108,101,116,101,32,116,104,101,32,115,101,108,101,99,116,101,100,32,99,111,110,116,97,105,110,101,114],"value":"Delete the selected container"}
 ]}

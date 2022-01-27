@@ -21,6 +21,9 @@ type
     MenuItem10: TMenuItem;
     MenuItem11: TMenuItem;
     MenuItem12: TMenuItem;
+    MenuItem13: TMenuItem;
+    MenuItem14: TMenuItem;
+    N8: TMenuItem;
     N7: TMenuItem;
     N6: TMenuItem;
     N5: TMenuItem;
@@ -36,9 +39,11 @@ type
     N3: TMenuItem;
     N2: TMenuItem;
     N1: TMenuItem;
+    OpenDialog1: TOpenDialog;
     PopupMenu1: TPopupMenu;
     PopupMenu2: TPopupMenu;
     ProgressBar1: TProgressBar;
+    SaveDialog1: TSaveDialog;
     Splitter1: TSplitter;
     Splitter2: TSplitter;
     StaticText1: TStaticText;
@@ -48,6 +53,8 @@ type
     procedure MenuItem10Click(Sender: TObject);
     procedure MenuItem11Click(Sender: TObject);
     procedure MenuItem12Click(Sender: TObject);
+    procedure MenuItem13Click(Sender: TObject);
+    procedure MenuItem14Click(Sender: TObject);
     procedure MenuItem1Click(Sender: TObject);
     procedure MenuItem2Click(Sender: TObject);
     procedure MenuItem3Click(Sender: TObject);
@@ -257,6 +264,32 @@ begin
 
   FStartDockerCommand := StartDockerCommand.Create(False);
   FStartDockerCommand.Priority := tpNormal;
+end;
+
+//Backup Image
+procedure TMainForm.MenuItem13Click(Sender: TObject);
+var
+ FStartDockerCommand: TThread;
+begin
+  if SaveDialog1.Execute then
+  begin
+    DockerCmd := Trim('docker save -o "' + SaveDialog1.FileName + '" ' + ImageTag);
+    FStartDockerCommand := StartDockerCommand.Create(False);
+    FStartDockerCommand.Priority := tpNormal;
+  end;
+end;
+
+//Restore Image
+procedure TMainForm.MenuItem14Click(Sender: TObject);
+var
+ FStartDockerCommand: TThread;
+begin
+  if OpenDialog1.Execute then
+  begin
+    DockerCmd := Trim('docker load -i "' + OpenDialog1.FileName + '"');
+    FStartDockerCommand := StartDockerCommand.Create(False);
+    FStartDockerCommand.Priority := tpNormal;
+  end;
 end;
 
 //Старт Image с командой

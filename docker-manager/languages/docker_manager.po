@@ -29,7 +29,15 @@ msgid "Сontainer version information"
 msgstr ""
 
 #: tmainform.menuitem12.caption
-msgid "Create a new Image from this Container"
+msgid "Create a new image from this container"
+msgstr ""
+
+#: tmainform.menuitem13.caption
+msgid "Backup this image to filename.tar"
+msgstr ""
+
+#: tmainform.menuitem14.caption
+msgid "Restore docker image from filename.tar"
 msgstr ""
 
 #: tmainform.menuitem2.caption

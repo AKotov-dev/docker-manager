@@ -1,14 +1,14 @@
 object MainForm: TMainForm
-  Left = 287
+  Left = 326
   Height = 712
   Top = 122
   Width = 1079
   ActiveControl = ImageBox
-  Caption = 'Docker Manager v0.1'
+  Caption = 'Docker Manager'
   ClientHeight = 712
   ClientWidth = 1079
   OnShow = FormShow
-  SessionProperties = 'ContainerBox.Height;ImageBox.Height;Left;Top;Height;Width'
+  SessionProperties = 'ContainerBox.Height;Height;ImageBox.Height;Left;Top;Width;SaveDialog1.InitialDir'
   LCLVersion = '2.0.10.0'
   object ImageBox: TListBox
     Left = 0
@@ -133,6 +133,17 @@ object MainForm: TMainForm
       Caption = 'Run and goto Shell with --rm > bash'
       OnClick = MenuItem10Click
     end
+    object N8: TMenuItem
+      Caption = '-'
+    end
+    object MenuItem13: TMenuItem
+      Caption = 'Backup this image to filename.tar'
+      OnClick = MenuItem13Click
+    end
+    object MenuItem14: TMenuItem
+      Caption = 'Restore docker image (filename.tar)'
+      OnClick = MenuItem14Click
+    end
     object N1: TMenuItem
       Caption = '-'
     end
@@ -164,7 +175,7 @@ object MainForm: TMainForm
       Caption = '-'
     end
     object MenuItem12: TMenuItem
-      Caption = 'Create a new Image from this Container'
+      Caption = 'Create a new image from this container'
       OnClick = MenuItem12Click
     end
     object N6: TMenuItem
@@ -185,6 +196,20 @@ object MainForm: TMainForm
   object IniPropStorage1: TIniPropStorage
     StoredValues = <>
     Left = 600
+    Top = 40
+  end
+  object SaveDialog1: TSaveDialog
+    DefaultExt = '.*.tar'
+    Filter = 'Docker image file (*.tar)|*.tar'
+    InitialDir = '~/'
+    Options = [ofOverwritePrompt, ofEnableSizing, ofViewDetail]
+    Left = 728
+    Top = 40
+  end
+  object OpenDialog1: TOpenDialog
+    DefaultExt = '.*.tar'
+    Filter = 'Docker image file (*.tar)|*.tar'
+    Left = 840
     Top = 40
   end
 end
