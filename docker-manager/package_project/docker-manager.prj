@@ -2,7 +2,7 @@
 name=docker-manager
 
 [VERSION]
-version=0.1
+version=0.2
 
 [RELEASE]
 release=0.mrx8
@@ -74,3 +74,9 @@ toolversion=2.0.10
 2=There is a Bug 29096 in Mageia when completing docker. To fix it, install the rpm docker-shutdown-patch.
 3=
 4=Dependencies: docker, sakura, polkit, systemd
+5=
+6=v0.2
+7=+ backup/restore image
+8=+ create an image from a container
+9=
+10=v0.1 - initial release
