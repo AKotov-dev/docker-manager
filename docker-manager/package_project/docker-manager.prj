@@ -25,13 +25,13 @@ vendor=alex_q_2000 (C) 2022
 summary=Manager for Docker
 
 [URLCOPY]
-urlcopy=111
+urlcopy=https://github.com/AKotov-dev/docker-manager
 
 [LICENSE]
 license=GPLv3
 
 [DEPS]
-deps=docker sakura polkit systemd
+deps=docker sakura systemd
 
 [META]
 meta=0
@@ -43,7 +43,7 @@ noarch=0
 sign=0
 
 [DEB]
-deb=0
+deb=1
 
 [FILES]
 0=/usr/bin/docker-manager
@@ -54,11 +54,8 @@ deb=0
 5=/usr/share/doc/docker-manager/
 6=/usr/share/doc/docker-manager/
 
-[AFTERINSTALL]
-0=if [ "$(systemctl is-active docker)" != "active" ]; then systemctl start docker; fi
-
 [URL32]
-url32=111
+url32=https://github.com/AKotov-dev/docker-manager
 
 [URL64]
 url64=
@@ -71,3 +68,10 @@ devtool=Lazarus
 
 [TOOLVERSION]
 toolversion=2.0.10
+
+[INFO]
+0=The manager is designed to manage Docker images and containers. It allows you to monitor the status of certain objects in real time and perform entry-level operations on them (right-click menu). It can also be useful as a monitor of Docker object activity during deployment and configuration.
+1=
+2=There is a Bug 29096 in Mageia when completing docker. To fix it, install the rpm docker-shutdown-patch.
+3=
+4=Dependencies: docker, sakura, polkit, systemd

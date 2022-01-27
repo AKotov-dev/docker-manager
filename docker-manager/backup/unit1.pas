@@ -185,6 +185,8 @@ begin
 
   FDContainers := DContainers.Create(False);
   FDContainers.Priority := tpHighest;
+
+  StartProcess('[[ $(systemctl is-active docker) != "active" ]] && echo "Warning: Docker not running!"');
 end;
 
 procedure TMainForm.ImageBoxDrawItem(Control: TWinControl; Index: integer;
