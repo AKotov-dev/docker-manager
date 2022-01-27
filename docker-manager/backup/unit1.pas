@@ -20,6 +20,8 @@ type
     MenuItem1: TMenuItem;
     MenuItem10: TMenuItem;
     MenuItem11: TMenuItem;
+    MenuItem12: TMenuItem;
+    N7: TMenuItem;
     N6: TMenuItem;
     N5: TMenuItem;
     MenuItem2: TMenuItem;
@@ -45,6 +47,7 @@ type
       ARect: TRect; State: TOwnerDrawState);
     procedure MenuItem10Click(Sender: TObject);
     procedure MenuItem11Click(Sender: TObject);
+    procedure MenuItem12Click(Sender: TObject);
     procedure MenuItem1Click(Sender: TObject);
     procedure MenuItem2Click(Sender: TObject);
     procedure MenuItem3Click(Sender: TObject);
@@ -74,7 +77,9 @@ resourcestring
   SRunImage = 'Run image';
   SRunImageCommand = 'Enter the command (optional)';
   SRunImageRm = 'Run image with --rm';
-  SDockerNotRunning = 'Docker Manager: Warning! Docker not running or no root privileges!';
+  SDockerNotRunning =
+    'Docker Manager: Warning! Docker not running or no superuser privileges!';
+  SCreateImageCaption = 'Create a new Image';
 
 implementation
 
@@ -177,6 +182,8 @@ begin
   ImageBox.ScrollWidth := 0;
   ContainerBox.ScrollWidth := 0;
 
+  MainForm.Caption := Application.Title;
+
   DockerCmd := '';
   ImageBox.ItemHeight := ImageBox.Font.Size + 10;
   ContainerBox.ItemHeight := ImageBox.ItemHeight;
@@ -229,6 +236,25 @@ var
   FStartDockerCommand: TThread;
 begin
   DockerCmd := Trim('docker inspect ' + ContainerID);
+  FStartDockerCommand := StartDockerCommand.Create(False);
+  FStartDockerCommand.Priority := tpNormal;
+end;
+
+//Создаём свой образ из контейнера
+procedure TMainForm.MenuItem12Click(Sender: TObject);
+var
+  FStartDockerCommand: TThread;
+  s: string;
+begin
+  S := '';
+  repeat
+    if not InputQuery(SCreateImageCaption, SPullString, S) then
+      Exit
+  until S <> '';
+
+  DockerCmd := Trim('docker commit -a "' + GetEnvironmentVariable('USER') +
+    '" ' + ContainerID + ' ' + S);
+
   FStartDockerCommand := StartDockerCommand.Create(False);
   FStartDockerCommand.Priority := tpNormal;
 end;
@@ -336,6 +362,7 @@ procedure TMainForm.PopupMenu1Popup(Sender: TObject);
 var
   i: integer;
 begin
+  Application.ProcessMessages;
   if (ImageBox.Selected[0]) or (Pos('^^^', ImageBox.Items[ImageBox.ItemIndex]) <> 0) then
     for i := 1 to PopUpMenu1.Items.Count - 1 do
       PopUpMenu1.Items[i].Enabled := False
@@ -348,6 +375,7 @@ procedure TMainForm.PopupMenu2Popup(Sender: TObject);
 var
   i: integer;
 begin
+  Application.ProcessMessages;
   if (ContainerBox.Selected[0]) or
     (Pos('^^^', ContainerBox.Items[ContainerBox.ItemIndex]) <> 0) then
     for i := 0 to PopUpMenu2.Items.Count - 1 do

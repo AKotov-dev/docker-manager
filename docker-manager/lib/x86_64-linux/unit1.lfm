@@ -4,7 +4,7 @@ object MainForm: TMainForm
   Top = 122
   Width = 1079
   ActiveControl = ImageBox
-  Caption = 'Docker Manager v0.1'
+  Caption = 'Docker Manager'
   ClientHeight = 712
   ClientWidth = 1079
   OnShow = FormShow
@@ -159,6 +159,13 @@ object MainForm: TMainForm
     object MenuItem4: TMenuItem
       Caption = 'Stop container'
       OnClick = MenuItem4Click
+    end
+    object N7: TMenuItem
+      Caption = '-'
+    end
+    object MenuItem12: TMenuItem
+      Caption = 'Create a new Image from this Container'
+      OnClick = MenuItem12Click
     end
     object N6: TMenuItem
       Caption = '-'

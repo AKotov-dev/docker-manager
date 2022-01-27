@@ -13,7 +13,7 @@ msgstr ""
 "X-Generator: Poedit 2.4.2\n"
 
 #: tmainform.caption
-msgid "Docker Manager v0.1"
+msgid "Docker Manager"
 msgstr ""
 
 #: tmainform.menuitem1.caption
@@ -26,6 +26,10 @@ msgstr ""
 
 #: tmainform.menuitem11.caption
 msgid "Сontainer version information"
+msgstr ""
+
+#: tmainform.menuitem12.caption
+msgid "Create a new Image from this Container"
 msgstr ""
 
 #: tmainform.menuitem2.caption
@@ -62,6 +66,10 @@ msgstr ""
 
 #: tmainform.statictext1.caption
 msgid "License: GPLv3   Author: alex_q_2000 (C) 2021   URL: https://linuxforum.ru"
+msgstr ""
+
+#: unit1.screateimagecaption
+msgid "Create a new Image"
 msgstr ""
 
 #: unit1.sdockernotrunning

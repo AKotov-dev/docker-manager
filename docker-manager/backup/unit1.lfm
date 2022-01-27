@@ -160,6 +160,13 @@ object MainForm: TMainForm
       Caption = 'Stop container'
       OnClick = MenuItem4Click
     end
+    object N7: TMenuItem
+      Caption = '-'
+    end
+    object MenuItem12: TMenuItem
+      Caption = 'Create a new Image from this Container'
+      OnClick = MenuItem12Click
+    end
     object N6: TMenuItem
       Caption = '-'
     end

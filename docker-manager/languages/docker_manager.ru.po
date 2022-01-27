@@ -13,7 +13,7 @@ msgstr ""
 "X-Generator: Poedit 2.4.2\n"
 
 #: tmainform.caption
-msgid "Docker Manager v0.1"
+msgid "Docker Manager"
 msgstr ""
 
 #: tmainform.menuitem1.caption
@@ -27,6 +27,10 @@ msgstr "Запустить и зайти в Shell с --rm > bash"
 #: tmainform.menuitem11.caption
 msgid "Сontainer version information"
 msgstr "Информация о версии контейнера"
+
+#: tmainform.menuitem12.caption
+msgid "Create a new Image from this Container"
+msgstr "Создать новый Образ из этого Контейнера"
 
 #: tmainform.menuitem2.caption
 msgid "Delete the selected image"
@@ -64,6 +68,10 @@ msgstr "Запустить и зайти в Shell >bash"
 msgid "License: GPLv3   Author: alex_q_2000 (C) 2021   URL: https://linuxforum.ru"
 msgstr "Лицензия: GPLv3   Автор: alex_q_2000 (C) 2021   URL: https://linuxforum.ru"
 
+#: unit1.screateimagecaption
+msgid "Create a new Image"
+msgstr ""
+
 #: unit1.sdockernotrunning
 msgid "Docker Manager: Warning! Docker not running or no superuser privileges!"
 msgstr "Docker Manager: Внимание! Docker не запущен или нет прав суперпользователя!"
@@ -87,3 +95,4 @@ msgstr "Введите команду (опционально)"
 #: unit1.srunimagerm
 msgid "Run image with --rm"
 msgstr "Запуск образа с --rm"
+
