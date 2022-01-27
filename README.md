@@ -6,7 +6,7 @@ The GUI is designed to manage Docker images and containers. It allows you to mon
 + Getting information about the version of containers
 + Deleting images and containers
 + Backup/Restore docker images
-+ Create an image from a container  
++ Creating an image from a container  
   
 There is a [Bug 29096](https://bugs.mageia.org/show_bug.cgi?id=29096) in Mageia when completing docker. To fix it, install the rpm [docker-shutdown-patch](https://github.com/AKotov-dev/docker-shutdown-patch).
 
