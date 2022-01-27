@@ -398,7 +398,10 @@ begin
   Application.ProcessMessages;
   if (ImageBox.Selected[0]) or (Pos('^^^', ImageBox.Items[ImageBox.ItemIndex]) <> 0) then
     for i := 1 to PopUpMenu1.Items.Count - 1 do
-      PopUpMenu1.Items[i].Enabled := False
+    begin
+      if i <> 9 then
+        PopUpMenu1.Items[i].Enabled := False;
+    end
   else
     for i := 1 to PopUpMenu1.Items.Count - 1 do
       PopUpMenu1.Items[i].Enabled := True;
