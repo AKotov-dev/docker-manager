@@ -141,7 +141,7 @@ object MainForm: TMainForm
       OnClick = MenuItem13Click
     end
     object MenuItem14: TMenuItem
-      Caption = 'Restore docker image (filename.tar)'
+      Caption = 'Restore docker image from filename.tar'
       OnClick = MenuItem14Click
     end
     object N1: TMenuItem

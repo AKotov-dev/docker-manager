@@ -8,7 +8,7 @@ object MainForm: TMainForm
   ClientHeight = 712
   ClientWidth = 1079
   OnShow = FormShow
-  SessionProperties = 'ContainerBox.Height;Height;ImageBox.Height;Left;Top;Width;SaveDialog1.InitialDir'
+  SessionProperties = 'ContainerBox.Height;Height;ImageBox.Height;Left;SaveDialog1.InitialDir;Top;Width;OpenDialog1.InitialDir'
   LCLVersion = '2.0.10.0'
   object ImageBox: TListBox
     Left = 0

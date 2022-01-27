@@ -269,7 +269,7 @@ end;
 //Backup Image
 procedure TMainForm.MenuItem13Click(Sender: TObject);
 var
- FStartDockerCommand: TThread;
+  FStartDockerCommand: TThread;
 begin
   if SaveDialog1.Execute then
   begin
@@ -282,7 +282,7 @@ end;
 //Restore Image
 procedure TMainForm.MenuItem14Click(Sender: TObject);
 var
- FStartDockerCommand: TThread;
+  FStartDockerCommand: TThread;
 begin
   if OpenDialog1.Execute then
   begin
