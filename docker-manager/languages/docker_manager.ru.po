@@ -1,0 +1,85 @@
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Project-Id-Version: Docker Manager\n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: alex_q_2000 (C) 2022\n"
+"MIME-Version: 1.0\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: ru\n"
+"X-Generator: Poedit 2.4.2\n"
+
+#: tmainform.caption
+msgid "Docker Manager v0.1"
+msgstr ""
+
+#: tmainform.menuitem1.caption
+msgid "Run image with command (optional)"
+msgstr "Запустить образ с командой (опционально)"
+
+#: tmainform.menuitem10.caption
+msgid "Run and goto Shell with --rm > bash"
+msgstr "Запустить и зайти в Shell с --rm > bash"
+
+#: tmainform.menuitem11.caption
+msgid "Сontainer version information"
+msgstr "Информация о версии контейнера"
+
+#: tmainform.menuitem2.caption
+msgid "Delete the selected image"
+msgstr "Удалить выбранный образ"
+
+#: tmainform.menuitem3.caption
+msgid "Start container"
+msgstr "Запустить контейнер"
+
+#: tmainform.menuitem4.caption
+msgid "Stop container"
+msgstr "Остановить контейнер"
+
+#: tmainform.menuitem5.caption
+msgid "Delete the selected container"
+msgstr "Удалить выбранный контейнер"
+
+#: tmainform.menuitem6.caption
+msgid "Start and goto Shell > bash"
+msgstr "Запустить и зайти в Shell > bash"
+
+#: tmainform.menuitem7.caption
+msgid "Pull image (name:tag)"
+msgstr "Получить образ (name:tag)"
+
+#: tmainform.menuitem8.caption
+msgid "Run image with command --rm (optional)"
+msgstr "Запустить образ с командой --rm (опционально)"
+
+#: tmainform.menuitem9.caption
+msgid "Run and goto Shell >bash"
+msgstr "Запустить и зайти в Shell >bash"
+
+#: tmainform.statictext1.caption
+msgid "License: GPLv3   Author: alex_q_2000 (C) 2021   URL: https://linuxforum.ru"
+msgstr "Лицензия: GPLv3   Автор: alex_q_2000 (C) 2021   URL: https://linuxforum.ru"
+
+#: unit1.spullcaption
+msgid "Pull image"
+msgstr "Получить образ"
+
+#: unit1.spullstring
+msgid "Enter name:tag"
+msgstr "Введите name:tag"
+
+#: unit1.srunimage
+msgid "Run image"
+msgstr "Запуск образа"
+
+#: unit1.srunimagecommand
+msgid "Enter the command (optional)"
+msgstr "Введите команду (опционально)"
+
+#: unit1.srunimagerm
+msgid "Run image with --rm"
+msgstr "Запуск образа с --rm"

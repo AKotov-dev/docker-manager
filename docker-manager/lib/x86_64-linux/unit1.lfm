@@ -1,0 +1,183 @@
+object MainForm: TMainForm
+  Left = 287
+  Height = 712
+  Top = 122
+  Width = 1079
+  ActiveControl = ImageBox
+  Caption = 'Docker Manager v0.1'
+  ClientHeight = 712
+  ClientWidth = 1079
+  OnShow = FormShow
+  SessionProperties = 'ContainerBox.Height;ImageBox.Height;Left;Top;Height;Width'
+  LCLVersion = '2.0.10.0'
+  object ImageBox: TListBox
+    Left = 0
+    Height = 198
+    Top = 0
+    Width = 1079
+    Align = alTop
+    Font.Height = -13
+    Font.Name = 'Monospace'
+    Items.Strings = (
+      'waiting for docker.service...'
+    )
+    ItemHeight = 25
+    OnDrawItem = ImageBoxDrawItem
+    ParentFont = False
+    PopupMenu = PopupMenu1
+    ScrollWidth = 1077
+    Style = lbOwnerDrawVariable
+    TabOrder = 1
+  end
+  object ContainerBox: TListBox
+    Left = 0
+    Height = 181
+    Top = 203
+    Width = 1079
+    Align = alTop
+    Font.Height = -13
+    Font.Name = 'Monospace'
+    Items.Strings = (
+      'waiting for docker.service...'
+    )
+    ItemHeight = 25
+    OnDrawItem = ImageBoxDrawItem
+    ParentFont = False
+    PopupMenu = PopupMenu2
+    ScrollWidth = 1077
+    Style = lbOwnerDrawVariable
+    TabOrder = 0
+  end
+  object Splitter1: TSplitter
+    Cursor = crVSplit
+    Left = 0
+    Height = 5
+    Top = 198
+    Width = 1079
+    Align = alTop
+    ResizeAnchor = akTop
+  end
+  object Splitter2: TSplitter
+    Cursor = crVSplit
+    Left = 0
+    Height = 5
+    Top = 384
+    Width = 1079
+    Align = alTop
+    ResizeAnchor = akTop
+  end
+  object LogMemo: TMemo
+    Left = 0
+    Height = 296
+    Top = 389
+    Width = 1079
+    Align = alClient
+    Font.Height = -13
+    Font.Name = 'Monospace'
+    ParentFont = False
+    ReadOnly = True
+    ScrollBars = ssVertical
+    TabOrder = 4
+    WantReturns = False
+  end
+  object ProgressBar1: TProgressBar
+    Left = 0
+    Height = 9
+    Top = 685
+    Width = 1079
+    Align = alBottom
+    TabOrder = 5
+  end
+  object StaticText1: TStaticText
+    Left = 0
+    Height = 18
+    Top = 694
+    Width = 1079
+    Align = alBottom
+    Caption = 'License: GPLv3   Author: alex_q_2000 (C) 2021   URL: https://linuxforum.ru'
+    Color = clDefault
+    Font.Color = clGray
+    Font.Height = -11
+    Font.Name = 'Sans'
+    ParentFont = False
+    ParentColor = False
+    TabOrder = 6
+  end
+  object PopupMenu1: TPopupMenu
+    OnPopup = PopupMenu1Popup
+    Left = 440
+    Top = 40
+    object MenuItem7: TMenuItem
+      Caption = 'Pull image (name:tag)'
+      OnClick = MenuItem7Click
+    end
+    object N5: TMenuItem
+      Caption = '-'
+    end
+    object MenuItem1: TMenuItem
+      Caption = 'Run image with command (optional)'
+      OnClick = MenuItem1Click
+    end
+    object MenuItem8: TMenuItem
+      Caption = 'Run image with command --rm (optional)'
+      OnClick = MenuItem8Click
+    end
+    object N4: TMenuItem
+      Caption = '-'
+    end
+    object MenuItem9: TMenuItem
+      Caption = 'Run and goto Shell >bash'
+      OnClick = MenuItem9Click
+    end
+    object MenuItem10: TMenuItem
+      Caption = 'Run and goto Shell with --rm > bash'
+      OnClick = MenuItem10Click
+    end
+    object N1: TMenuItem
+      Caption = '-'
+    end
+    object MenuItem2: TMenuItem
+      Caption = 'Delete the selected image'
+      OnClick = MenuItem2Click
+    end
+  end
+  object PopupMenu2: TPopupMenu
+    OnPopup = PopupMenu2Popup
+    Left = 448
+    Top = 256
+    object MenuItem3: TMenuItem
+      Caption = 'Start container'
+      OnClick = MenuItem3Click
+    end
+    object MenuItem6: TMenuItem
+      Caption = 'Start and goto Shell > bash'
+      OnClick = MenuItem6Click
+    end
+    object N3: TMenuItem
+      Caption = '-'
+    end
+    object MenuItem4: TMenuItem
+      Caption = 'Stop container'
+      OnClick = MenuItem4Click
+    end
+    object N6: TMenuItem
+      Caption = '-'
+    end
+    object MenuItem11: TMenuItem
+      Caption = 'Сontainer version information'
+      OnClick = MenuItem11Click
+    end
+    object N2: TMenuItem
+      Caption = '-'
+    end
+    object MenuItem5: TMenuItem
+      Caption = 'Delete the selected container'
+      OnClick = MenuItem5Click
+    end
+  end
+  object IniPropStorage1: TIniPropStorage
+    StoredValues = <>
+    Left = 600
+    Top = 40
+  end
+end

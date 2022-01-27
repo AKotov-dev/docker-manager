@@ -1,0 +1,73 @@
+[NAME]
+name=docker-manager
+
+[VERSION]
+version=0.1
+
+[RELEASE]
+release=0.mrx8
+
+[GROUP]
+group=Applications/System
+
+[DESCRIPTION]
+0=Manager for Docker
+1=---
+2=More information: /usr/share/doc/package_name/repack.txt
+
+[MAINTAINER]
+maintainer=Alex Kotov
+
+[VENDOR]
+vendor=alex_q_2000 (C) 2022
+
+[SUMMARY]
+summary=Manager for Docker
+
+[URLCOPY]
+urlcopy=111
+
+[LICENSE]
+license=GPLv3
+
+[DEPS]
+deps=docker sakura polkit systemd
+
+[META]
+meta=0
+
+[NOARCH]
+noarch=0
+
+[SIGN]
+sign=0
+
+[DEB]
+deb=0
+
+[FILES]
+0=/usr/bin/docker-manager
+1=/usr/share/applications/docker-manager.desktop
+2=/usr/share/docker-manager/
+3=/usr/share/icons/docker-manager.png
+4=/usr/share/polkit-1/actions/docker-manager.policy
+5=/usr/share/doc/docker-manager/
+6=/usr/share/doc/docker-manager/
+
+[AFTERINSTALL]
+0=if [ "$(systemctl is-active docker)" != "active" ]; then systemctl start docker; fi
+
+[URL32]
+url32=111
+
+[URL64]
+url64=
+
+[PROGRAMNAME]
+programname=Docker Manager
+
+[DEVTOOL]
+devtool=Lazarus
+
+[TOOLVERSION]
+toolversion=2.0.10
