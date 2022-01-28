@@ -21,10 +21,8 @@ msgid "Run image with parameters (optional)"
 msgstr "Запустить образ с параметрами (опционально)"
 
 #: tmainform.menuitem10.caption
-#, fuzzy
-#| msgid "Run and goto Shell with --rm > bash"
 msgid "Run and goto Shell with --rm > /bin/bash"
-msgstr "Запустить и зайти в Shell с --rm > bash"
+msgstr "Запустить и зайти в Shell с --rm >/bin/bash"
 
 #: tmainform.menuitem11.caption
 msgid "Сontainer version information"
@@ -59,10 +57,8 @@ msgid "Delete the selected container"
 msgstr "Удалить выбранный контейнер"
 
 #: tmainform.menuitem6.caption
-#, fuzzy
-#| msgid "Start and goto Shell > bash"
 msgid "Start and goto Shell > /bin/bash"
-msgstr "Запустить и зайти в Shell > bash"
+msgstr "Запустить и зайти в Shell > /bin/bash"
 
 #: tmainform.menuitem7.caption
 msgid "Pull image (name:tag)"
@@ -73,14 +69,12 @@ msgid "Run image with parameters --rm (optional)"
 msgstr "Запустить образ с параметрами --rm (опционально)"
 
 #: tmainform.menuitem9.caption
-#, fuzzy
-#| msgid "Run and goto Shell >bash"
 msgid "Run and goto Shell > /bin/bash"
-msgstr "Запустить и зайти в Shell >bash"
+msgstr "Запустить и зайти в Shell > /bin/bash"
 
 #: tmainform.statictext1.caption
-msgid "License: GPLv3   Author: alex_q_2000 (C) 2021   URL: https://linuxforum.ru"
-msgstr "Лицензия: GPLv3   Автор: alex_q_2000 (C) 2021   URL: https://linuxforum.ru"
+msgid "License: GPLv3   Author: alex_q_2000 (C) 2022   URL: https://linuxforum.ru"
+msgstr "Лицензия: GPLv3   Автор: alex_q_2000 (C) 2022   URL: https://linuxforum.ru"
 
 #: unit1.screateimagecaption
 msgid "Create a new Image"
@@ -109,4 +103,3 @@ msgstr "Введите команду (пример: -p 8080:80 или echo \"he
 #: unit1.srunimagerm
 msgid "Run image with --rm"
 msgstr "Запуск образа с --rm"
-

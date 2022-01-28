@@ -419,7 +419,8 @@ end;
 
 procedure TMainForm.MenuItem9Click(Sender: TObject);
 begin
-  StartProcess('sakura -c 120 -r 40 -f 10 -x "docker run -it ' + ImageTag + ' /bin/bash"');
+  StartProcess('sakura -c 120 -r 40 -f 10 -x "docker run -it ' +
+    ImageTag + ' /bin/bash"');
 end;
 
 procedure TMainForm.PopupMenu1Popup(Sender: TObject);

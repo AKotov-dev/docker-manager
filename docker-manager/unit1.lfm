@@ -96,7 +96,7 @@ object MainForm: TMainForm
     Top = 694
     Width = 1079
     Align = alBottom
-    Caption = 'License: GPLv3   Author: alex_q_2000 (C) 2021   URL: https://linuxforum.ru'
+    Caption = 'License: GPLv3   Author: alex_q_2000 (C) 2022   URL: https://linuxforum.ru'
     Color = clDefault
     Font.Color = clGray
     Font.Height = -11
