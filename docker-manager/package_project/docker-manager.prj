@@ -2,7 +2,7 @@
 name=docker-manager
 
 [VERSION]
-version=0.2
+version=0.3
 
 [RELEASE]
 release=0.mrx8
@@ -66,7 +66,7 @@ programname=Docker Manager
 devtool=Lazarus
 
 [TOOLVERSION]
-toolversion=2.0.10
+toolversion=2.2.0
 
 [INFO]
 0=The manager is designed to manage Docker images and containers. It allows you to monitor the status of certain objects in real time and perform entry-level operations on them (right-click menu). It can also be useful as a monitor of Docker object activity during deployment and configuration.
@@ -75,8 +75,10 @@ toolversion=2.0.10
 3=
 4=Dependencies: docker, sakura, polkit, systemd
 5=
-6=v0.2
-7=+ backup/restore images
-8=+ creating an image from a container
-9=
-10=v0.1 - initial release
+6=v0.3 - build in Lazarus-2.2.0
+7=
+8=v0.2
+9=+ backup/restore images
+10=+ creating an image from a container
+11=
+12=v0.1 - initial release
