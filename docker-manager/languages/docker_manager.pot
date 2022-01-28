@@ -29,10 +29,6 @@ msgstr ""
 msgid "Restore docker image from filename.tar"
 msgstr ""
 
-#: tmainform.menuitem15.caption
-msgid "Execute a command inside a container"
-msgstr ""
-
 #: tmainform.menuitem2.caption
 msgid "Delete the selected image"
 msgstr ""
@@ -75,14 +71,6 @@ msgstr ""
 
 #: unit1.sdockernotrunning
 msgid "Docker Manager: Warning! Docker not running or no superuser privileges!"
-msgstr ""
-
-#: unit1.sexeccaption
-msgid "Execute"
-msgstr ""
-
-#: unit1.sexecstring
-msgid "Enter the command"
 msgstr ""
 
 #: unit1.spullcaption

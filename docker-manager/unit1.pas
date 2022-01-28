@@ -23,7 +23,6 @@ type
     MenuItem12: TMenuItem;
     MenuItem13: TMenuItem;
     MenuItem14: TMenuItem;
-    MenuItem15: TMenuItem;
     N8: TMenuItem;
     N7: TMenuItem;
     N6: TMenuItem;
@@ -56,7 +55,6 @@ type
     procedure MenuItem12Click(Sender: TObject);
     procedure MenuItem13Click(Sender: TObject);
     procedure MenuItem14Click(Sender: TObject);
-    procedure MenuItem15Click(Sender: TObject);
     procedure MenuItem1Click(Sender: TObject);
     procedure MenuItem2Click(Sender: TObject);
     procedure MenuItem3Click(Sender: TObject);
@@ -89,8 +87,8 @@ resourcestring
   SDockerNotRunning =
     'Docker Manager: Warning! Docker not running or no superuser privileges!';
   SCreateImageCaption = 'Create a new Image';
-  SExecCaption = 'Execute';
-  SExecString = 'Enter the command';
+ { SExecCaption = 'Execute';
+  SExecString = 'Enter the command';}
 
 implementation
 
@@ -297,7 +295,7 @@ begin
 end;
 
 //Execute a command inside a container
-procedure TMainForm.MenuItem15Click(Sender: TObject);
+{procedure TMainForm.MenuItem15Click(Sender: TObject);
 var
   FStartDockerCommand: TThread;
   S: string;
@@ -313,7 +311,7 @@ begin
 
   FStartDockerCommand := StartDockerCommand.Create(False);
   FStartDockerCommand.Priority := tpNormal;
-end;
+end;}
 
 //Старт Image с командой
 procedure TMainForm.MenuItem1Click(Sender: TObject);

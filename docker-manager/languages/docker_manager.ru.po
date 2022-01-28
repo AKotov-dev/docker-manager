@@ -40,10 +40,6 @@ msgstr "Бэкап этого образа в filename.tar"
 msgid "Restore docker image from filename.tar"
 msgstr "Восстановить образ docker из filename.tar"
 
-#: tmainform.menuitem15.caption
-msgid "Execute a command inside a container"
-msgstr "Выполнить команду внутри контейнера"
-
 #: tmainform.menuitem2.caption
 msgid "Delete the selected image"
 msgstr "Удалить выбранный образ"
@@ -88,14 +84,6 @@ msgstr "Создать новый образ"
 msgid "Docker Manager: Warning! Docker not running or no superuser privileges!"
 msgstr "Docker Manager: Внимание! Docker не запущен или нет прав суперпользователя!"
 
-#: unit1.sexeccaption
-msgid "Execute"
-msgstr "Выполнить"
-
-#: unit1.sexecstring
-msgid "Enter the command"
-msgstr "Введите команду"
-
 #: unit1.spullcaption
 msgid "Pull image"
 msgstr "Получить образ"
@@ -115,3 +103,4 @@ msgstr "Введите команду (опционально)"
 #: unit1.srunimagerm
 msgid "Run image with --rm"
 msgstr "Запуск образа с --rm"
+

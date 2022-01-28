@@ -11,7 +11,6 @@
 {"hash":19472581,"name":"tmainform.menuitem2.caption","sourcebytes":[68,101,108,101,116,101,32,116,104,101,32,115,101,108,101,99,116,101,100,32,105,109,97,103,101],"value":"Delete the selected image"},
 {"hash":221368770,"name":"tmainform.menuitem3.caption","sourcebytes":[83,116,97,114,116,32,99,111,110,116,97,105,110,101,114],"value":"Start container"},
 {"hash":157581192,"name":"tmainform.menuitem6.caption","sourcebytes":[83,116,97,114,116,32,97,110,100,32,103,111,116,111,32,83,104,101,108,108,32,62,32,98,97,115,104],"value":"Start and goto Shell > bash"},
-{"hash":146605250,"name":"tmainform.menuitem15.caption","sourcebytes":[69,120,101,99,117,116,101,32,97,32,99,111,109,109,97,110,100,32,105,110,115,105,100,101,32,97,32,99,111,110,116,97,105,110,101,114],"value":"Execute a command inside a container"},
 {"hash":247835330,"name":"tmainform.menuitem4.caption","sourcebytes":[83,116,111,112,32,99,111,110,116,97,105,110,101,114],"value":"Stop container"},
 {"hash":46981250,"name":"tmainform.menuitem12.caption","sourcebytes":[67,114,101,97,116,101,32,97,32,110,101,119,32,105,109,97,103,101,32,102,114,111,109,32,116,104,105,115,32,99,111,110,116,97,105,110,101,114],"value":"Create a new image from this container"},
 {"hash":267639982,"name":"tmainform.menuitem11.caption","sourcebytes":[208,161,111,110,116,97,105,110,101,114,32,118,101,114,115,105,111,110,32,105,110,102,111,114,109,97,116,105,111,110],"value":"\u0421ontainer version information"},
