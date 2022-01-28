@@ -177,6 +177,7 @@ begin
   Result := S;
 end;
 
+//Запуск потоков
 procedure TMainForm.FormShow(Sender: TObject);
 var
   FDImages, FDContainers: TThread;
@@ -207,6 +208,7 @@ begin
     SDockerNotRunning + '"');
 end;
 
+//Раскрашивание ListBox
 procedure TMainForm.ImageBoxDrawItem(Control: TWinControl; Index: integer;
   ARect: TRect; State: TOwnerDrawState);
 begin
@@ -216,7 +218,7 @@ begin
     if Index = 0 then
     begin
       Font.Color := clWhite;
-      //здесь любой цвет и другие параметры шрифта
+      //Здесь любой цвет и другие параметры шрифта
       Font.Style := Font.Style + [fsBold];
       Brush.Color := clGreen;
     end;
@@ -312,7 +314,7 @@ begin
   FStartDockerCommand.Priority := tpNormal;
 end;}
 
-//Старт Image с командой
+//Старт Image с параметрами
 procedure TMainForm.MenuItem1Click(Sender: TObject);
 var
   FStartDockerCommand: TThread;
@@ -332,7 +334,7 @@ begin
   end;
 end;
 
-//Delete Image
+//Удаление образа
 procedure TMainForm.MenuItem2Click(Sender: TObject);
 var
   FStartDockerCommand: TThread;
@@ -342,7 +344,7 @@ begin
   FStartDockerCommand.Priority := tpNormal;
 end;
 
-//Старт контейнера с командой
+//Старт контейнера с параметрами
 procedure TMainForm.MenuItem3Click(Sender: TObject);
 var
   FStartDockerCommand: TThread;
@@ -417,12 +419,14 @@ begin
   end;
 end;
 
+//Запуск образа и вход в BASH
 procedure TMainForm.MenuItem9Click(Sender: TObject);
 begin
   StartProcess('sakura -c 120 -r 40 -f 10 -x "docker run -it ' +
     ImageTag + ' /bin/bash"');
 end;
 
+//Контроль меню образов
 procedure TMainForm.PopupMenu1Popup(Sender: TObject);
 var
   i: integer;
@@ -439,6 +443,7 @@ begin
       PopUpMenu1.Items[i].Enabled := True;
 end;
 
+//Контроль меню контейнеров
 procedure TMainForm.PopupMenu2Popup(Sender: TObject);
 var
   i: integer;

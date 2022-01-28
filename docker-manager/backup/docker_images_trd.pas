@@ -5,7 +5,7 @@ unit docker_images_trd;
 interface
 
 uses
-  Classes, Process, SysUtils, ComCtrls, Forms, Dialogs;
+  Classes, Process, SysUtils, ComCtrls, Forms;
 
 type
   DImages = class(TThread)
@@ -47,12 +47,10 @@ begin
 
     while not Terminated do
     begin
-      //Если параллельно не выполняется команда вывести списки
       Sleep(500);
 
       //Вывод Images
       ImageList.Clear;
-    //  Application.ProcessMessages;
       ExProcess.Execute;
 
       ImageList.LoadFromStream(ExProcess.Output);

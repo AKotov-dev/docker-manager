@@ -82,6 +82,7 @@ begin
   with MainForm do
   begin
     LogMemo.Clear;
+    Application.ProcessMessages;
     ProgressBar1.Style := pbstMarquee;
     ProgressBar1.Refresh;
   end;
@@ -98,6 +99,7 @@ begin
       LogMemo.SelStart := 0;
       LogMemo.SelLength := 0;
     end;
+
     Application.ProcessMessages;
     ProgressBar1.Style := pbstNormal;
     ProgressBar1.Refresh;

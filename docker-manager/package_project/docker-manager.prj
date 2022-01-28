@@ -11,9 +11,11 @@ release=0.mrx8
 group=Applications/System
 
 [DESCRIPTION]
-0=Manager for Docker
-1=---
-2=More information: /usr/share/doc/package_name/repack.txt
+0=The GUI is designed to manage Docker images and containers. It allows you to monitor
+1=the status of certain objects in real time and perform entry-level operations on them (right-click menu).
+2=It can also be useful as a monitor of Docker objects activity during deployment and configuration
+3=---
+4=More information: /usr/share/doc/package_name/repack.txt
 
 [MAINTAINER]
 maintainer=Alex Kotov
@@ -77,11 +79,12 @@ toolversion=2.2.0
 5=
 6=v0.4
 7=+ recognition of an internal or external command
-8=
-9=v0.3 - build in Lazarus-2.2.0
-10=
-11=v0.2
-12=+ backup/restore images
-13=+ creating an image from a container
-14=
-15=v0.1 - initial release
+8=+ clarification of the translation, cosmetic edits
+9=
+10=v0.3 - build in Lazarus-2.2.0
+11=
+12=v0.2
+13=+ backup/restore images
+14=+ creating an image from a container
+15=
+16=v0.1 - initial release

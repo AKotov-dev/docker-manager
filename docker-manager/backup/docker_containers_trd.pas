@@ -5,7 +5,7 @@ unit docker_containers_trd;
 interface
 
 uses
-  Classes, Process, SysUtils, ComCtrls, Forms, Dialogs;
+  Classes, Process, SysUtils, ComCtrls, Forms;
 
 type
   DContainers = class(TThread)
@@ -47,15 +47,10 @@ begin
 
     while not Terminated do
     begin
-      //Если параллельно не выполняется команда вывести списки
       Sleep(500);
-
 
       //Вывод Containers
       ContainerList.Clear;
-
-  //    Application.ProcessMessages;
-      // if DockerCmd = '' then
       ExProcess.Execute;
 
       ContainerList.LoadFromStream(ExProcess.Output);

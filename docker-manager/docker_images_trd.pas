@@ -5,7 +5,7 @@ unit docker_images_trd;
 interface
 
 uses
-  Classes, Process, SysUtils, ComCtrls, Forms, Dialogs;
+  Classes, Process, SysUtils, ComCtrls, Forms;
 
 type
   DImages = class(TThread)
@@ -13,7 +13,7 @@ type
 
     { Private declarations }
   protected
-  var //Строка с кодом кнопки пульта: Key[0]
+  var
     ImageList: TStringList;
     index: integer;
 
@@ -47,7 +47,6 @@ begin
 
     while not Terminated do
     begin
-      //Если параллельно не выполняется команда вывести списки
       Sleep(500);
 
       //Вывод Images
@@ -67,8 +66,6 @@ begin
     Terminate;
   end;
 end;
-
-{ ФИНАЛЬНЫЕ ДЕЙСТВИЯ ПО КОДАМ ИЗ ПОТОКА }
 
 procedure DImages.Show;
 begin
