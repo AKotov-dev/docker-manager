@@ -296,12 +296,17 @@ end;
 procedure TMainForm.MenuItem1Click(Sender: TObject);
 var
   FStartDockerCommand: TThread;
-  s: string;
+  S: string;
 begin
   S := '';
   if InputQuery(SRunImage, SRunImageCommand, S) then
+    //Внутренняя или внешняя команда?
   begin
-    DockerCmd := Trim('docker run ' + ImageTag + ' ' + S);
+    if Pos('-', S) <> 0 then
+      DockerCmd := Trim('docker run ' + S + ' ' + ImageTag)
+    else
+      DockerCmd := Trim('docker run ' + ImageTag + ' ' + S);
+
     FStartDockerCommand := StartDockerCommand.Create(False);
     FStartDockerCommand.Priority := tpNormal;
   end;
@@ -379,8 +384,13 @@ var
 begin
   S := '';
   if InputQuery(SRunImageRm, SRunImageCommand, S) then
+  //Внутренняя или внешняя команда?
   begin
-    DockerCmd := Trim('docker run --rm ' + ImageTag + ' ' + S);
+    if Pos('-', S) <> 0 then
+      DockerCmd := Trim('docker run --rm ' + S + ' ' + ImageTag)
+    else
+      DockerCmd := Trim('docker run --rm ' + ImageTag + ' ' + S);
+
     FStartDockerCommand := StartDockerCommand.Create(False);
     FStartDockerCommand.Priority := tpNormal;
   end;
