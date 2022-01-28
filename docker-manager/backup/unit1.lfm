@@ -1,5 +1,5 @@
 object MainForm: TMainForm
-  Left = 326
+  Left = 309
   Height = 712
   Top = 122
   Width = 1079
@@ -9,7 +9,7 @@ object MainForm: TMainForm
   ClientWidth = 1079
   OnShow = FormShow
   SessionProperties = 'ContainerBox.Height;Height;ImageBox.Height;Left;SaveDialog1.InitialDir;Top;Width;OpenDialog1.InitialDir'
-  LCLVersion = '2.0.10.0'
+  LCLVersion = '2.2.0.4'
   object ImageBox: TListBox
     Left = 0
     Height = 198
@@ -19,9 +19,10 @@ object MainForm: TMainForm
     Font.Height = -13
     Font.Name = 'Monospace'
     Items.Strings = (
-      'waiting for docker.service...'
+      'waiting for docker...'
     )
     ItemHeight = 25
+    ItemIndex = 0
     OnDrawItem = ImageBoxDrawItem
     ParentFont = False
     PopupMenu = PopupMenu1
@@ -38,9 +39,10 @@ object MainForm: TMainForm
     Font.Height = -13
     Font.Name = 'Monospace'
     Items.Strings = (
-      'waiting for docker.service...'
+      'waiting for docker...'
     )
     ItemHeight = 25
+    ItemIndex = 0
     OnDrawItem = ImageBoxDrawItem
     ParentFont = False
     PopupMenu = PopupMenu2

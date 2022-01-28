@@ -52,7 +52,6 @@ begin
 
       //Вывод Images
       ImageList.Clear;
-      Application.ProcessMessages;
       ExProcess.Execute;
 
       ImageList.LoadFromStream(ExProcess.Output);

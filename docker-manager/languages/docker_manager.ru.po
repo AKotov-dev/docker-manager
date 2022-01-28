@@ -103,3 +103,4 @@ msgstr "Введите команду (опционально)"
 #: unit1.srunimagerm
 msgid "Run image with --rm"
 msgstr "Запуск образа с --rm"
+

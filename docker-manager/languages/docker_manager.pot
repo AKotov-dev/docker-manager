@@ -1,0 +1,95 @@
+msgid ""
+msgstr "Content-Type: text/plain; charset=UTF-8"
+
+#: tmainform.caption
+msgid "Docker Manager"
+msgstr ""
+
+#: tmainform.menuitem1.caption
+msgid "Run image with command (optional)"
+msgstr ""
+
+#: tmainform.menuitem10.caption
+msgid "Run and goto Shell with --rm > bash"
+msgstr ""
+
+#: tmainform.menuitem11.caption
+msgid "Сontainer version information"
+msgstr ""
+
+#: tmainform.menuitem12.caption
+msgid "Create a new image from this container"
+msgstr ""
+
+#: tmainform.menuitem13.caption
+msgid "Backup this image to filename.tar"
+msgstr ""
+
+#: tmainform.menuitem14.caption
+msgid "Restore docker image from filename.tar"
+msgstr ""
+
+#: tmainform.menuitem2.caption
+msgid "Delete the selected image"
+msgstr ""
+
+#: tmainform.menuitem3.caption
+msgid "Start container"
+msgstr ""
+
+#: tmainform.menuitem4.caption
+msgid "Stop container"
+msgstr ""
+
+#: tmainform.menuitem5.caption
+msgid "Delete the selected container"
+msgstr ""
+
+#: tmainform.menuitem6.caption
+msgid "Start and goto Shell > bash"
+msgstr ""
+
+#: tmainform.menuitem7.caption
+msgid "Pull image (name:tag)"
+msgstr ""
+
+#: tmainform.menuitem8.caption
+msgid "Run image with command --rm (optional)"
+msgstr ""
+
+#: tmainform.menuitem9.caption
+msgid "Run and goto Shell >bash"
+msgstr ""
+
+#: tmainform.statictext1.caption
+msgid "License: GPLv3   Author: alex_q_2000 (C) 2021   URL: https://linuxforum.ru"
+msgstr ""
+
+#: unit1.screateimagecaption
+msgid "Create a new Image"
+msgstr ""
+
+#: unit1.sdockernotrunning
+msgid "Docker Manager: Warning! Docker not running or no superuser privileges!"
+msgstr ""
+
+#: unit1.spullcaption
+msgid "Pull image"
+msgstr ""
+
+#: unit1.spullstring
+msgid "Enter name:tag"
+msgstr ""
+
+#: unit1.srunimage
+msgid "Run image"
+msgstr ""
+
+#: unit1.srunimagecommand
+msgid "Enter the command (optional)"
+msgstr ""
+
+#: unit1.srunimagerm
+msgid "Run image with --rm"
+msgstr ""
+

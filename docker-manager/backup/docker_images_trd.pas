@@ -52,11 +52,11 @@ begin
 
       //Вывод Images
       ImageList.Clear;
-      Application.ProcessMessages;
+    //  Application.ProcessMessages;
       ExProcess.Execute;
 
       ImageList.LoadFromStream(ExProcess.Output);
-     // ImageList.Text := Trim(ImageList.Text);
+      // ImageList.Text := Trim(ImageList.Text);
 
       if ImageList.Count <> 0 then
         Synchronize(@Show);
@@ -75,7 +75,8 @@ procedure DImages.Show;
 begin
   with MainForm do
   begin
-    if ImageBox.ItemIndex = -1 then ImageBox.ItemIndex:=1;
+    if ImageBox.ItemIndex = -1 then
+      ImageBox.ItemIndex := 0;
 
     //Обновление с удержанием индекса в списке (образы)
     index := ImageBox.ItemIndex;

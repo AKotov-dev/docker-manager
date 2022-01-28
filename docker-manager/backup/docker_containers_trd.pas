@@ -54,7 +54,7 @@ begin
       //Вывод Containers
       ContainerList.Clear;
 
-      Application.ProcessMessages;
+  //    Application.ProcessMessages;
       // if DockerCmd = '' then
       ExProcess.Execute;
 
@@ -81,7 +81,8 @@ begin
     if ContainerBox.ItemIndex = -1 then
       ContainerBox.ItemIndex := 0;
 
-     ContainerBox.items.BeginUpdate;
+    ContainerBox.items.BeginUpdate;
+
     //Обновление с удержанием индекса в списке (контейнеры)
     index := ContainerBox.ItemIndex;
     if ContainerBox.Items.Text <> ContainerList.Text then
@@ -93,7 +94,6 @@ begin
     ContainerBox.ItemIndex := index;
 
     ContainerBox.items.EndUpdate;
-    //ContainerBox.Repaint;
   end;
 end;
 
