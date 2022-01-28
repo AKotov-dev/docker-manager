@@ -166,6 +166,10 @@ object MainForm: TMainForm
       Caption = 'Start and goto Shell > bash'
       OnClick = MenuItem6Click
     end
+    object MenuItem15: TMenuItem
+      Caption = 'Execute a command inside a container'
+      OnClick = MenuItem15Click
+    end
     object N3: TMenuItem
       Caption = '-'
     end

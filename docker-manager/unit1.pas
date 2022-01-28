@@ -23,6 +23,7 @@ type
     MenuItem12: TMenuItem;
     MenuItem13: TMenuItem;
     MenuItem14: TMenuItem;
+    MenuItem15: TMenuItem;
     N8: TMenuItem;
     N7: TMenuItem;
     N6: TMenuItem;
@@ -55,6 +56,7 @@ type
     procedure MenuItem12Click(Sender: TObject);
     procedure MenuItem13Click(Sender: TObject);
     procedure MenuItem14Click(Sender: TObject);
+    procedure MenuItem15Click(Sender: TObject);
     procedure MenuItem1Click(Sender: TObject);
     procedure MenuItem2Click(Sender: TObject);
     procedure MenuItem3Click(Sender: TObject);
@@ -87,6 +89,8 @@ resourcestring
   SDockerNotRunning =
     'Docker Manager: Warning! Docker not running or no superuser privileges!';
   SCreateImageCaption = 'Create a new Image';
+  SExecCaption = 'Execute';
+  SExecString = 'Enter the command';
 
 implementation
 
@@ -292,6 +296,25 @@ begin
   end;
 end;
 
+//Execute a command inside a container
+procedure TMainForm.MenuItem15Click(Sender: TObject);
+var
+  FStartDockerCommand: TThread;
+  S: string;
+begin
+  S := '';
+  repeat
+    if not InputQuery(SExecCaption, SExecString, S) then
+      Exit
+  until S <> '';
+  //Если контейнер не запущен - запускаем и выполняем команду
+  DockerCmd := '[[ $(docker ps | grep ' + ContainerID + ') ]] || docker start ' +
+    ContainerID + ' && docker exec -i ' + ContainerID + ' ' + Trim(S);
+
+  FStartDockerCommand := StartDockerCommand.Create(False);
+  FStartDockerCommand.Priority := tpNormal;
+end;
+
 //Старт Image с командой
 procedure TMainForm.MenuItem1Click(Sender: TObject);
 var
@@ -347,7 +370,7 @@ procedure TMainForm.MenuItem5Click(Sender: TObject);
 var
   FStartDockerCommand: TThread;
 begin
-  DockerCmd := 'docker rm ' + Copy(ContainerBox.Items[ContainerBox.ItemIndex], 0, 11);
+  DockerCmd := 'docker rm ' + ContainerID;
   FStartDockerCommand := StartDockerCommand.Create(False);
   FStartDockerCommand.Priority := tpNormal;
 end;
@@ -355,8 +378,9 @@ end;
 //Войти в Shell запущенного контейнера
 procedure TMainForm.MenuItem6Click(Sender: TObject);
 begin
-  StartProcess('docker start ' + ContainerID +
-    '; sakura -c 120 -r 40 -f 10 -x "docker exec -it ' + ContainerID + ' bash"');
+  StartProcess('[[ $(docker ps | grep ' + ContainerID + ') ]] || docker start ' +
+    ContainerID + '&& sakura -c 120 -r 40 -f 10 -x "docker exec -it ' +
+    ContainerID + ' bash"');
 end;
 
 //Получение Docker-Image
