@@ -55,7 +55,6 @@ type
     procedure MenuItem12Click(Sender: TObject);
     procedure MenuItem13Click(Sender: TObject);
     procedure MenuItem14Click(Sender: TObject);
-    procedure MenuItem15Click(Sender: TObject);
     procedure MenuItem1Click(Sender: TObject);
     procedure MenuItem2Click(Sender: TObject);
     procedure MenuItem3Click(Sender: TObject);
@@ -83,7 +82,7 @@ resourcestring
   SPullCaption = 'Pull image';
   SPullString = 'Enter name:tag';
   SRunImage = 'Run image';
-  SRunImageCommand = 'Enter the command (optional)';
+  SRunImageCommand = 'Enter the parameters (sample: -p 8080:80 or echo "hello")';
   SRunImageRm = 'Run image with --rm';
   SDockerNotRunning =
     'Docker Manager: Warning! Docker not running or no superuser privileges!';
@@ -155,7 +154,6 @@ begin
   end;
   Result := S;
 end;
-
 
 //Функция вычисления ID контейнера
 function ContainerID: string;
@@ -237,7 +235,7 @@ end;
 procedure TMainForm.MenuItem10Click(Sender: TObject);
 begin
   StartProcess('sakura -c 120 -r 40 -f 10 -x "docker run -it --rm ' +
-    ImageTag + ' bash"');
+    ImageTag + ' /bin/bash"');
 end;
 
 //Информация о версии контейнера
@@ -379,7 +377,7 @@ procedure TMainForm.MenuItem6Click(Sender: TObject);
 begin
   StartProcess('[[ $(docker ps | grep ' + ContainerID + ') ]] || docker start ' +
     ContainerID + '&& sakura -c 120 -r 40 -f 10 -x "docker exec -it ' +
-    ContainerID + ' bash"');
+    ContainerID + ' /bin/bash"');
 end;
 
 //Получение Docker-Image
@@ -421,7 +419,7 @@ end;
 
 procedure TMainForm.MenuItem9Click(Sender: TObject);
 begin
-  StartProcess('sakura -c 120 -r 40 -f 10 -x "docker run -it ' + ImageTag + ' bash"');
+  StartProcess('sakura -c 120 -r 40 -f 10 -x "docker run -it ' + ImageTag + ' /bin/bash"');
 end;
 
 procedure TMainForm.PopupMenu1Popup(Sender: TObject);

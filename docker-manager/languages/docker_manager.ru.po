@@ -17,11 +17,13 @@ msgid "Docker Manager"
 msgstr ""
 
 #: tmainform.menuitem1.caption
-msgid "Run image with command (optional)"
-msgstr "Запустить образ с командой (опционально)"
+msgid "Run image with parameters (optional)"
+msgstr "Запустить образ с параметрами (опционально)"
 
 #: tmainform.menuitem10.caption
-msgid "Run and goto Shell with --rm > bash"
+#, fuzzy
+#| msgid "Run and goto Shell with --rm > bash"
+msgid "Run and goto Shell with --rm > /bin/bash"
 msgstr "Запустить и зайти в Shell с --rm > bash"
 
 #: tmainform.menuitem11.caption
@@ -57,7 +59,9 @@ msgid "Delete the selected container"
 msgstr "Удалить выбранный контейнер"
 
 #: tmainform.menuitem6.caption
-msgid "Start and goto Shell > bash"
+#, fuzzy
+#| msgid "Start and goto Shell > bash"
+msgid "Start and goto Shell > /bin/bash"
 msgstr "Запустить и зайти в Shell > bash"
 
 #: tmainform.menuitem7.caption
@@ -65,11 +69,13 @@ msgid "Pull image (name:tag)"
 msgstr "Получить образ (name:tag)"
 
 #: tmainform.menuitem8.caption
-msgid "Run image with command --rm (optional)"
-msgstr "Запустить образ с командой --rm (опционально)"
+msgid "Run image with parameters --rm (optional)"
+msgstr "Запустить образ с параметрами --rm (опционально)"
 
 #: tmainform.menuitem9.caption
-msgid "Run and goto Shell >bash"
+#, fuzzy
+#| msgid "Run and goto Shell >bash"
+msgid "Run and goto Shell > /bin/bash"
 msgstr "Запустить и зайти в Shell >bash"
 
 #: tmainform.statictext1.caption
@@ -97,8 +103,8 @@ msgid "Run image"
 msgstr "Запуск образа"
 
 #: unit1.srunimagecommand
-msgid "Enter the command (optional)"
-msgstr "Введите команду (опционально)"
+msgid "Enter the parameters (sample: -p 8080:80 or echo \"hello\")"
+msgstr "Введите команду (пример: -p 8080:80 или echo \"hello\")"
 
 #: unit1.srunimagerm
 msgid "Run image with --rm"

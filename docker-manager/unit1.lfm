@@ -117,22 +117,22 @@ object MainForm: TMainForm
       Caption = '-'
     end
     object MenuItem1: TMenuItem
-      Caption = 'Run image with command (optional)'
+      Caption = 'Run image with parameters (optional)'
       OnClick = MenuItem1Click
     end
     object MenuItem8: TMenuItem
-      Caption = 'Run image with command --rm (optional)'
+      Caption = 'Run image with parameters --rm (optional)'
       OnClick = MenuItem8Click
     end
     object N4: TMenuItem
       Caption = '-'
     end
     object MenuItem9: TMenuItem
-      Caption = 'Run and goto Shell >bash'
+      Caption = 'Run and goto Shell > /bin/bash'
       OnClick = MenuItem9Click
     end
     object MenuItem10: TMenuItem
-      Caption = 'Run and goto Shell with --rm > bash'
+      Caption = 'Run and goto Shell with --rm > /bin/bash'
       OnClick = MenuItem10Click
     end
     object N8: TMenuItem
@@ -163,7 +163,7 @@ object MainForm: TMainForm
       OnClick = MenuItem3Click
     end
     object MenuItem6: TMenuItem
-      Caption = 'Start and goto Shell > bash'
+      Caption = 'Start and goto Shell > /bin/bash'
       OnClick = MenuItem6Click
     end
     object N3: TMenuItem

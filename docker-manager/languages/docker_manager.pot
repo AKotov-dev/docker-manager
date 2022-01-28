@@ -6,11 +6,11 @@ msgid "Docker Manager"
 msgstr ""
 
 #: tmainform.menuitem1.caption
-msgid "Run image with command (optional)"
+msgid "Run image with parameters (optional)"
 msgstr ""
 
 #: tmainform.menuitem10.caption
-msgid "Run and goto Shell with --rm > bash"
+msgid "Run and goto Shell with --rm > /bin/bash"
 msgstr ""
 
 #: tmainform.menuitem11.caption
@@ -46,7 +46,7 @@ msgid "Delete the selected container"
 msgstr ""
 
 #: tmainform.menuitem6.caption
-msgid "Start and goto Shell > bash"
+msgid "Start and goto Shell > /bin/bash"
 msgstr ""
 
 #: tmainform.menuitem7.caption
@@ -54,11 +54,11 @@ msgid "Pull image (name:tag)"
 msgstr ""
 
 #: tmainform.menuitem8.caption
-msgid "Run image with command --rm (optional)"
+msgid "Run image with parameters --rm (optional)"
 msgstr ""
 
 #: tmainform.menuitem9.caption
-msgid "Run and goto Shell >bash"
+msgid "Run and goto Shell > /bin/bash"
 msgstr ""
 
 #: tmainform.statictext1.caption
@@ -86,7 +86,7 @@ msgid "Run image"
 msgstr ""
 
 #: unit1.srunimagecommand
-msgid "Enter the command (optional)"
+msgid "Enter the parameters (sample: -p 8080:80 or echo \"hello\")"
 msgstr ""
 
 #: unit1.srunimagerm
