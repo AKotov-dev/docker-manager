@@ -47,8 +47,6 @@ begin
 
     while not Terminated do
     begin
-      Sleep(500);
-
       //Вывод Images
       ImageList.Clear;
       ExProcess.Execute;
@@ -60,6 +58,7 @@ begin
         Synchronize(@Show);
     end;
 
+    Sleep(500);
   finally
     ImageList.Free;
     ExProcess.Free;

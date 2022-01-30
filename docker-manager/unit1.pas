@@ -53,6 +53,7 @@ type
     Splitter2: TSplitter;
     StaticText1: TStaticText;
     procedure ContainerBoxDblClick(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
     procedure FormShow(Sender: TObject);
     procedure ImageBoxDblClick(Sender: TObject);
     procedure ImageBoxDrawItem(Control: TWinControl; Index: integer;
@@ -230,16 +231,27 @@ begin
   end;
 end;
 
-//Запуск потоков
+//Восстановление при масштабировании в Plasma
 procedure TMainForm.FormShow(Sender: TObject);
+begin
+  IniPropStorage1.Restore;
+end;
+
+//Запуск контейнера DblClick с контролем пунктов PopUp-меню (enable/disable)
+procedure TMainForm.ContainerBoxDblClick(Sender: TObject);
+begin
+  ContainerMenuControl;
+  MenuItem3.Click;
+end;
+
+//Запуск потоков
+procedure TMainForm.FormCreate(Sender: TObject);
 var
   FDImages, FDContainers: TThread;
 begin
   if not DirectoryExists(GetUserDir + '.config') then
     mkDir(GetUserDir + '.config');
   IniPropStorage1.IniFileName := GetUserDir + '.config/docker-manager.conf';
-
-  IniPropStorage1.Restore;
 
   ImageBox.ScrollWidth := 0;
   ContainerBox.ScrollWidth := 0;
@@ -259,13 +271,6 @@ begin
   //Проверка активности docker.service
   StartProcess('[[ $(systemctl is-active docker) != "active" ]] && echo "' +
     SDockerNotRunning + '"');
-end;
-
-//Запуск контейнера DblClick с контролем пунктов PopUp-меню (enable/disable)
-procedure TMainForm.ContainerBoxDblClick(Sender: TObject);
-begin
-  ContainerMenuControl;
-  MenuItem3.Click;
 end;
 
 //Запуск образа DblClick с контролем пунктов PopUp-меню (enable/disable)

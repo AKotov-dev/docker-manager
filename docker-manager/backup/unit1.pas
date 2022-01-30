@@ -261,7 +261,7 @@ begin
     SDockerNotRunning + '"');
 end;
 
-//Запуск контейнера двойным нажатием
+//Запуск контейнера DblClick с контролем пунктов PopUp-меню (enable/disable)
 procedure TMainForm.ContainerBoxDblClick(Sender: TObject);
 begin
   ContainerMenuControl;
