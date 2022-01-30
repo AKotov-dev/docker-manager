@@ -13,7 +13,7 @@ type
 
     { Private declarations }
   protected
-  var //Строка с кодом кнопки пульта: Key[0]
+  var
     ImageList: TStringList;
     index: integer;
 
@@ -67,8 +67,6 @@ begin
   end;
 end;
 
-{ ФИНАЛЬНЫЕ ДЕЙСТВИЯ ПО КОДАМ ИЗ ПОТОКА }
-
 procedure DImages.Show;
 begin
   with MainForm do
@@ -78,12 +76,13 @@ begin
 
     //Обновление с удержанием индекса в списке (образы)
     index := ImageBox.ItemIndex;
-    Application.ProcessMessages;
     if ImageBox.Items.Text <> ImageList.Text then
+    begin
+    //  Application.ProcessMessages;
       ImageBox.Items.Assign(ImageList);
-    Application.ProcessMessages;
-    ImageBox.ItemIndex := index;
-    ImageBox.Repaint;
+    //  Application.ProcessMessages;
+    end;
+    if index < ImageBox.Count then ImageBox.ItemIndex := index;
   end;
 end;
 

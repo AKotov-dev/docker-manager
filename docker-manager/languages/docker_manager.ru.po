@@ -37,12 +37,35 @@ msgid "Backup this image to filename.tar"
 msgstr "Бэкап этого образа в filename.tar"
 
 #: tmainform.menuitem14.caption
-msgid "Restore docker image from filename.tar"
-msgstr "Восстановить образ docker из filename.tar"
+msgid "Restore docker image(s) from filename.tar"
+msgstr "Восстановить образ(ы) docker из filename.tar"
+
+#: tmainform.menuitem15.caption
+msgctxt "tmainform.menuitem15.caption"
+msgid "Selected only"
+msgstr "Только выбранный"
+
+#: tmainform.menuitem16.caption
+msgid "All untagged (prune -f)"
+msgstr "Все непомеченные (prune -f)"
+
+#: tmainform.menuitem17.caption
+msgid "All without containers (prune -f -a)"
+msgstr "Все без контейнеров (prune -f -a)"
+
+#: tmainform.menuitem18.caption
+msgctxt "tmainform.menuitem18.caption"
+msgid "Selected only"
+msgstr "Только выбранный"
+
+#: tmainform.menuitem19.caption
+msgid "All stoped (prune -f)"
+msgstr "Все остановленные (prune -f)"
 
 #: tmainform.menuitem2.caption
-msgid "Delete the selected image"
-msgstr "Удалить выбранный образ"
+msgctxt "tmainform.menuitem2.caption"
+msgid "Removing image(s)"
+msgstr "Удалить образ(ы)"
 
 #: tmainform.menuitem3.caption
 msgid "Start container"
@@ -53,8 +76,8 @@ msgid "Stop container"
 msgstr "Остановить контейнер"
 
 #: tmainform.menuitem5.caption
-msgid "Delete the selected container"
-msgstr "Удалить выбранный контейнер"
+msgid "Removing container(s)"
+msgstr "Удалить контейнер(ы)"
 
 #: tmainform.menuitem6.caption
 msgid "Start and goto Shell > /bin/bash"
@@ -103,3 +126,4 @@ msgstr "Введите команду (пример: -p 8080:80 или echo \"he
 #: unit1.srunimagerm
 msgid "Run image with --rm"
 msgstr "Запуск образа с --rm"
+

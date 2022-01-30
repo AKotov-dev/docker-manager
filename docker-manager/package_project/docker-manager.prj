@@ -2,7 +2,7 @@
 name=docker-manager
 
 [VERSION]
-version=0.4
+version=0.5
 
 [RELEASE]
 release=0.mrx8
@@ -77,14 +77,19 @@ toolversion=2.2.0
 3=
 4=Dependencies: docker, sakura, polkit, systemd
 5=
-6=v0.4
-7=+ recognition of an internal or external command
-8=+ clarification of the translation, cosmetic edits
-9=
-10=v0.3 - build in Lazarus-2.2.0
-11=
-12=v0.2
-13=+ backup/restore images
-14=+ creating an image from a container
-15=
-16=v0.1 - initial release
+6=v0.5
+7=+ multi-selection when restoring images
+8=+ double-click - launch the image/container
+9=+ Fixed indexing in image and container lists
+10=
+11=v0.4
+12=+ recognition of an internal or external command
+13=+ clarification of the translation, cosmetic edits
+14=
+15=v0.3 - build in Lazarus-2.2.0
+16=
+17=v0.2
+18=+ backup/restore images
+19=+ creating an image from a container
+20=
+21=v0.1 - initial release

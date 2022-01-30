@@ -84,7 +84,7 @@ begin
       ContainerBox.Items.Assign(ContainerList);
       Application.ProcessMessages;
     end;
-    ContainerBox.ItemIndex := index;
+    if index < ContainerBox.Count then ContainerBox.ItemIndex := index;
 
     ContainerBox.items.EndUpdate;
   end;

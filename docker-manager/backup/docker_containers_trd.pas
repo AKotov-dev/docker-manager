@@ -67,8 +67,6 @@ begin
   end;
 end;
 
-{ ФИНАЛЬНЫЕ ДЕЙСТВИЯ ПО КОДАМ ИЗ ПОТОКА }
-
 procedure DContainers.Show;
 begin
   with MainForm do

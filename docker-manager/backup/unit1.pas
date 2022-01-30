@@ -23,6 +23,11 @@ type
     MenuItem12: TMenuItem;
     MenuItem13: TMenuItem;
     MenuItem14: TMenuItem;
+    MenuItem15: TMenuItem;
+    MenuItem16: TMenuItem;
+    MenuItem17: TMenuItem;
+    MenuItem18: TMenuItem;
+    MenuItem19: TMenuItem;
     N8: TMenuItem;
     N7: TMenuItem;
     N6: TMenuItem;
@@ -47,7 +52,9 @@ type
     Splitter1: TSplitter;
     Splitter2: TSplitter;
     StaticText1: TStaticText;
+    procedure ContainerBoxDblClick(Sender: TObject);
     procedure FormShow(Sender: TObject);
+    procedure ImageBoxDblClick(Sender: TObject);
     procedure ImageBoxDrawItem(Control: TWinControl; Index: integer;
       ARect: TRect; State: TOwnerDrawState);
     procedure MenuItem10Click(Sender: TObject);
@@ -55,11 +62,14 @@ type
     procedure MenuItem12Click(Sender: TObject);
     procedure MenuItem13Click(Sender: TObject);
     procedure MenuItem14Click(Sender: TObject);
+    procedure MenuItem15Click(Sender: TObject);
+    procedure MenuItem16Click(Sender: TObject);
+    procedure MenuItem17Click(Sender: TObject);
+    procedure MenuItem18Click(Sender: TObject);
+    procedure MenuItem19Click(Sender: TObject);
     procedure MenuItem1Click(Sender: TObject);
-    procedure MenuItem2Click(Sender: TObject);
     procedure MenuItem3Click(Sender: TObject);
     procedure MenuItem4Click(Sender: TObject);
-    procedure MenuItem5Click(Sender: TObject);
     procedure MenuItem6Click(Sender: TObject);
     procedure MenuItem7Click(Sender: TObject);
     procedure MenuItem8Click(Sender: TObject);
@@ -177,6 +187,7 @@ begin
   Result := S;
 end;
 
+//Запуск потоков
 procedure TMainForm.FormShow(Sender: TObject);
 var
   FDImages, FDContainers: TThread;
@@ -207,6 +218,18 @@ begin
     SDockerNotRunning + '"');
 end;
 
+//Запуск контейнера двойным нажатием
+procedure TMainForm.ContainerBoxDblClick(Sender: TObject);
+begin
+  MenuItem3.Click;
+end;
+
+procedure TMainForm.ImageBoxDblClick(Sender: TObject);
+begin
+  MenuItem1.Click;
+end;
+
+//Раскрашивание ListBox
 procedure TMainForm.ImageBoxDrawItem(Control: TWinControl; Index: integer;
   ARect: TRect; State: TOwnerDrawState);
 begin
@@ -216,7 +239,7 @@ begin
     if Index = 0 then
     begin
       Font.Color := clWhite;
-      //здесь любой цвет и другие параметры шрифта
+      //Здесь любой цвет и другие параметры шрифта
       Font.Style := Font.Style + [fsBold];
       Brush.Color := clGreen;
     end;
@@ -280,17 +303,69 @@ begin
   end;
 end;
 
-//Restore Image
+//Restore Images
 procedure TMainForm.MenuItem14Click(Sender: TObject);
 var
+  i: integer;
   FStartDockerCommand: TThread;
 begin
   if OpenDialog1.Execute then
   begin
-    DockerCmd := Trim('docker load -i "' + OpenDialog1.FileName + '"');
+    for i := 0 to OpenDialog1.Files.Count - 1 do
+      DockerCmd := Trim(DockerCmd + 'docker load -i "' + OpenDialog1.Files[i] + '";');
     FStartDockerCommand := StartDockerCommand.Create(False);
     FStartDockerCommand.Priority := tpNormal;
   end;
+end;
+
+//Удаление образа
+procedure TMainForm.MenuItem15Click(Sender: TObject);
+var
+  FStartDockerCommand: TThread;
+begin
+  DockerCmd := 'docker rmi ' + ImageTag;
+  FStartDockerCommand := StartDockerCommand.Create(False);
+  FStartDockerCommand.Priority := tpNormal;
+end;
+
+//Delete untagged Images
+procedure TMainForm.MenuItem16Click(Sender: TObject);
+var
+  FStartDockerCommand: TThread;
+begin
+  DockerCmd := 'docker image prune -f';
+  FStartDockerCommand := StartDockerCommand.Create(False);
+  FStartDockerCommand.Priority := tpNormal;
+end;
+
+//Delete Images without Containers
+procedure TMainForm.MenuItem17Click(Sender: TObject);
+var
+  FStartDockerCommand: TThread;
+begin
+  DockerCmd := 'docker image prune -f -a';
+  FStartDockerCommand := StartDockerCommand.Create(False);
+  FStartDockerCommand.Priority := tpNormal;
+end;
+
+//Удаление контейнера
+procedure TMainForm.MenuItem18Click(Sender: TObject);
+var
+  FStartDockerCommand: TThread;
+begin
+  DockerCmd := 'docker rm ' + ContainerID;
+  FStartDockerCommand := StartDockerCommand.Create(False);
+  FStartDockerCommand.Priority := tpNormal;
+end;
+
+//Удаление остановленных контейнеров
+procedure TMainForm.MenuItem19Click(Sender: TObject);
+var
+  FStartDockerCommand: TThread;
+begin
+  DockerCmd := 'docker container prune -f';
+  FStartDockerCommand := StartDockerCommand.Create(False);
+  FStartDockerCommand.Priority := tpNormal;
 end;
 
 //Execute a command inside a container
@@ -312,7 +387,7 @@ begin
   FStartDockerCommand.Priority := tpNormal;
 end;}
 
-//Старт Image с командой
+//Старт Image с параметрами
 procedure TMainForm.MenuItem1Click(Sender: TObject);
 var
   FStartDockerCommand: TThread;
@@ -332,17 +407,7 @@ begin
   end;
 end;
 
-//Delete Image
-procedure TMainForm.MenuItem2Click(Sender: TObject);
-var
-  FStartDockerCommand: TThread;
-begin
-  DockerCmd := 'docker rmi ' + ImageTag;
-  FStartDockerCommand := StartDockerCommand.Create(False);
-  FStartDockerCommand.Priority := tpNormal;
-end;
-
-//Старт контейнера с командой
+//Старт контейнера с параметрами
 procedure TMainForm.MenuItem3Click(Sender: TObject);
 var
   FStartDockerCommand: TThread;
@@ -362,15 +427,6 @@ begin
   FStartDockerCommand.Priority := tpNormal;
 end;
 
-//Удаление контейнера
-procedure TMainForm.MenuItem5Click(Sender: TObject);
-var
-  FStartDockerCommand: TThread;
-begin
-  DockerCmd := 'docker rm ' + ContainerID;
-  FStartDockerCommand := StartDockerCommand.Create(False);
-  FStartDockerCommand.Priority := tpNormal;
-end;
 
 //Войти в Shell запущенного контейнера
 procedure TMainForm.MenuItem6Click(Sender: TObject);
@@ -417,40 +473,52 @@ begin
   end;
 end;
 
+//Запуск образа и вход в BASH
 procedure TMainForm.MenuItem9Click(Sender: TObject);
 begin
   StartProcess('sakura -c 120 -r 40 -f 10 -x "docker run -it ' +
     ImageTag + ' /bin/bash"');
 end;
 
+//Контроль меню образов
 procedure TMainForm.PopupMenu1Popup(Sender: TObject);
 var
   i: integer;
 begin
-  Application.ProcessMessages;
-  if (ImageBox.Selected[0]) or (Pos('^^^', ImageBox.Items[ImageBox.ItemIndex]) <> 0) then
-    for i := 1 to PopUpMenu1.Items.Count - 1 do
-    begin
-      if i <> 9 then
-        PopUpMenu1.Items[i].Enabled := False;
-    end
-  else
-    for i := 1 to PopUpMenu1.Items.Count - 1 do
-      PopUpMenu1.Items[i].Enabled := True;
+  try
+    Application.ProcessMessages;
+    if (ImageBox.Selected[0]) or
+      (Pos('^^^', ImageBox.Items[ImageBox.ItemIndex]) <> 0) then
+      for i := 1 to PopUpMenu1.Items.Count - 1 do
+      begin
+        if i <> 9 then
+          PopUpMenu1.Items[i].Enabled := False;
+      end
+    else
+      for i := 1 to PopUpMenu1.Items.Count - 1 do
+        PopUpMenu1.Items[i].Enabled := True;
+  except
+    abort;
+  end;
 end;
 
+//Контроль меню контейнеров
 procedure TMainForm.PopupMenu2Popup(Sender: TObject);
 var
   i: integer;
 begin
-  Application.ProcessMessages;
-  if (ContainerBox.Selected[0]) or
-    (Pos('^^^', ContainerBox.Items[ContainerBox.ItemIndex]) <> 0) then
-    for i := 0 to PopUpMenu2.Items.Count - 1 do
-      PopUpMenu2.Items[i].Enabled := False
-  else
-    for i := 0 to PopUpMenu2.Items.Count - 1 do
-      PopUpMenu2.Items[i].Enabled := True;
+  try
+    Application.ProcessMessages;
+    if (ContainerBox.Selected[0]) or
+      (Pos('^^^', ContainerBox.Items[ContainerBox.ItemIndex]) <> 0) then
+      for i := 0 to PopUpMenu2.Items.Count - 1 do
+        PopUpMenu2.Items[i].Enabled := False
+    else
+      for i := 0 to PopUpMenu2.Items.Count - 1 do
+        PopUpMenu2.Items[i].Enabled := True;
+  except
+    abort;
+  end;
 end;
 
 end.

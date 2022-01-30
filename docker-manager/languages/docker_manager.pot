@@ -26,11 +26,34 @@ msgid "Backup this image to filename.tar"
 msgstr ""
 
 #: tmainform.menuitem14.caption
-msgid "Restore docker image from filename.tar"
+msgid "Restore docker image(s) from filename.tar"
+msgstr ""
+
+#: tmainform.menuitem15.caption
+msgctxt "tmainform.menuitem15.caption"
+msgid "Selected only"
+msgstr ""
+
+#: tmainform.menuitem16.caption
+msgid "All untagged (prune -f)"
+msgstr ""
+
+#: tmainform.menuitem17.caption
+msgid "All without containers (prune -f -a)"
+msgstr ""
+
+#: tmainform.menuitem18.caption
+msgctxt "tmainform.menuitem18.caption"
+msgid "Selected only"
+msgstr ""
+
+#: tmainform.menuitem19.caption
+msgid "All stoped (prune -f)"
 msgstr ""
 
 #: tmainform.menuitem2.caption
-msgid "Delete the selected image"
+msgctxt "tmainform.menuitem2.caption"
+msgid "Removing image(s)"
 msgstr ""
 
 #: tmainform.menuitem3.caption
@@ -42,7 +65,7 @@ msgid "Stop container"
 msgstr ""
 
 #: tmainform.menuitem5.caption
-msgid "Delete the selected container"
+msgid "Removing container(s)"
 msgstr ""
 
 #: tmainform.menuitem6.caption

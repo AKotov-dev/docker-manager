@@ -76,12 +76,13 @@ begin
 
     //Обновление с удержанием индекса в списке (образы)
     index := ImageBox.ItemIndex;
-    Application.ProcessMessages;
     if ImageBox.Items.Text <> ImageList.Text then
+    begin
+      Application.ProcessMessages;
       ImageBox.Items.Assign(ImageList);
-    Application.ProcessMessages;
-    ImageBox.ItemIndex := index;
-    ImageBox.Repaint;
+      Application.ProcessMessages;
+    end;
+    if index < ImageBox.Count then ImageBox.ItemIndex := index;
   end;
 end;
 
