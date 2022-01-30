@@ -77,6 +77,8 @@ type
     procedure PopupMenu1Popup(Sender: TObject);
     procedure PopupMenu2Popup(Sender: TObject);
     procedure StartProcess(command: string);
+    procedure ImageMenuControl;
+    procedure ContainerMenuControl;
 
   private
 
@@ -187,6 +189,47 @@ begin
   Result := S;
 end;
 
+//Контроль PopUpMenu Images
+procedure TMainForm.ImageMenuControl;
+var
+  i: integer;
+begin
+  try
+    Application.ProcessMessages;
+    if (ImageBox.Selected[0]) or
+      (Pos('^^^', ImageBox.Items[ImageBox.ItemIndex]) <> 0) then
+      for i := 1 to PopUpMenu1.Items.Count - 1 do
+      begin
+        if i <> 9 then
+          PopUpMenu1.Items[i].Enabled := False;
+      end
+    else
+      for i := 1 to PopUpMenu1.Items.Count - 1 do
+        PopUpMenu1.Items[i].Enabled := True;
+  except
+    abort;
+  end;
+end;
+
+//Контроль PopUpMenu Containers
+procedure TMainForm.ContainerMenuControl;
+var
+  i: integer;
+begin
+  try
+    Application.ProcessMessages;
+    if (ContainerBox.Selected[0]) or
+      (Pos('^^^', ContainerBox.Items[ContainerBox.ItemIndex]) <> 0) then
+      for i := 0 to PopUpMenu2.Items.Count - 1 do
+        PopUpMenu2.Items[i].Enabled := False
+    else
+      for i := 0 to PopUpMenu2.Items.Count - 1 do
+        PopUpMenu2.Items[i].Enabled := True;
+  except
+    abort;
+  end;
+end;
+
 //Запуск потоков
 procedure TMainForm.FormShow(Sender: TObject);
 var
@@ -221,11 +264,14 @@ end;
 //Запуск контейнера двойным нажатием
 procedure TMainForm.ContainerBoxDblClick(Sender: TObject);
 begin
+  ContainerMenuControl;
   MenuItem3.Click;
 end;
 
+//Запуск образа DblClick с контролем пунктов PopUp-меню (enable/disable)
 procedure TMainForm.ImageBoxDblClick(Sender: TObject);
 begin
+  ImageMenuControl;
   MenuItem1.Click;
 end;
 
@@ -480,45 +526,16 @@ begin
     ImageTag + ' /bin/bash"');
 end;
 
-//Контроль меню образов
+//Меню образов
 procedure TMainForm.PopupMenu1Popup(Sender: TObject);
-var
-  i: integer;
 begin
-  try
-    Application.ProcessMessages;
-    if (ImageBox.Selected[0]) or
-      (Pos('^^^', ImageBox.Items[ImageBox.ItemIndex]) <> 0) then
-      for i := 1 to PopUpMenu1.Items.Count - 1 do
-      begin
-        if i <> 9 then
-          PopUpMenu1.Items[i].Enabled := False;
-      end
-    else
-      for i := 1 to PopUpMenu1.Items.Count - 1 do
-        PopUpMenu1.Items[i].Enabled := True;
-  except
-    abort;
-  end;
+  ImageMenuControl;
 end;
 
-//Контроль меню контейнеров
+//Меню контейнеров
 procedure TMainForm.PopupMenu2Popup(Sender: TObject);
-var
-  i: integer;
 begin
-  try
-    Application.ProcessMessages;
-    if (ContainerBox.Selected[0]) or
-      (Pos('^^^', ContainerBox.Items[ContainerBox.ItemIndex]) <> 0) then
-      for i := 0 to PopUpMenu2.Items.Count - 1 do
-        PopUpMenu2.Items[i].Enabled := False
-    else
-      for i := 0 to PopUpMenu2.Items.Count - 1 do
-        PopUpMenu2.Items[i].Enabled := True;
-  except
-    abort;
-  end;
+  ContainerMenuControl;
 end;
 
 end.

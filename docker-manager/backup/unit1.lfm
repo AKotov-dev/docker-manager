@@ -1,12 +1,12 @@
 object MainForm: TMainForm
-  Left = 366
+  Left = 312
   Height = 712
-  Top = 121
-  Width = 1079
+  Top = 122
+  Width = 1066
   ActiveControl = ImageBox
   Caption = 'Docker Manager'
   ClientHeight = 712
-  ClientWidth = 1079
+  ClientWidth = 1066
   OnShow = FormShow
   SessionProperties = 'ContainerBox.Height;Height;ImageBox.Height;Left;SaveDialog1.InitialDir;Top;Width;OpenDialog1.InitialDir'
   LCLVersion = '2.2.0.4'
@@ -14,7 +14,7 @@ object MainForm: TMainForm
     Left = 0
     Height = 198
     Top = 0
-    Width = 1079
+    Width = 1066
     Align = alTop
     Font.Height = -13
     Font.Name = 'Monospace'
@@ -35,7 +35,7 @@ object MainForm: TMainForm
     Left = 0
     Height = 181
     Top = 203
-    Width = 1079
+    Width = 1066
     Align = alTop
     Font.Height = -13
     Font.Name = 'Monospace'
@@ -57,7 +57,7 @@ object MainForm: TMainForm
     Left = 0
     Height = 5
     Top = 198
-    Width = 1079
+    Width = 1066
     Align = alTop
     ResizeAnchor = akTop
   end
@@ -66,7 +66,7 @@ object MainForm: TMainForm
     Left = 0
     Height = 5
     Top = 384
-    Width = 1079
+    Width = 1066
     Align = alTop
     ResizeAnchor = akTop
   end
@@ -74,7 +74,7 @@ object MainForm: TMainForm
     Left = 0
     Height = 296
     Top = 389
-    Width = 1079
+    Width = 1066
     Align = alClient
     Font.Height = -13
     Font.Name = 'Monospace'
@@ -88,7 +88,7 @@ object MainForm: TMainForm
     Left = 0
     Height = 9
     Top = 685
-    Width = 1079
+    Width = 1066
     Align = alBottom
     TabOrder = 5
   end
@@ -96,7 +96,7 @@ object MainForm: TMainForm
     Left = 0
     Height = 18
     Top = 694
-    Width = 1079
+    Width = 1066
     Align = alBottom
     Caption = 'License: GPLv3   Author: alex_q_2000 (C) 2022   URL: https://linuxforum.ru'
     Color = clDefault
