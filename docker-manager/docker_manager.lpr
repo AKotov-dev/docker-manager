@@ -12,7 +12,7 @@ uses
 
 begin
   RequireDerivedFormResource:=True;
-  Application.Title:='Docker Manager v0.5';
+  Application.Title:='Docker Manager v0.6';
   Application.Scaled:=True;
   Application.Initialize;
   Application.CreateForm(TMainForm, MainForm);

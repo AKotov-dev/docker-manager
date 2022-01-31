@@ -88,6 +88,10 @@ msgstr ""
 msgid "License: GPLv3   Author: alex_q_2000 (C) 2022   URL: https://linuxforum.ru"
 msgstr ""
 
+#: unit1.sconfirmdeletion
+msgid "Do you confirm the deletion?"
+msgstr ""
+
 #: unit1.screateimagecaption
 msgid "Create a new Image"
 msgstr ""

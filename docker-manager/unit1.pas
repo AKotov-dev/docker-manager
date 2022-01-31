@@ -100,6 +100,7 @@ resourcestring
   SDockerNotRunning =
     'Docker Manager: Warning! Docker not running or no superuser privileges!';
   SCreateImageCaption = 'Create a new Image';
+  SConfirmDeletion = 'Do you confirm the deletion?';
  { SExecCaption = 'Execute';
   SExecString = 'Enter the command';}
 
@@ -374,9 +375,12 @@ procedure TMainForm.MenuItem15Click(Sender: TObject);
 var
   FStartDockerCommand: TThread;
 begin
-  DockerCmd := 'docker rmi ' + ImageTag;
-  FStartDockerCommand := StartDockerCommand.Create(False);
-  FStartDockerCommand.Priority := tpNormal;
+  if MessageDlg(SConfirmDeletion, mtConfirmation, [mbYes, mbNo], 0) = mrYes then
+  begin
+    DockerCmd := 'docker rmi ' + ImageTag;
+    FStartDockerCommand := StartDockerCommand.Create(False);
+    FStartDockerCommand.Priority := tpNormal;
+  end;
 end;
 
 //Delete untagged Images
@@ -384,9 +388,12 @@ procedure TMainForm.MenuItem16Click(Sender: TObject);
 var
   FStartDockerCommand: TThread;
 begin
-  DockerCmd := 'docker image prune -f';
-  FStartDockerCommand := StartDockerCommand.Create(False);
-  FStartDockerCommand.Priority := tpNormal;
+  if MessageDlg(SConfirmDeletion, mtConfirmation, [mbYes, mbNo], 0) = mrYes then
+  begin
+    DockerCmd := 'docker image prune -f';
+    FStartDockerCommand := StartDockerCommand.Create(False);
+    FStartDockerCommand.Priority := tpNormal;
+  end;
 end;
 
 //Delete Images without Containers
@@ -394,9 +401,12 @@ procedure TMainForm.MenuItem17Click(Sender: TObject);
 var
   FStartDockerCommand: TThread;
 begin
-  DockerCmd := 'docker image prune -f -a';
-  FStartDockerCommand := StartDockerCommand.Create(False);
-  FStartDockerCommand.Priority := tpNormal;
+  if MessageDlg(SConfirmDeletion, mtConfirmation, [mbYes, mbNo], 0) = mrYes then
+  begin
+    DockerCmd := 'docker image prune -f -a';
+    FStartDockerCommand := StartDockerCommand.Create(False);
+    FStartDockerCommand.Priority := tpNormal;
+  end;
 end;
 
 //Удаление контейнера
@@ -404,9 +414,12 @@ procedure TMainForm.MenuItem18Click(Sender: TObject);
 var
   FStartDockerCommand: TThread;
 begin
-  DockerCmd := 'docker rm ' + ContainerID;
-  FStartDockerCommand := StartDockerCommand.Create(False);
-  FStartDockerCommand.Priority := tpNormal;
+  if MessageDlg(SConfirmDeletion, mtConfirmation, [mbYes, mbNo], 0) = mrYes then
+  begin
+    DockerCmd := 'docker rm ' + ContainerID;
+    FStartDockerCommand := StartDockerCommand.Create(False);
+    FStartDockerCommand.Priority := tpNormal;
+  end;
 end;
 
 //Удаление остановленных контейнеров
@@ -414,9 +427,12 @@ procedure TMainForm.MenuItem19Click(Sender: TObject);
 var
   FStartDockerCommand: TThread;
 begin
-  DockerCmd := 'docker container prune -f';
-  FStartDockerCommand := StartDockerCommand.Create(False);
-  FStartDockerCommand.Priority := tpNormal;
+  if MessageDlg(SConfirmDeletion, mtConfirmation, [mbYes, mbNo], 0) = mrYes then
+  begin
+    DockerCmd := 'docker container prune -f';
+    FStartDockerCommand := StartDockerCommand.Create(False);
+    FStartDockerCommand.Priority := tpNormal;
+  end;
 end;
 
 //Execute a command inside a container

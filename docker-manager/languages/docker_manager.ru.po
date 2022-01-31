@@ -99,6 +99,10 @@ msgstr "Запустить и зайти в Shell > /bin/bash"
 msgid "License: GPLv3   Author: alex_q_2000 (C) 2022   URL: https://linuxforum.ru"
 msgstr "Лицензия: GPLv3   Автор: alex_q_2000 (C) 2022   URL: https://linuxforum.ru"
 
+#: unit1.sconfirmdeletion
+msgid "Do you confirm the deletion?"
+msgstr "Вы подтверждаете удаление?"
+
 #: unit1.screateimagecaption
 msgid "Create a new Image"
 msgstr "Создать новый образ"
@@ -126,4 +130,3 @@ msgstr "Введите команду (пример: -p 8080:80 или echo \"he
 #: unit1.srunimagerm
 msgid "Run image with --rm"
 msgstr "Запуск образа с --rm"
-
