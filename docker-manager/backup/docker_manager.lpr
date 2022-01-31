@@ -3,17 +3,16 @@ program docker_manager;
 {$mode objfpc}{$H+}
 
 uses
-  {$IFDEF UseCThreads}
   cthreads,
-  {$ENDIF}
   Interfaces, // this includes the LCL widgetset
-  Forms, Unit1, docker_images_trd
+  Forms, Unit1, docker_images_trd, start_docker_command, docker_containers_trd
   { you can add units after this };
 
 {$R *.res}
 
 begin
   RequireDerivedFormResource:=True;
+  Application.Title:='DockerManager v1.0';
   Application.Scaled:=True;
   Application.Initialize;
   Application.CreateForm(TMainForm, MainForm);

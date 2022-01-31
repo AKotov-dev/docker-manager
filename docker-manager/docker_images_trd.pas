@@ -58,7 +58,7 @@ begin
         Synchronize(@Show);
     end;
 
-    Sleep(500);
+    Sleep(600);
   finally
     ImageList.Free;
     ExProcess.Free;

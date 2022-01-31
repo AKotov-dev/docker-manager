@@ -47,8 +47,6 @@ begin
 
     while not Terminated do
     begin
-      Sleep(500);
-
       //Вывод Containers
       ContainerList.Clear;
       ExProcess.Execute;
@@ -58,6 +56,8 @@ begin
 
       if ContainerList.Count <> 0 then
         Synchronize(@Show);
+
+      Sleep(200);
     end;
 
   finally

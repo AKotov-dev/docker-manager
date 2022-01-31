@@ -6,7 +6,7 @@ interface
 
 uses
   Classes, SysUtils, Forms, Controls, Graphics, Dialogs, StdCtrls,
-  ExtCtrls, Menus, ComCtrls, Process, DefaultTranslator, IniPropStorage;
+  ExtCtrls, Menus, ComCtrls, Process, DefaultTranslator, IniPropStorage, Types;
 
 type
 
@@ -128,12 +128,6 @@ begin
   finally
     ExProcess.Free;
   end;
-end;
-
-//Функция предупреждения при удалении
-function ConfirmDelete: integer;
-begin
-  Result := MessageDlg(SConfirmDeletion, mtConfirmation, [mbYes, mbNo], 0);
 end;
 
 //Функция вычисления image:tag

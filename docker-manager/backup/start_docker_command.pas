@@ -70,7 +70,7 @@ begin
     ExProcess.Free;
     Terminate;
     //Для взаимного исключения выполнения команд и отображения списков Images/Containers
-    DockerCmd := '';
+  //  DockerCmd := '';
   end;
 end;
 

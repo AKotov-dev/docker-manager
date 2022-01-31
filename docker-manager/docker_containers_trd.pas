@@ -57,7 +57,7 @@ begin
       if ContainerList.Count <> 0 then
         Synchronize(@Show);
 
-      Sleep(500);
+      Sleep(600);
     end;
 
   finally
