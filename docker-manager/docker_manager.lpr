@@ -9,15 +9,17 @@ uses
   Unit1,
   docker_images_trd,
   start_docker_command,
-  docker_containers_trd, terminal_trd { you can add units after this };
+  docker_containers_trd, terminal_trd, 
+dockerfile_unit { you can add units after this };
 
 {$R *.res}
 
 begin
   RequireDerivedFormResource := True;
-  Application.Title:='DockerManager v1.1';
+  Application.Title:='DockerManager v1.2';
   Application.Scaled:=True;
   Application.Initialize;
   Application.CreateForm(TMainForm, MainForm);
+  Application.CreateForm(TDFileForm, DFileForm);
   Application.Run;
 end.

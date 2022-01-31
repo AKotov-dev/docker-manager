@@ -119,6 +119,13 @@ object MainForm: TMainForm
     object N5: TMenuItem
       Caption = '-'
     end
+    object MenuItem20: TMenuItem
+      Caption = 'Create an image via Dockerfile'
+      OnClick = MenuItem20Click
+    end
+    object Separator1: TMenuItem
+      Caption = '-'
+    end
     object MenuItem1: TMenuItem
       Caption = 'Run image with parameters (optional)'
       OnClick = MenuItem1Click

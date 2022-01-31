@@ -1,0 +1,64 @@
+object DFileForm: TDFileForm
+  Left = 332
+  Height = 492
+  Top = 130
+  Width = 767
+  Caption = 'Dockerfile'
+  ClientHeight = 492
+  ClientWidth = 767
+  OnShow = FormShow
+  Position = poMainFormCenter
+  LCLVersion = '2.2.0.4'
+  object DFileMemo: TMemo
+    AnchorSideBottom.Control = BitBtn1
+    Left = 0
+    Height = 446
+    Top = 0
+    Width = 767
+    Align = alTop
+    Anchors = [akTop, akLeft, akRight, akBottom]
+    BorderSpacing.Bottom = 5
+    Font.Height = -13
+    Font.Name = 'Monospace'
+    ParentFont = False
+    ScrollBars = ssVertical
+    TabOrder = 0
+    WordWrap = False
+  end
+  object BitBtn1: TBitBtn
+    AnchorSideRight.Control = Owner
+    AnchorSideRight.Side = asrBottom
+    AnchorSideBottom.Control = Owner
+    AnchorSideBottom.Side = asrBottom
+    Left = 652
+    Height = 36
+    Top = 451
+    Width = 110
+    Anchors = [akRight, akBottom]
+    BorderSpacing.Right = 5
+    BorderSpacing.Bottom = 5
+    Default = True
+    DefaultCaption = True
+    Kind = bkOK
+    ModalResult = 1
+    OnClick = BitBtn1Click
+    TabOrder = 1
+  end
+  object BitBtn2: TBitBtn
+    AnchorSideRight.Control = BitBtn1
+    AnchorSideBottom.Control = Owner
+    AnchorSideBottom.Side = asrBottom
+    Left = 537
+    Height = 36
+    Top = 451
+    Width = 113
+    Anchors = [akRight, akBottom]
+    BorderSpacing.Right = 2
+    BorderSpacing.Bottom = 5
+    Cancel = True
+    DefaultCaption = True
+    Kind = bkCancel
+    ModalResult = 2
+    TabOrder = 2
+  end
+end

@@ -1,6 +1,10 @@
 msgid ""
 msgstr "Content-Type: text/plain; charset=UTF-8"
 
+#: tdfileform.caption
+msgid "Dockerfile"
+msgstr ""
+
 #: tmainform.caption
 msgid "Docker Manager"
 msgstr ""
@@ -54,6 +58,10 @@ msgstr ""
 #: tmainform.menuitem2.caption
 msgctxt "tmainform.menuitem2.caption"
 msgid "Removing image(s)"
+msgstr ""
+
+#: tmainform.menuitem20.caption
+msgid "Create an image via Dockerfile"
 msgstr ""
 
 #: tmainform.menuitem3.caption

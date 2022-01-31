@@ -28,6 +28,8 @@ type
     MenuItem17: TMenuItem;
     MenuItem18: TMenuItem;
     MenuItem19: TMenuItem;
+    MenuItem20: TMenuItem;
+    Separator1: TMenuItem;
     N8: TMenuItem;
     N7: TMenuItem;
     N6: TMenuItem;
@@ -69,6 +71,7 @@ type
     procedure MenuItem18Click(Sender: TObject);
     procedure MenuItem19Click(Sender: TObject);
     procedure MenuItem1Click(Sender: TObject);
+    procedure MenuItem20Click(Sender: TObject);
     procedure MenuItem3Click(Sender: TObject);
     procedure MenuItem4Click(Sender: TObject);
     procedure MenuItem6Click(Sender: TObject);
@@ -80,6 +83,7 @@ type
     procedure StartProcess(command: string);
     procedure ImageMenuControl;
     procedure ContainerMenuControl;
+
 
   private
 
@@ -106,7 +110,8 @@ resourcestring
 
 implementation
 
-uses docker_images_trd, docker_containers_trd, start_docker_command, terminal_trd;
+uses dockerfile_unit, docker_images_trd, docker_containers_trd,
+  start_docker_command, terminal_trd;
 
 {$R *.lfm}
 
@@ -202,7 +207,7 @@ begin
       (Pos('^^^', ImageBox.Items[ImageBox.ItemIndex]) <> 0) then
       for i := 1 to PopUpMenu1.Items.Count - 1 do
       begin
-        if i <> 9 then
+        if i <> 11 then
           PopUpMenu1.Items[i].Enabled := False;
       end
     else
@@ -250,9 +255,14 @@ procedure TMainForm.FormCreate(Sender: TObject);
 var
   FDImages, FDContainers: TThread;
 begin
+  //Файл конфигурации
   if not DirectoryExists(GetUserDir + '.config') then
     mkDir(GetUserDir + '.config');
   IniPropStorage1.IniFileName := GetUserDir + '.config/docker-manager.conf';
+
+  //Каталог для файла Dockerfile
+  if not DirectoryExists(GetUserDir + '.config/DockerManager') then
+    mkDir(GetUserDir + '.config/DockerManager');
 
   ImageBox.ScrollWidth := 0;
   ContainerBox.ScrollWidth := 0;
@@ -476,6 +486,13 @@ begin
     FStartDockerCommand := StartDockerCommand.Create(False);
     FStartDockerCommand.Priority := tpNormal;
   end;
+end;
+
+//Форма Dockerfile
+procedure TMainForm.MenuItem20Click(Sender: TObject);
+begin
+  DFileForm.Caption := ImageTag;
+  DFileForm.ShowModal;
 end;
 
 //Старт контейнера с параметрами
