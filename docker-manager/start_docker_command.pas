@@ -65,12 +65,12 @@ begin
     end;
 
   finally
+    //Для взаимного исключения выполнения команд и отображения списков Images/Containers/DockerCmd
+    DockerCmd := '';
     Synchronize(@StopProgress);
     Result.Free;
     ExProcess.Free;
     Terminate;
-    //Для взаимного исключения выполнения команд и отображения списков Images/Containers
-    //  DockerCmd := '';
   end;
 end;
 

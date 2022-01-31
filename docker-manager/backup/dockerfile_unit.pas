@@ -52,7 +52,7 @@ begin
   if FileExists(GetUserDir + '.config/DockerManager/Dockerfile') then
     DFileMemo.Lines.LoadFromFile(GetUserDir + '.config/DockerManager/Dockerfile');
 
-  DFileMemo.Lines[0]:='From ' + DFileForm.Caption;
+  DFileMemo.Lines[0] := 'From ' + DFileForm.Caption;
 end;
 
 end.

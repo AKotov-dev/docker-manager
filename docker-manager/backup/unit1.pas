@@ -363,7 +363,7 @@ var
 begin
   if SaveDialog1.Execute then
   begin
-    DockerCmd := Trim('docker save -o "' + SaveDialog1.FileName + '" ' + ImageTag);
+    DockerCmd := 'docker save -o "' + SaveDialog1.FileName + '" ' + ImageTag;
     FStartDockerCommand := StartDockerCommand.Create(False);
     FStartDockerCommand.Priority := tpNormal;
   end;
@@ -378,7 +378,7 @@ begin
   if OpenDialog1.Execute then
   begin
     for i := 0 to OpenDialog1.Files.Count - 1 do
-      DockerCmd := Trim(DockerCmd + 'docker load -i "' + OpenDialog1.Files[i] + '";');
+      DockerCmd := DockerCmd + 'docker load -i "' + OpenDialog1.Files[i] + '";';
     FStartDockerCommand := StartDockerCommand.Create(False);
     FStartDockerCommand.Priority := tpNormal;
   end;
@@ -488,6 +488,7 @@ begin
   end;
 end;
 
+//Форма Dockerfile
 procedure TMainForm.MenuItem20Click(Sender: TObject);
 begin
   DFileForm.Caption := ImageTag;

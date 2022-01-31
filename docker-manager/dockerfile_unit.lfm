@@ -1,7 +1,7 @@
 object DFileForm: TDFileForm
-  Left = 332
+  Left = 466
   Height = 492
-  Top = 130
+  Top = 157
   Width = 767
   Caption = 'Dockerfile'
   ClientHeight = 492
