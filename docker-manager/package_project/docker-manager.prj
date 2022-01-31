@@ -62,7 +62,7 @@ url32=https://github.com/AKotov-dev/docker-manager
 url64=
 
 [PROGRAMNAME]
-programname=Docker Manager
+programname=DockerManager
 
 [DEVTOOL]
 devtool=Lazarus
