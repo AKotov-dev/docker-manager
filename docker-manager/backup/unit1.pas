@@ -106,7 +106,7 @@ resourcestring
 
 implementation
 
-uses docker_images_trd, docker_containers_trd, start_docker_command;
+uses docker_images_trd, docker_containers_trd, start_docker_command, terminal_trd;
 
 {$R *.lfm}
 
@@ -266,9 +266,9 @@ begin
   FDImages := DImages.Create(False);
   FDImages.Priority := tpHighest;
 
-  FDContainers := DContainers.Create(False);
+ { FDContainers := DContainers.Create(False);
   FDContainers.Priority := tpHighest;
-
+  }
   //Проверка активности docker.service
   StartProcess('[[ $(systemctl is-active docker) != "active" ]] && echo "' +
     SDockerNotRunning + '"');
@@ -308,9 +308,13 @@ begin
 end;
 
 procedure TMainForm.MenuItem10Click(Sender: TObject);
+var
+  FStartTerminal: TThread;
 begin
-  StartProcess('sakura -c 120 -r 40 -f 10 -x "docker run -it --rm ' +
-    ImageTag + ' /bin/bash"');
+  DockerCmd := 'sakura -c 120 -r 40 -f 10 -x "docker run -it --rm ' +
+    ImageTag + ' /bin/bash"';
+  FStartTerminal := TerminalTRD.Create(False);
+  FStartTerminal.Priority := tpNormal;
 end;
 
 //Вывод информации о версии контейнера
@@ -494,13 +498,16 @@ begin
   FStartDockerCommand.Priority := tpNormal;
 end;
 
-
 //Войти в Shell запущенного контейнера
 procedure TMainForm.MenuItem6Click(Sender: TObject);
+var
+  FStartTerminal: TThread;
 begin
-  StartProcess('[[ $(docker ps | grep ' + ContainerID + ') ]] || docker start ' +
+  DockerCmd := '[[ $(docker ps | grep ' + ContainerID + ') ]] || docker start ' +
     ContainerID + '&& sakura -c 120 -r 40 -f 10 -x "docker exec -it ' +
-    ContainerID + ' /bin/bash"');
+    ContainerID + ' /bin/bash"';
+  FStartTerminal := TerminalTRD.Create(False);
+  FStartTerminal.Priority := tpNormal;
 end;
 
 //Получение Docker-Image
@@ -542,9 +549,13 @@ end;
 
 //Запуск образа и вход в BASH
 procedure TMainForm.MenuItem9Click(Sender: TObject);
+var
+  FStartTerminal: TThread;
 begin
-  StartProcess('sakura -c 120 -r 40 -f 10 -x "docker run -it ' +
-    ImageTag + ' /bin/bash"');
+  DockerCmd := 'sakura -c 120 -r 40 -f 10 -x "docker run -it ' +
+    ImageTag + ' /bin/bash"';
+  FStartTerminal := TerminalTRD.Create(False);
+  FStartTerminal.Priority := tpNormal;
 end;
 
 //Меню образов

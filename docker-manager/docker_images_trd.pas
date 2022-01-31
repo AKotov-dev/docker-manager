@@ -56,9 +56,10 @@ begin
 
       if ImageList.Count <> 0 then
         Synchronize(@Show);
+
+      Sleep(600);
     end;
 
-    Sleep(600);
   finally
     ImageList.Free;
     ExProcess.Free;

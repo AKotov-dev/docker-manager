@@ -2,7 +2,7 @@
 name=docker-manager
 
 [VERSION]
-version=1.0
+version=1.1
 
 [RELEASE]
 release=0.mrx8
@@ -77,24 +77,28 @@ toolversion=2.2.0
 3=
 4=Dependencies: docker, sakura, polkit, systemd
 5=
-6=v1.0
-7=+ confirmation of deleting objects
-8=+ increase the state polling time to 600 ms
-9=+ correction of launch shortcuts
-10=
-11=v0.5
-12=+ multi-selection when restoring images
-13=+ double-click - launch the image/container
-14=+ fixed indexing in image and container lists
-15=
-16=v0.4
-17=+ recognition of an internal or external command
-18=+ clarification of the translation, cosmetic edits
+6=v1.1
+7=+ elimination of increased CPU usage
+8=+ putting the sakura launch into a separate thread
+9=
+10=v1.0
+11=+ confirmation of deleting objects
+12=+ increase the state polling time to 600 ms
+13=+ correction of launch shortcuts
+14=
+15=v0.5
+16=+ multi-selection when restoring images
+17=+ double-click - launch the image/container
+18=+ fixed indexing in image and container lists
 19=
-20=v0.3 - build in Lazarus-2.2.0
-21=
-22=v0.2
-23=+ backup/restore images
-24=+ creating an image from a container
+20=v0.4
+21=+ recognition of an internal or external command
+22=+ clarification of the translation, cosmetic edits
+23=
+24=v0.3 - build in Lazarus-2.2.0
 25=
-26=v0.1 - initial release
+26=v0.2
+27=+ backup/restore images
+28=+ creating an image from a container
+29=
+30=v0.1 - initial release
