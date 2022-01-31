@@ -50,7 +50,9 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="Unit1"/>
-        <CursorPos X="34" Y="4"/>
+        <IsVisibleTab Value="True"/>
+        <TopLine Value="319"/>
+        <CursorPos X="10" Y="326"/>
         <UsageCount Value="45"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
@@ -74,7 +76,6 @@
       <Unit4>
         <Filename Value="docker_containers_trd.pas"/>
         <IsPartOfProject Value="True"/>
-        <IsVisibleTab Value="True"/>
         <EditorIndex Value="4"/>
         <CursorPos X="35" Y="2"/>
         <UsageCount Value="32"/>

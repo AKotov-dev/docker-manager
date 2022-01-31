@@ -6,7 +6,7 @@ interface
 
 uses
   Classes, SysUtils, Forms, Controls, Graphics, Dialogs, StdCtrls,
-  ExtCtrls, Menus, ComCtrls, Process, DefaultTranslator, IniPropStorage, Types;
+  ExtCtrls, Menus, ComCtrls, Process, DefaultTranslator, IniPropStorage;
 
 type
 
@@ -281,7 +281,7 @@ begin
   MenuItem1.Click;
 end;
 
-//Раскрашивание ListBox
+//Раскрашивание ImageBox и ContainerBox
 procedure TMainForm.ImageBoxDrawItem(Control: TWinControl; Index: integer;
   ARect: TRect; State: TOwnerDrawState);
 begin
@@ -313,7 +313,7 @@ begin
     ImageTag + ' /bin/bash"');
 end;
 
-//Информация о версии контейнера
+//Вывод информации о версии контейнера
 procedure TMainForm.MenuItem11Click(Sender: TObject);
 var
   FStartDockerCommand: TThread;
@@ -323,7 +323,7 @@ begin
   FStartDockerCommand.Priority := tpNormal;
 end;
 
-//Создаём свой образ из контейнера
+//Создать свой образ из контейнера
 procedure TMainForm.MenuItem12Click(Sender: TObject);
 var
   FStartDockerCommand: TThread;
