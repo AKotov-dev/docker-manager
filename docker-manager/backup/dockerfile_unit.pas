@@ -57,6 +57,8 @@ begin
 
   FStartDockerCommand := StartDockerCommand.Create(False);
   FStartDockerCommand.Priority := tpNormal;
+
+  DFileForm.Close;
 end;
 
 procedure TDFileForm.BitBtn2Click(Sender: TObject);

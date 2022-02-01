@@ -18,7 +18,7 @@ msgstr ""
 
 #: tdfileform.label1.caption
 msgid "New image:"
-msgstr ""
+msgstr "Новый образ:"
 
 #: tdfileform.newimageedit.text
 msgctxt "tdfileform.newimageedit.text"
@@ -147,4 +147,3 @@ msgstr "Введите команду (пример: -p 8080:80 или echo \"he
 #: unit1.srunimagerm
 msgid "Run image with --rm"
 msgstr "Запуск образа с --rm"
-
