@@ -2,7 +2,7 @@
 name=docker-manager
 
 [VERSION]
-version=1.1
+version=1.2
 
 [RELEASE]
 release=0.mrx8
@@ -79,7 +79,7 @@ toolversion=2.2.0
 5=
 6=v1.2
 7=+ creating an image based on Dockerfile
-8=+ launching images in --detach mode
+8=+ creating an image via Dockerfile
 9=
 10=v1.1
 11=+ elimination of increased CPU usage
