@@ -60,9 +60,10 @@ object DFileForm: TDFileForm
     Anchors = [akTop, akRight]
     BorderSpacing.Right = 3
     BorderSpacing.Bottom = 5
+    Cancel = True
     DefaultCaption = True
-    Kind = bkClose
-    ModalResult = 11
+    Kind = bkCancel
+    ModalResult = 2
     OnClick = BitBtn2Click
     TabOrder = 2
   end
