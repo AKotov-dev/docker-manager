@@ -102,7 +102,7 @@ resourcestring
   SRunImageCommand = 'Enter the parameters (sample: -p 8080:80 or echo "hello")';
   SRunImageRm = 'Run image with --rm';
   SDockerNotRunning =
-    'Docker Manager: Warning! Docker not running or no superuser privileges!';
+    'DockerManager: Warning! Docker not running or no superuser privileges!';
   SCreateImageCaption = 'Create a new Image';
   SConfirmDeletion = 'Do you confirm the deletion?';
  { SExecCaption = 'Execute';

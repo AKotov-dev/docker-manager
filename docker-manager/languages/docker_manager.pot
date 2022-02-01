@@ -114,7 +114,7 @@ msgid "Create a new Image"
 msgstr ""
 
 #: unit1.sdockernotrunning
-msgid "Docker Manager: Warning! Docker not running or no superuser privileges!"
+msgid "DockerManager: Warning! Docker not running or no superuser privileges!"
 msgstr ""
 
 #: unit1.spullcaption
