@@ -53,12 +53,12 @@ object DFileForm: TDFileForm
     AnchorSideRight.Control = BitBtn1
     AnchorSideBottom.Control = Owner
     AnchorSideBottom.Side = asrBottom
-    Left = 499
+    Left = 498
     Height = 36
     Top = 5
     Width = 113
     Anchors = [akTop, akRight]
-    BorderSpacing.Right = 2
+    BorderSpacing.Right = 3
     BorderSpacing.Bottom = 5
     DefaultCaption = True
     Kind = bkClose
@@ -70,7 +70,7 @@ object DFileForm: TDFileForm
     AnchorSideLeft.Control = Label1
     AnchorSideLeft.Side = asrBottom
     AnchorSideTop.Control = BitBtn2
-    Left = 80
+    Left = 78
     Height = 36
     Top = 5
     Width = 192
@@ -81,7 +81,7 @@ object DFileForm: TDFileForm
   object Label1: TLabel
     AnchorSideTop.Control = NewImageEdit
     AnchorSideTop.Side = asrCenter
-    Left = 8
+    Left = 6
     Height = 17
     Top = 15
     Width = 70

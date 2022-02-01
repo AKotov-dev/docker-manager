@@ -46,6 +46,7 @@ procedure TDFileForm.BitBtn1Click(Sender: TObject);
 var
   FStartDockerCommand: TThread;
 begin
+  Application.ProcessMessages;
   DFileMemo.Lines.SaveToFile(GetUserDir + '.config/DockerManager/Dockerfile');
 
   if Trim(NewImageEdit.Text) = '' then
