@@ -49,7 +49,6 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="Unit1"/>
-        <IsVisibleTab Value="True"/>
         <TopLine Value="89"/>
         <CursorPos X="12" Y="105"/>
         <UsageCount Value="48"/>
@@ -68,9 +67,10 @@
       <Unit3>
         <Filename Value="start_docker_command.pas"/>
         <IsPartOfProject Value="True"/>
+        <IsVisibleTab Value="True"/>
         <EditorIndex Value="2"/>
-        <TopLine Value="52"/>
-        <CursorPos X="45" Y="53"/>
+        <TopLine Value="61"/>
+        <CursorPos X="32" Y="68"/>
         <UsageCount Value="43"/>
         <Loaded Value="True"/>
       </Unit3>
