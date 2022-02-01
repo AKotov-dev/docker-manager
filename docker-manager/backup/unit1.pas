@@ -479,9 +479,9 @@ begin
     //Внутренняя или внешняя команда?
   begin
     if Pos('-', S) <> 0 then
-      DockerCmd := Trim('docker run ' + S + ' ' + ImageTag)
+      DockerCmd := Trim('docker run -d ' + S + ' ' + ImageTag)
     else
-      DockerCmd := Trim('docker run ' + ImageTag + ' ' + S);
+      DockerCmd := Trim('docker run -d ' + ImageTag + ' ' + S);
 
     FStartDockerCommand := StartDockerCommand.Create(False);
     FStartDockerCommand.Priority := tpNormal;
@@ -492,7 +492,7 @@ end;
 procedure TMainForm.MenuItem20Click(Sender: TObject);
 begin
   DFileForm.Caption := ImageTag;
-  DFileForm.ShowModal;
+  DFileForm.Show;
 end;
 
 //Старт контейнера с параметрами
@@ -555,9 +555,9 @@ begin
     //Внутренняя или внешняя команда?
   begin
     if Pos('-', S) <> 0 then
-      DockerCmd := Trim('docker run --rm ' + S + ' ' + ImageTag)
+      DockerCmd := Trim('docker run --rm -d ' + S + ' ' + ImageTag)
     else
-      DockerCmd := Trim('docker run --rm ' + ImageTag + ' ' + S);
+      DockerCmd := Trim('docker run --rm -d ' + ImageTag + ' ' + S);
 
     FStartDockerCommand := StartDockerCommand.Create(False);
     FStartDockerCommand.Priority := tpNormal;
@@ -569,7 +569,7 @@ procedure TMainForm.MenuItem9Click(Sender: TObject);
 var
   FStartTerminal: TThread;
 begin
-  DockerCmd := 'sakura -c 120 -r 40 -f 10 -x "docker run -it ' +
+  DockerCmd := 'sakura -c 120 -r 40 -f 10 -x "docker run -d -it ' +
     ImageTag + ' /bin/bash"';
   FStartTerminal := TerminalTRD.Create(False);
   FStartTerminal.Priority := tpNormal;

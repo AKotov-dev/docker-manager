@@ -479,9 +479,9 @@ begin
     //Внутренняя или внешняя команда?
   begin
     if Pos('-', S) <> 0 then
-      DockerCmd := Trim('docker run ' + S + ' ' + ImageTag)
+      DockerCmd := Trim('docker run -d ' + S + ' ' + ImageTag)
     else
-      DockerCmd := Trim('docker run ' + ImageTag + ' ' + S);
+      DockerCmd := Trim('docker run -d ' + ImageTag + ' ' + S);
 
     FStartDockerCommand := StartDockerCommand.Create(False);
     FStartDockerCommand.Priority := tpNormal;
@@ -555,9 +555,9 @@ begin
     //Внутренняя или внешняя команда?
   begin
     if Pos('-', S) <> 0 then
-      DockerCmd := Trim('docker run --rm ' + S + ' ' + ImageTag)
+      DockerCmd := Trim('docker run --rm -d ' + S + ' ' + ImageTag)
     else
-      DockerCmd := Trim('docker run --rm ' + ImageTag + ' ' + S);
+      DockerCmd := Trim('docker run --rm -d ' + ImageTag + ' ' + S);
 
     FStartDockerCommand := StartDockerCommand.Create(False);
     FStartDockerCommand.Priority := tpNormal;
