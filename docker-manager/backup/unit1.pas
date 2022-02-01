@@ -378,7 +378,7 @@ begin
   if OpenDialog1.Execute then
   begin
     for i := 0 to OpenDialog1.Files.Count - 1 do
-      DockerCmd := DockerCmd + 'docker load -i "' + OpenDialog1.Files[i] + '";';
+      DockerCmd := DockerCmd + 'docker load -i "' + OpenDialog1.Files[i] + '"; ';
     FStartDockerCommand := StartDockerCommand.Create(False);
     FStartDockerCommand.Priority := tpNormal;
   end;

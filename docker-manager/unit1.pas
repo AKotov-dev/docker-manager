@@ -492,7 +492,7 @@ end;
 procedure TMainForm.MenuItem20Click(Sender: TObject);
 begin
   DFileForm.Caption := ImageTag;
-  DFileForm.ShowModal;
+  DFileForm.Show;
 end;
 
 //Старт контейнера с параметрами

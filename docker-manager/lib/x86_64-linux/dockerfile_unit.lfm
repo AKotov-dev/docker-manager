@@ -1,13 +1,17 @@
 object DFileForm: TDFileForm
-  Left = 466
+  Left = 390
   Height = 492
-  Top = 157
+  Top = 126
   Width = 767
   Caption = 'Dockerfile'
   ClientHeight = 492
   ClientWidth = 767
+  FormStyle = fsStayOnTop
+  OnClose = FormClose
+  OnCreate = FormCreate
   OnShow = FormShow
-  Position = poMainFormCenter
+  Position = poDefault
+  SessionProperties = 'Height;Width;Left;Top'
   LCLVersion = '2.2.0.4'
   object DFileMemo: TMemo
     AnchorSideBottom.Control = BitBtn1
@@ -55,10 +59,15 @@ object DFileForm: TDFileForm
     Anchors = [akRight, akBottom]
     BorderSpacing.Right = 2
     BorderSpacing.Bottom = 5
-    Cancel = True
     DefaultCaption = True
-    Kind = bkCancel
-    ModalResult = 2
+    Kind = bkClose
+    ModalResult = 11
+    OnClick = BitBtn2Click
     TabOrder = 2
+  end
+  object IniPropStorage1: TIniPropStorage
+    StoredValues = <>
+    Left = 64
+    Top = 24
   end
 end

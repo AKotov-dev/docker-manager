@@ -5,7 +5,8 @@ unit dockerfile_unit;
 interface
 
 uses
-  Classes, SysUtils, Forms, Controls, Graphics, Dialogs, StdCtrls, Buttons;
+  Classes, SysUtils, Forms, Controls, Graphics, Dialogs, StdCtrls, Buttons,
+  IniPropStorage;
 
 type
 
@@ -15,7 +16,11 @@ type
     BitBtn1: TBitBtn;
     BitBtn2: TBitBtn;
     DFileMemo: TMemo;
+    IniPropStorage1: TIniPropStorage;
     procedure BitBtn1Click(Sender: TObject);
+    procedure BitBtn2Click(Sender: TObject);
+    procedure FormClose(Sender: TObject; var CloseAction: TCloseAction);
+    procedure FormCreate(Sender: TObject);
     procedure FormShow(Sender: TObject);
   private
 
@@ -46,13 +51,31 @@ begin
   FStartDockerCommand.Priority := tpNormal;
 end;
 
+procedure TDFileForm.BitBtn2Click(Sender: TObject);
+begin
+  DFileForm.Close;
+end;
+
+procedure TDFileForm.FormClose(Sender: TObject; var CloseAction: TCloseAction);
+begin
+  IniPropStorage1.Save;
+end;
+
+procedure TDFileForm.FormCreate(Sender: TObject);
+begin
+  //Файл конфигурации формы Dockerfile
+  DFileForm.IniPropStorage1.IniFileName := IniPropStorage1.IniFileName;
+end;
+
 //Восстанавливаем последний созданный Dockerfile
 procedure TDFileForm.FormShow(Sender: TObject);
 begin
+  IniPropStorage1.Restore;
+
   if FileExists(GetUserDir + '.config/DockerManager/Dockerfile') then
     DFileMemo.Lines.LoadFromFile(GetUserDir + '.config/DockerManager/Dockerfile');
 
-  DFileMemo.Lines[0] := 'From ' + DFileForm.Caption;
+  DFileMemo.Lines[0] := 'FROM ' + DFileForm.Caption;
 end;
 
 end.
