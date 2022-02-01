@@ -5,6 +5,15 @@ msgstr "Content-Type: text/plain; charset=UTF-8"
 msgid "Dockerfile"
 msgstr ""
 
+#: tdfileform.label1.caption
+msgid "New image:"
+msgstr ""
+
+#: tdfileform.newimageedit.text
+msgctxt "tdfileform.newimageedit.text"
+msgid "my-new:image"
+msgstr ""
+
 #: tmainform.caption
 msgid "Docker Manager"
 msgstr ""

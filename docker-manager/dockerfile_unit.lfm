@@ -1,27 +1,28 @@
 object DFileForm: TDFileForm
-  Left = 390
-  Height = 492
-  Top = 126
-  Width = 767
+  Left = 309
+  Height = 481
+  Top = 123
+  Width = 729
   Caption = 'Dockerfile'
-  ClientHeight = 492
-  ClientWidth = 767
+  ClientHeight = 481
+  ClientWidth = 729
   FormStyle = fsStayOnTop
   OnClose = FormClose
   OnCreate = FormCreate
   OnShow = FormShow
   Position = poDefault
-  SessionProperties = 'Height;Width;Left;Top'
+  SessionProperties = 'Height;Left;Top;Width;NewImageEdit.Text'
   LCLVersion = '2.2.0.4'
   object DFileMemo: TMemo
-    AnchorSideBottom.Control = BitBtn1
+    AnchorSideTop.Control = BitBtn1
+    AnchorSideTop.Side = asrBottom
     Left = 0
-    Height = 446
-    Top = 0
-    Width = 767
-    Align = alTop
+    Height = 435
+    Top = 46
+    Width = 729
+    Align = alBottom
     Anchors = [akTop, akLeft, akRight, akBottom]
-    BorderSpacing.Bottom = 5
+    BorderSpacing.Top = 5
     Font.Height = -13
     Font.Name = 'Monospace'
     ParentFont = False
@@ -34,11 +35,11 @@ object DFileForm: TDFileForm
     AnchorSideRight.Side = asrBottom
     AnchorSideBottom.Control = Owner
     AnchorSideBottom.Side = asrBottom
-    Left = 652
+    Left = 614
     Height = 36
-    Top = 451
+    Top = 5
     Width = 110
-    Anchors = [akRight, akBottom]
+    Anchors = [akTop, akRight]
     BorderSpacing.Right = 5
     BorderSpacing.Bottom = 5
     Default = True
@@ -52,11 +53,11 @@ object DFileForm: TDFileForm
     AnchorSideRight.Control = BitBtn1
     AnchorSideBottom.Control = Owner
     AnchorSideBottom.Side = asrBottom
-    Left = 537
+    Left = 499
     Height = 36
-    Top = 451
+    Top = 5
     Width = 113
-    Anchors = [akRight, akBottom]
+    Anchors = [akTop, akRight]
     BorderSpacing.Right = 2
     BorderSpacing.Bottom = 5
     DefaultCaption = True
@@ -65,9 +66,30 @@ object DFileForm: TDFileForm
     OnClick = BitBtn2Click
     TabOrder = 2
   end
+  object NewImageEdit: TEdit
+    AnchorSideLeft.Control = Label1
+    AnchorSideLeft.Side = asrBottom
+    AnchorSideTop.Control = BitBtn2
+    Left = 80
+    Height = 36
+    Top = 5
+    Width = 192
+    BorderSpacing.Left = 2
+    TabOrder = 3
+    Text = 'my-new:image'
+  end
+  object Label1: TLabel
+    AnchorSideTop.Control = NewImageEdit
+    AnchorSideTop.Side = asrCenter
+    Left = 8
+    Height = 17
+    Top = 15
+    Width = 70
+    Caption = 'New image:'
+  end
   object IniPropStorage1: TIniPropStorage
     StoredValues = <>
-    Left = 64
-    Top = 24
+    Left = 48
+    Top = 104
   end
 end

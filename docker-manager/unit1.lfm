@@ -1,7 +1,7 @@
 object MainForm: TMainForm
-  Left = 312
+  Left = 663
   Height = 712
-  Top = 121
+  Top = 122
   Width = 1066
   ActiveControl = ImageBox
   Caption = 'Docker Manager'

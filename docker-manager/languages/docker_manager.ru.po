@@ -16,6 +16,15 @@ msgstr ""
 msgid "Dockerfile"
 msgstr ""
 
+#: tdfileform.label1.caption
+msgid "New image:"
+msgstr ""
+
+#: tdfileform.newimageedit.text
+msgctxt "tdfileform.newimageedit.text"
+msgid "my-new:image"
+msgstr ""
+
 #: tmainform.caption
 msgid "Docker Manager"
 msgstr ""
@@ -138,3 +147,4 @@ msgstr "Введите команду (пример: -p 8080:80 или echo \"he
 #: unit1.srunimagerm
 msgid "Run image with --rm"
 msgstr "Запуск образа с --rm"
+
