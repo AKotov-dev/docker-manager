@@ -569,7 +569,7 @@ procedure TMainForm.MenuItem9Click(Sender: TObject);
 var
   FStartTerminal: TThread;
 begin
-  DockerCmd := 'sakura -c 120 -r 40 -f 10 -x "docker run -d -it ' +
+  DockerCmd := 'sakura -c 120 -r 40 -f 10 -x "docker run -it ' +
     ImageTag + ' /bin/bash"';
   FStartTerminal := TerminalTRD.Create(False);
   FStartTerminal.Priority := tpNormal;
