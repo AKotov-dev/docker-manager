@@ -73,12 +73,21 @@ msgstr ""
 msgid "Create an image via Dockerfile"
 msgstr ""
 
+#: tmainform.menuitem21.caption
+msgctxt "tmainform.menuitem21.caption"
+msgid "Selected only"
+msgstr ""
+
+#: tmainform.menuitem22.caption
+msgid "All containers"
+msgstr ""
+
 #: tmainform.menuitem3.caption
 msgid "Start container"
 msgstr ""
 
 #: tmainform.menuitem4.caption
-msgid "Stop container"
+msgid "Stop container(s)"
 msgstr ""
 
 #: tmainform.menuitem5.caption

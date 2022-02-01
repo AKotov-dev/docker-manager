@@ -84,13 +84,22 @@ msgstr "Удалить образ(ы)"
 msgid "Create an image via Dockerfile"
 msgstr "Создать образ через Dockerfile"
 
+#: tmainform.menuitem21.caption
+msgctxt "tmainform.menuitem21.caption"
+msgid "Selected only"
+msgstr "Только выбранный"
+
+#: tmainform.menuitem22.caption
+msgid "All containers"
+msgstr "Все контейнеры"
+
 #: tmainform.menuitem3.caption
 msgid "Start container"
 msgstr "Запустить контейнер"
 
 #: tmainform.menuitem4.caption
-msgid "Stop container"
-msgstr "Остановить контейнер"
+msgid "Stop container(s)"
+msgstr "Остановить контейнер(ы)"
 
 #: tmainform.menuitem5.caption
 msgid "Removing container(s)"

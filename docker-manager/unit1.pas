@@ -29,6 +29,8 @@ type
     MenuItem18: TMenuItem;
     MenuItem19: TMenuItem;
     MenuItem20: TMenuItem;
+    MenuItem21: TMenuItem;
+    MenuItem22: TMenuItem;
     Separator1: TMenuItem;
     N8: TMenuItem;
     N7: TMenuItem;
@@ -72,8 +74,9 @@ type
     procedure MenuItem19Click(Sender: TObject);
     procedure MenuItem1Click(Sender: TObject);
     procedure MenuItem20Click(Sender: TObject);
+    procedure MenuItem21Click(Sender: TObject);
+    procedure MenuItem22Click(Sender: TObject);
     procedure MenuItem3Click(Sender: TObject);
-    procedure MenuItem4Click(Sender: TObject);
     procedure MenuItem6Click(Sender: TObject);
     procedure MenuItem7Click(Sender: TObject);
     procedure MenuItem8Click(Sender: TObject);
@@ -138,62 +141,45 @@ end;
 //Функция вычисления image:tag
 function ImageTag: string;
 var
-  s: string;
+  L, R: string;
   i, a: integer;
 begin
   a := 0;
-  s := '';
+  R := '';
   with MainForm do
   begin
-    for i := 0 to Length(ImageBox.Items[ImageBox.ItemIndex]) - 1 do
-    begin
-      if ImageBox.Items[ImageBox.ItemIndex][i] = ' ' then
-      begin
-        S := Copy(ImageBox.Items[ImageBox.ItemIndex], 1, i - 1) + ':';
-        a := i;
-        break;
-      end;
-    end;
+    //Первый пробел сначала после слова
+    a := Pos(' ', ImageBox.Items[ImageBox.ItemIndex]);
+    //Левая часть ContainerID до :
+    L := Copy(ImageBox.Items[ImageBox.ItemIndex], 1, a - 1) + ':';
 
+    //Листаем пробелы до первого знака
     for i := a to Length(ImageBox.Items[ImageBox.ItemIndex]) - 1 do
-    begin
       if ImageBox.Items[ImageBox.ItemIndex][i] = ' ' then
         a := i
       else
         Break;
-    end;
+    //(a -1) - индекс начала второго слова. Пробелы пройдены
 
-    for i := a + 1 to Length(ImageBox.Items[ImageBox.ItemIndex]) - 1 do
-    begin
-      if ImageBox.Items[ImageBox.ItemIndex][i] = ' ' then
-        break
-      else
-        S := S + ImageBox.Items[ImageBox.ItemIndex][i];
-    end;
+    //Часть строки, начиная с нужного символа до конца
+    {R:=Copy(ImageBox.Items[ImageBox.ItemIndex], a+1, Length(ImageBox.Items[ImageBox.ItemIndex]));
+    //R - правая часть ContainerID
+    R:=Copy(R, 1, Pos(' ', R));}
+
+    R := Copy(Copy(ImageBox.Items[ImageBox.ItemIndex], a + 1,
+      Length(ImageBox.Items[ImageBox.ItemIndex])), 1,
+      Pos(' ', Copy(ImageBox.Items[ImageBox.ItemIndex], a + 1,
+      Length(ImageBox.Items[ImageBox.ItemIndex]))));
   end;
-  Result := S;
+  Result := Concat(L, R);
 end;
 
 //Функция вычисления ID контейнера
 function ContainerID: string;
-var
-  s: string;
-  i: integer;
 begin
-  s := '';
-
   with MainForm do
-  begin
-    for i := 0 to Length(ContainerBox.Items[ContainerBox.ItemIndex]) - 1 do
-    begin
-      if ContainerBox.Items[ContainerBox.ItemIndex][i] = ' ' then
-      begin
-        S := Copy(ContainerBox.Items[ContainerBox.ItemIndex], 1, i - 1);
-        break;
-      end;
-    end;
-  end;
-  Result := S;
+    Result := Copy(ContainerBox.Items[ContainerBox.ItemIndex], 1,
+      Pos(' ', ContainerBox.Items[ContainerBox.ItemIndex]) - 1);
 end;
 
 //Контроль PopUpMenu Images
@@ -495,6 +481,32 @@ begin
   DFileForm.Show;
 end;
 
+//Стоп выбранного контейнера
+procedure TMainForm.MenuItem21Click(Sender: TObject);
+var
+  FStartDockerCommand: TThread;
+begin
+  DockerCmd := 'docker stop ' + ContainerID;
+  FStartDockerCommand := StartDockerCommand.Create(False);
+  FStartDockerCommand.Priority := tpNormal;
+end;
+
+//Стоп всех контейнеров
+procedure TMainForm.MenuItem22Click(Sender: TObject);
+var
+  i: integer;
+  S: string;
+  FStartDockerCommand: TThread;
+begin
+  S := '';
+  for i := 1 to ContainerBox.Count - 2 do
+    S := S + ' ' + Copy(ContainerBox.Items[i], 1, Pos(' ', ContainerBox.Items[i]) - 1);
+
+  DockerCmd := 'docker stop ' + S;
+  FStartDockerCommand := StartDockerCommand.Create(False);
+  FStartDockerCommand.Priority := tpNormal;
+end;
+
 //Старт контейнера с параметрами
 procedure TMainForm.MenuItem3Click(Sender: TObject);
 var
@@ -505,15 +517,6 @@ begin
   FStartDockerCommand.Priority := tpNormal;
 end;
 
-//Стоп контейнера
-procedure TMainForm.MenuItem4Click(Sender: TObject);
-var
-  FStartDockerCommand: TThread;
-begin
-  DockerCmd := 'docker stop ' + ContainerID;
-  FStartDockerCommand := StartDockerCommand.Create(False);
-  FStartDockerCommand.Priority := tpNormal;
-end;
 
 //Войти в Shell запущенного контейнера
 procedure TMainForm.MenuItem6Click(Sender: TObject);

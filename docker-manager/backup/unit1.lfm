@@ -1,5 +1,5 @@
 object MainForm: TMainForm
-  Left = 309
+  Left = 308
   Height = 712
   Top = 122
   Width = 1066
@@ -192,7 +192,14 @@ object MainForm: TMainForm
     end
     object MenuItem4: TMenuItem
       Caption = 'Stop container'
-      OnClick = MenuItem4Click
+      object MenuItem21: TMenuItem
+        Caption = 'Selected only'
+        OnClick = MenuItem21Click
+      end
+      object MenuItem22: TMenuItem
+        Caption = 'All containers'
+        OnClick = MenuItem22Click
+      end
     end
     object N7: TMenuItem
       Caption = '-'
