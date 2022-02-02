@@ -518,7 +518,6 @@ begin
   FStartDockerCommand.Priority := tpNormal;
 end;
 
-
 //Войти в Shell запущенного контейнера
 procedure TMainForm.MenuItem6Click(Sender: TObject);
 var
