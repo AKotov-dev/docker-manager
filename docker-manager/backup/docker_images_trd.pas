@@ -43,7 +43,8 @@ begin
     ExProcess.Executable := 'bash';
     ExProcess.Options := [poUsePipes, poWaitOnExit]; //poStderrToOutPut
     ExProcess.Parameters.Add('-c');
-    ExProcess.Parameters.Add('docker images; echo "^^^"');
+    //'sort -r' - от смены записей под курсором, если у них одинаковые ContainerID
+    ExProcess.Parameters.Add('docker images | sort -r; echo "^^^"');
 
     while not Terminated do
     begin
@@ -56,9 +57,10 @@ begin
 
       if ImageList.Count <> 0 then
         Synchronize(@Show);
+
+      Sleep(600);
     end;
 
-    Sleep(600);
   finally
     ImageList.Free;
     ExProcess.Free;

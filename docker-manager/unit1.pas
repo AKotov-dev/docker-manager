@@ -163,14 +163,15 @@ begin
     //(a -1) - индекс начала второго слова. Пробелы пройдены
 
     //Часть строки, начиная с нужного символа до конца
-    {R:=Copy(ImageBox.Items[ImageBox.ItemIndex], a+1, Length(ImageBox.Items[ImageBox.ItemIndex]));
+    { R := Copy(ImageBox.Items[ImageBox.ItemIndex], a + 1,
+      Length(ImageBox.Items[ImageBox.ItemIndex]));
     //R - правая часть ContainerID
-    R:=Copy(R, 1, Pos(' ', R));}
+      R := Copy(R, 1, Pos(' ', R) - 1); }
 
     R := Copy(Copy(ImageBox.Items[ImageBox.ItemIndex], a + 1,
       Length(ImageBox.Items[ImageBox.ItemIndex])), 1,
       Pos(' ', Copy(ImageBox.Items[ImageBox.ItemIndex], a + 1,
-      Length(ImageBox.Items[ImageBox.ItemIndex]))));
+      Length(ImageBox.Items[ImageBox.ItemIndex]))) - 1);
   end;
   Result := Concat(L, R);
 end;
@@ -517,6 +518,7 @@ begin
   FStartDockerCommand := StartDockerCommand.Create(False);
   FStartDockerCommand.Priority := tpNormal;
 end;
+
 
 //Войти в Shell запущенного контейнера
 procedure TMainForm.MenuItem6Click(Sender: TObject);
