@@ -43,8 +43,7 @@ begin
     ExProcess.Executable := 'bash';
     ExProcess.Options := [poUsePipes, poWaitOnExit]; //poStderrToOutPut
     ExProcess.Parameters.Add('-c');
-    //'sort -r' - от смены записей под курсором, если у них одинаковые ImageID
-    ExProcess.Parameters.Add('docker images | sort -r; echo "^^^"');
+    ExProcess.Parameters.Add('docker images; echo "^^^"');
 
     while not Terminated do
     begin

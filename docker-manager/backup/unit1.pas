@@ -379,8 +379,6 @@ var
 begin
   if MessageDlg(SConfirmDeletion, mtConfirmation, [mbYes, mbNo], 0) = mrYes then
   begin
-    ShowMessage(ImageTag + '111');
-    abort;
     DockerCmd := 'docker rmi ' + ImageTag;
     FStartDockerCommand := StartDockerCommand.Create(False);
     FStartDockerCommand.Priority := tpNormal;

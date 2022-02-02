@@ -76,6 +76,7 @@ object DFileForm: TDFileForm
     Top = 5
     Width = 192
     BorderSpacing.Left = 2
+    OnChange = NewImageEditChange
     TabOrder = 3
     Text = 'my-new:image'
   end

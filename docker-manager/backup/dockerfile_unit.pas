@@ -24,6 +24,7 @@ type
     procedure FormClose(Sender: TObject; var CloseAction: TCloseAction);
     procedure FormCreate(Sender: TObject);
     procedure FormShow(Sender: TObject);
+    procedure NewImageEditChange(Sender: TObject);
   private
 
   public
@@ -49,12 +50,11 @@ begin
   Application.ProcessMessages;
   DFileMemo.Lines.SaveToFile(GetUserDir + '.config/DockerManager/Dockerfile');
 
-  if Trim(NewImageEdit.Text) = '' then
-    DockerCmd := 'cd ~/.config/DockerManager; docker build -t ' +
-      DFileForm.Caption + ' .'
-  else
-    DockerCmd := 'cd ~/.config/DockerManager; docker build -t ' +
-      DFileForm.Caption + ' . --tag ' + NewImageEdit.Text;
+ { if Trim(NewImageEdit.Text) = '' then
+    DockerCmd := 'cd ~/.config/DockerManager; docker build .'
+  else}
+  DockerCmd := 'cd ~/.config/DockerManager; docker build --tag ' +
+    NewImageEdit.Text + ' .';
 
   FStartDockerCommand := StartDockerCommand.Create(False);
   FStartDockerCommand.Priority := tpNormal;
@@ -87,6 +87,13 @@ begin
     DFileMemo.Lines.LoadFromFile(GetUserDir + '.config/DockerManager/Dockerfile');
 
   DFileMemo.Lines[0] := 'FROM ' + DFileForm.Caption;
+end;
+
+procedure TDFileForm.NewImageEditChange(Sender: TObject);
+begin
+  if Trim(NewImageEdit.Text) = '' then BitBtn1.Enabled := False
+  else
+    BitBtn1.Enabled := True;
 end;
 
 end.
