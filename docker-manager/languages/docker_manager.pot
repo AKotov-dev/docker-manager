@@ -35,11 +35,11 @@ msgid "Create a new image from this container"
 msgstr ""
 
 #: tmainform.menuitem13.caption
-msgid "Backup this image to filename.tar"
+msgid "Create a backup of this image"
 msgstr ""
 
 #: tmainform.menuitem14.caption
-msgid "Restore docker image(s) from filename.tar"
+msgid "Restore docker image(s) from backup"
 msgstr ""
 
 #: tmainform.menuitem15.caption

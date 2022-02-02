@@ -15,6 +15,7 @@ type
   TMainForm = class(TForm)
     ImageBox: TListBox;
     ContainerBox: TListBox;
+    ImageList1: TImageList;
     IniPropStorage1: TIniPropStorage;
     LogMemo: TMemo;
     MenuItem1: TMenuItem;

@@ -1,11 +1,11 @@
 object DFileForm: TDFileForm
   Left = 309
-  Height = 481
+  Height = 534
   Top = 123
-  Width = 729
+  Width = 755
   Caption = 'Dockerfile'
-  ClientHeight = 481
-  ClientWidth = 729
+  ClientHeight = 534
+  ClientWidth = 755
   FormStyle = fsStayOnTop
   OnClose = FormClose
   OnCreate = FormCreate
@@ -17,9 +17,9 @@ object DFileForm: TDFileForm
     AnchorSideTop.Control = BitBtn1
     AnchorSideTop.Side = asrBottom
     Left = 0
-    Height = 435
+    Height = 488
     Top = 46
-    Width = 729
+    Width = 755
     Align = alBottom
     Anchors = [akTop, akLeft, akRight, akBottom]
     BorderSpacing.Top = 5
@@ -35,7 +35,7 @@ object DFileForm: TDFileForm
     AnchorSideRight.Side = asrBottom
     AnchorSideBottom.Control = Owner
     AnchorSideBottom.Side = asrBottom
-    Left = 614
+    Left = 640
     Height = 36
     Top = 5
     Width = 110
@@ -53,16 +53,17 @@ object DFileForm: TDFileForm
     AnchorSideRight.Control = BitBtn1
     AnchorSideBottom.Control = Owner
     AnchorSideBottom.Side = asrBottom
-    Left = 498
+    Left = 524
     Height = 36
     Top = 5
     Width = 113
     Anchors = [akTop, akRight]
     BorderSpacing.Right = 3
     BorderSpacing.Bottom = 5
+    Cancel = True
     DefaultCaption = True
-    Kind = bkClose
-    ModalResult = 11
+    Kind = bkCancel
+    ModalResult = 2
     OnClick = BitBtn2Click
     TabOrder = 2
   end

@@ -109,11 +109,13 @@ object MainForm: TMainForm
     TabOrder = 6
   end
   object PopupMenu1: TPopupMenu
+    Images = ImageList1
     OnPopup = PopupMenu1Popup
-    Left = 440
+    Left = 408
     Top = 40
     object MenuItem7: TMenuItem
       Caption = 'Pull image (name:tag)'
+      ImageIndex = 0
       OnClick = MenuItem7Click
     end
     object N5: TMenuItem
@@ -121,6 +123,7 @@ object MainForm: TMainForm
     end
     object MenuItem20: TMenuItem
       Caption = 'Create an image via Dockerfile'
+      ImageIndex = 3
       OnClick = MenuItem20Click
     end
     object Separator1: TMenuItem
@@ -128,10 +131,12 @@ object MainForm: TMainForm
     end
     object MenuItem1: TMenuItem
       Caption = 'Run image with parameters (optional)'
+      ImageIndex = 4
       OnClick = MenuItem1Click
     end
     object MenuItem8: TMenuItem
       Caption = 'Run image with parameters --rm (optional)'
+      ImageIndex = 4
       OnClick = MenuItem8Click
     end
     object N4: TMenuItem
@@ -139,21 +144,25 @@ object MainForm: TMainForm
     end
     object MenuItem9: TMenuItem
       Caption = 'Run and goto Shell > /bin/bash'
+      ImageIndex = 4
       OnClick = MenuItem9Click
     end
     object MenuItem10: TMenuItem
       Caption = 'Run and goto Shell with --rm > /bin/bash'
+      ImageIndex = 4
       OnClick = MenuItem10Click
     end
     object N8: TMenuItem
       Caption = '-'
     end
     object MenuItem13: TMenuItem
-      Caption = 'Backup this image to filename.tar'
+      Caption = 'Create a backup of this image'
+      ImageIndex = 3
       OnClick = MenuItem13Click
     end
     object MenuItem14: TMenuItem
-      Caption = 'Restore docker image(s) from filename.tar'
+      Caption = 'Restore docker image(s) from backup'
+      ImageIndex = 1
       OnClick = MenuItem14Click
     end
     object N1: TMenuItem
@@ -161,6 +170,7 @@ object MainForm: TMainForm
     end
     object MenuItem2: TMenuItem
       Caption = 'Removing image(s)'
+      ImageIndex = 2
       object MenuItem15: TMenuItem
         Caption = 'Selected only'
         OnClick = MenuItem15Click
@@ -176,22 +186,26 @@ object MainForm: TMainForm
     end
   end
   object PopupMenu2: TPopupMenu
+    Images = ImageList1
     OnPopup = PopupMenu2Popup
-    Left = 448
+    Left = 408
     Top = 256
     object MenuItem3: TMenuItem
       Caption = 'Start container'
+      ImageIndex = 4
       OnClick = MenuItem3Click
     end
     object MenuItem6: TMenuItem
       Caption = 'Start and goto Shell > /bin/bash'
+      ImageIndex = 4
       OnClick = MenuItem6Click
     end
     object N3: TMenuItem
       Caption = '-'
     end
     object MenuItem4: TMenuItem
-      Caption = 'Stop container'
+      Caption = 'Stop container(s)'
+      ImageIndex = 5
       object MenuItem21: TMenuItem
         Caption = 'Selected only'
         OnClick = MenuItem21Click
@@ -206,6 +220,7 @@ object MainForm: TMainForm
     end
     object MenuItem12: TMenuItem
       Caption = 'Create a new image from this container'
+      ImageIndex = 3
       OnClick = MenuItem12Click
     end
     object N6: TMenuItem
@@ -213,6 +228,7 @@ object MainForm: TMainForm
     end
     object MenuItem11: TMenuItem
       Caption = 'Сontainer version information'
+      ImageIndex = 0
       OnClick = MenuItem11Click
     end
     object N2: TMenuItem
@@ -220,6 +236,7 @@ object MainForm: TMainForm
     end
     object MenuItem5: TMenuItem
       Caption = 'Removing container(s)'
+      ImageIndex = 2
       object MenuItem18: TMenuItem
         Caption = 'Selected only'
         OnClick = MenuItem18Click
@@ -249,5 +266,16 @@ object MainForm: TMainForm
     Options = [ofAllowMultiSelect, ofEnableSizing, ofViewDetail]
     Left = 840
     Top = 40
+  end
+  object ImageList1: TImageList
+    Height = 10
+    Width = 10
+    Left = 288
+    Top = 40
+    Bitmap = {
+      4C7A060000000A0000000A000000440000000000000078DAEDD1B10900300C03
+      412FE9D502C9085AD2D9E04940A504DF5DA7998FA9B83876E6550B8B63E7FF83
+      8B6367FF435C1C3BFF1F8DC5B1736FED83C5B17BD905C2DAF6BB
+    }
   end
 end
