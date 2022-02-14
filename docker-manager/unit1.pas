@@ -109,6 +109,7 @@ resourcestring
     'DockerManager: Warning! Docker not running or no superuser privileges!';
   SCreateImageCaption = 'Create a new Image';
   SConfirmDeletion = 'Do you confirm the deletion?';
+  SDockerHub = '...image not selected; will be retrieved from DockerHub';
  { SExecCaption = 'Execute';
   SExecString = 'Enter the command';}
 
@@ -195,7 +196,7 @@ begin
       (Pos('^^^', ImageBox.Items[ImageBox.ItemIndex]) <> 0) then
       for i := 1 to PopUpMenu1.Items.Count - 1 do
       begin
-        if i <> 11 then
+        if (i <> 11) and (i <> 2) then
           PopUpMenu1.Items[i].Enabled := False;
       end
     else
@@ -479,7 +480,12 @@ end;
 //Форма Dockerfile
 procedure TMainForm.MenuItem20Click(Sender: TObject);
 begin
-  DFileForm.Caption := ImageTag;
+  if (ImageBox.Count <> 2) and (ImageBox.SelCount <> 0) and
+    (ImageBox.ItemIndex <> 0) and (ImageBox.ItemIndex <> ImageBox.Count - 1) then
+    DFileForm.Caption := ImageTag
+  else
+    DFileForm.Caption := SDockerHub;
+
   DFileForm.Show;
 end;
 

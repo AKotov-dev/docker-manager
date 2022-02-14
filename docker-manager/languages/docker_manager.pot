@@ -5,6 +5,14 @@ msgstr "Content-Type: text/plain; charset=UTF-8"
 msgid "Dockerfile"
 msgstr ""
 
+#: tdfileform.clearbtn.caption
+msgid "Х"
+msgstr ""
+
+#: tdfileform.clearbtn.hint
+msgid "Do not create"
+msgstr ""
+
 #: tdfileform.label1.caption
 msgid "New image:"
 msgstr ""
@@ -120,6 +128,10 @@ msgstr ""
 
 #: unit1.screateimagecaption
 msgid "Create a new Image"
+msgstr ""
+
+#: unit1.sdockerhub
+msgid "...image not selected; will be retrieved from DockerHub"
 msgstr ""
 
 #: unit1.sdockernotrunning

@@ -16,6 +16,14 @@ msgstr ""
 msgid "Dockerfile"
 msgstr ""
 
+#: tdfileform.clearbtn.caption
+msgid "Х"
+msgstr ""
+
+#: tdfileform.clearbtn.hint
+msgid "Do not create"
+msgstr "Не создавать"
+
 #: tdfileform.label1.caption
 msgid "New image:"
 msgstr "Новый образ:"
@@ -132,6 +140,10 @@ msgstr "Вы подтверждаете удаление?"
 #: unit1.screateimagecaption
 msgid "Create a new Image"
 msgstr "Создать новый образ"
+
+#: unit1.sdockerhub
+msgid "...image not selected; will be retrieved from DockerHub"
+msgstr "...образ не выбран; будет получен с DockerHub"
 
 #: unit1.sdockernotrunning
 msgid "DockerManager: Warning! Docker not running or no superuser privileges!"

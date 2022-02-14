@@ -19,12 +19,13 @@ type
     Label1: TLabel;
     NewImageEdit: TEdit;
     IniPropStorage1: TIniPropStorage;
+    ClearBtn: TSpeedButton;
     procedure BitBtn1Click(Sender: TObject);
     procedure BitBtn2Click(Sender: TObject);
+    procedure DFileMemoChange(Sender: TObject);
     procedure FormClose(Sender: TObject; var CloseAction: TCloseAction);
     procedure FormCreate(Sender: TObject);
     procedure FormShow(Sender: TObject);
-    procedure NewImageEditChange(Sender: TObject);
   private
 
   public
@@ -42,7 +43,7 @@ uses unit1, start_docker_command;
 
 { TDFileForm }
 
-//Правим исходный образ (или создаём новый) по сценарию Dockerfile
+//Создаём новый образ по сценарию Dockerfile
 procedure TDFileForm.BitBtn1Click(Sender: TObject);
 var
   FStartDockerCommand: TThread;
@@ -50,11 +51,12 @@ begin
   Application.ProcessMessages;
   DFileMemo.Lines.SaveToFile(GetUserDir + '.config/DockerManager/Dockerfile');
 
- { if Trim(NewImageEdit.Text) = '' then
-    DockerCmd := 'cd ~/.config/DockerManager; docker build .'
-  else}
-  DockerCmd := 'cd ~/.config/DockerManager; docker build --tag ' +
-    NewImageEdit.Text + ' .';
+  //Если сборка из DockerHub
+  if Trim(NewImageEdit.Text) <> '' then
+    DockerCmd := 'cd ~/.config/DockerManager; docker build --tag ' +
+      NewImageEdit.Text + ' .'
+  else
+    DockerCmd := 'cd ~/.config/DockerManager; docker build .';
 
   FStartDockerCommand := StartDockerCommand.Create(False);
   FStartDockerCommand.Priority := tpNormal;
@@ -65,6 +67,13 @@ end;
 procedure TDFileForm.BitBtn2Click(Sender: TObject);
 begin
   DFileForm.Close;
+end;
+
+procedure TDFileForm.DFileMemoChange(Sender: TObject);
+begin
+  if Trim(DFileMemo.Text) = '' then BitBtn1.Enabled := False
+  else
+    BitBtn1.Enabled := True;
 end;
 
 procedure TDFileForm.FormClose(Sender: TObject; var CloseAction: TCloseAction);
@@ -83,17 +92,13 @@ procedure TDFileForm.FormShow(Sender: TObject);
 begin
   IniPropStorage1.Restore;
 
+  ClearBtn.Width := NewImageEdit.Height;
+
   if FileExists(GetUserDir + '.config/DockerManager/Dockerfile') then
     DFileMemo.Lines.LoadFromFile(GetUserDir + '.config/DockerManager/Dockerfile');
 
-  DFileMemo.Lines[0] := 'FROM ' + DFileForm.Caption;
-end;
-
-procedure TDFileForm.NewImageEditChange(Sender: TObject);
-begin
-  if Trim(NewImageEdit.Text) = '' then BitBtn1.Enabled := False
-  else
-    BitBtn1.Enabled := True;
+  if DFileForm.Caption <> SDockerHub then
+    DFileMemo.Lines[0] := 'FROM ' + DFileForm.Caption;
 end;
 
 end.

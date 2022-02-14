@@ -1,7 +1,7 @@
 object DFileForm: TDFileForm
-  Left = 309
+  Left = 316
   Height = 605
-  Top = 123
+  Top = 130
   Width = 841
   Caption = 'Dockerfile'
   ClientHeight = 605
@@ -11,7 +11,7 @@ object DFileForm: TDFileForm
   OnCreate = FormCreate
   OnShow = FormShow
   Position = poDefault
-  SessionProperties = 'Height;Left;Top;Width;NewImageEdit.Text'
+  SessionProperties = 'Height;Left;NewImageEdit.Text;Top;Width'
   LCLVersion = '2.2.0.4'
   object DFileMemo: TMemo
     AnchorSideTop.Control = BitBtn1
@@ -25,9 +25,10 @@ object DFileForm: TDFileForm
     BorderSpacing.Top = 5
     Font.Height = -13
     Font.Name = 'Monospace'
+    OnChange = DFileMemoChange
     ParentFont = False
     ScrollBars = ssVertical
-    TabOrder = 0
+    TabOrder = 3
     WordWrap = False
   end
   object BitBtn1: TBitBtn
@@ -47,7 +48,7 @@ object DFileForm: TDFileForm
     Kind = bkOK
     ModalResult = 1
     OnClick = BitBtn1Click
-    TabOrder = 1
+    TabOrder = 2
   end
   object BitBtn2: TBitBtn
     AnchorSideRight.Control = BitBtn1
@@ -65,7 +66,7 @@ object DFileForm: TDFileForm
     Kind = bkCancel
     ModalResult = 2
     OnClick = BitBtn2Click
-    TabOrder = 2
+    TabOrder = 1
   end
   object NewImageEdit: TEdit
     AnchorSideLeft.Control = Label1
@@ -76,8 +77,7 @@ object DFileForm: TDFileForm
     Top = 5
     Width = 192
     BorderSpacing.Left = 2
-    OnChange = NewImageEditChange
-    TabOrder = 3
+    TabOrder = 0
     Text = 'my-new:image'
   end
   object Label1: TLabel
@@ -88,6 +88,22 @@ object DFileForm: TDFileForm
     Top = 15
     Width = 70
     Caption = 'New image:'
+  end
+  object ClearBtn: TSpeedButton
+    AnchorSideLeft.Control = NewImageEdit
+    AnchorSideLeft.Side = asrBottom
+    AnchorSideTop.Control = NewImageEdit
+    AnchorSideBottom.Control = NewImageEdit
+    AnchorSideBottom.Side = asrBottom
+    Left = 270
+    Height = 36
+    Hint = 'Do not create'
+    Top = 5
+    Width = 34
+    Anchors = [akTop, akLeft, akBottom]
+    Caption = 'Х'
+    ShowHint = True
+    ParentShowHint = False
   end
   object IniPropStorage1: TIniPropStorage
     StoredValues = <>
