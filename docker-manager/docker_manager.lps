@@ -58,9 +58,10 @@
       <Unit2>
         <Filename Value="docker_images_trd.pas"/>
         <IsPartOfProject Value="True"/>
+        <IsVisibleTab Value="True"/>
         <EditorIndex Value="3"/>
         <TopLine Value="37"/>
-        <CursorPos Y="46"/>
+        <CursorPos X="47" Y="46"/>
         <UsageCount Value="53"/>
         <Loaded Value="True"/>
       </Unit2>
@@ -94,7 +95,6 @@
         <ComponentName Value="DFileForm"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-        <IsVisibleTab Value="True"/>
         <EditorIndex Value="1"/>
         <TopLine Value="73"/>
         <CursorPos X="22" Y="75"/>

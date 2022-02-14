@@ -43,7 +43,8 @@ begin
     ExProcess.Executable := 'bash';
     ExProcess.Options := [poUsePipes, poWaitOnExit]; //poStderrToOutPut
     ExProcess.Parameters.Add('-c');
-    ExProcess.Parameters.Add('docker images; echo "^^^"');
+    //Sort 0..9 + a, b, c, d, e, f = "IMAGE ID" всегда сверху (третий столбец) - от перескакивания позиций
+    ExProcess.Parameters.Add('docker images | sort -rik3; echo "^^^"');
 
     while not Terminated do
     begin
