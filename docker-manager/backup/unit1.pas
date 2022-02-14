@@ -97,6 +97,7 @@ type
 
 var
   MainForm: TMainForm;
+  //DockerCmd - команда в поток, RunImageCmd - команда запуска образа (ПКМ) на время всего сеанса работы
   DockerCmd, RunImageCmd: string;
 
 resourcestring
