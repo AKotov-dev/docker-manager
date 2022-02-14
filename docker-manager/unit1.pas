@@ -97,7 +97,8 @@ type
 
 var
   MainForm: TMainForm;
-  DockerCmd: string;
+  //DockerCmd - команда в поток, RunImageCmd - команда запуска образа (ПКМ) на время всего сеанса работы
+  DockerCmd, RunImageCmd: string;
 
 resourcestring
   SPullCaption = 'Pull image';
@@ -461,16 +462,14 @@ end;}
 procedure TMainForm.MenuItem1Click(Sender: TObject);
 var
   FStartDockerCommand: TThread;
-  S: string;
 begin
-  S := '';
-  if InputQuery(SRunImage, SRunImageCommand, S) then
+  if InputQuery(SRunImage, SRunImageCommand, RunImageCmd) then
     //Внутренняя или внешняя команда?
   begin
-    if Pos('-', S) <> 0 then
-      DockerCmd := Trim('docker run ' + S + ' ' + ImageTag)
+    if Pos('-', RunImageCmd) <> 0 then
+      DockerCmd := Trim('docker run ' + RunImageCmd + ' ' + ImageTag)
     else
-      DockerCmd := Trim('docker run ' + ImageTag + ' ' + S);
+      DockerCmd := Trim('docker run ' + ImageTag + ' ' + RunImageCmd);
 
     FStartDockerCommand := StartDockerCommand.Create(False);
     FStartDockerCommand.Priority := tpNormal;
@@ -559,16 +558,14 @@ end;
 procedure TMainForm.MenuItem8Click(Sender: TObject);
 var
   FStartDockerCommand: TThread;
-  s: string;
 begin
-  S := '';
-  if InputQuery(SRunImageRm, SRunImageCommand, S) then
+  if InputQuery(SRunImageRm, SRunImageCommand, RunImageCmd) then
     //Внутренняя или внешняя команда?
   begin
-    if Pos('-', S) <> 0 then
-      DockerCmd := Trim('docker run --rm ' + S + ' ' + ImageTag)
+    if Pos('-', RunImageCmd) <> 0 then
+      DockerCmd := Trim('docker run --rm ' + RunImageCmd + ' ' + ImageTag)
     else
-      DockerCmd := Trim('docker run --rm ' + ImageTag + ' ' + S);
+      DockerCmd := Trim('docker run --rm ' + ImageTag + ' ' + RunImageCmd);
 
     FStartDockerCommand := StartDockerCommand.Create(False);
     FStartDockerCommand.Priority := tpNormal;
