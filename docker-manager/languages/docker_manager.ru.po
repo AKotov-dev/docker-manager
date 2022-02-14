@@ -143,7 +143,7 @@ msgstr "Создать новый образ"
 
 #: unit1.sdockerhub
 msgid "...image not selected; will be retrieved from DockerHub"
-msgstr "...образ не выбран; будет получен с DockerHub"
+msgstr "...образ не выбран; будет получен из DockerHub"
 
 #: unit1.sdockernotrunning
 msgid "DockerManager: Warning! Docker not running or no superuser privileges!"

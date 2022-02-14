@@ -1,7 +1,7 @@
 object DFileForm: TDFileForm
-  Left = 316
+  Left = 332
   Height = 605
-  Top = 130
+  Top = 129
   Width = 841
   Caption = 'Dockerfile'
   ClientHeight = 605
@@ -25,7 +25,6 @@ object DFileForm: TDFileForm
     BorderSpacing.Top = 5
     Font.Height = -13
     Font.Name = 'Monospace'
-    OnChange = DFileMemoChange
     ParentFont = False
     ScrollBars = ssVertical
     TabOrder = 3

@@ -23,7 +23,6 @@ type
     procedure BitBtn1Click(Sender: TObject);
     procedure BitBtn2Click(Sender: TObject);
     procedure ClearBtnClick(Sender: TObject);
-    procedure DFileMemoChange(Sender: TObject);
     procedure FormClose(Sender: TObject; var CloseAction: TCloseAction);
     procedure FormCreate(Sender: TObject);
     procedure FormShow(Sender: TObject);
@@ -70,16 +69,10 @@ begin
   DFileForm.Close;
 end;
 
+//Очистка имени нового образа (пустой = новый образ не создаётся)
 procedure TDFileForm.ClearBtnClick(Sender: TObject);
 begin
   NewImageEdit.Clear;
-end;
-
-procedure TDFileForm.DFileMemoChange(Sender: TObject);
-begin
-  if Trim(DFileMemo.Text) = '' then BitBtn1.Enabled := False
-  else
-    BitBtn1.Enabled := True;
 end;
 
 procedure TDFileForm.FormClose(Sender: TObject; var CloseAction: TCloseAction);

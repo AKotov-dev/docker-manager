@@ -25,7 +25,6 @@ object DFileForm: TDFileForm
     BorderSpacing.Top = 5
     Font.Height = -13
     Font.Name = 'Monospace'
-    OnChange = DFileMemoChange
     ParentFont = False
     ScrollBars = ssVertical
     TabOrder = 3
@@ -102,6 +101,7 @@ object DFileForm: TDFileForm
     Width = 34
     Anchors = [akTop, akLeft, akBottom]
     Caption = 'Х'
+    OnClick = ClearBtnClick
     ShowHint = True
     ParentShowHint = False
   end
