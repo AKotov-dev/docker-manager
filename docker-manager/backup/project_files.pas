@@ -6,7 +6,7 @@ interface
 
 uses
   Classes, SysUtils, Forms, Controls, Graphics, Dialogs, FileCtrl, Buttons,
-  StdCtrls, IniPropStorage, FileUtil;
+  StdCtrls, IniPropStorage, FileUtil, Types;
 
 type
 
@@ -14,12 +14,15 @@ type
 
   TFilesForm = class(TForm)
     FileListBox1: TFileListBox;
+    ImageList1: TImageList;
     IniPropStorage1: TIniPropStorage;
     Label1: TLabel;
     OpenDialog1: TOpenDialog;
     AddBtn: TSpeedButton;
     DeleteBtn: TSpeedButton;
     procedure DeleteBtnClick(Sender: TObject);
+    procedure FileListBox1DrawItem(Control: TWinControl; Index: integer;
+      ARect: TRect; State: TOwnerDrawState);
     procedure FormClose(Sender: TObject; var CloseAction: TCloseAction);
     procedure FormCreate(Sender: TObject);
     procedure FormShow(Sender: TObject);
@@ -64,6 +67,7 @@ begin
         ExtractFileName(OpenDialog1.Files[i]), False);
 
     FileListBox1.UpdateFileList;
+    if FileListBox1.Count <> 0 then FileListBox1.ItemIndex := 0;
   end;
 end;
 
@@ -90,6 +94,28 @@ begin
         DeleteFile(Label1.Caption + '/' + FileListBox1.Items[i]);
 
     FileListBox1.UpdateFileList;
+    if FileListBox1.Count <> 0 then FileListBox1.ItemIndex := 0;
+  end;
+end;
+
+procedure TFilesForm.FileListBox1DrawItem(Control: TWinControl;
+  Index: integer; ARect: TRect; State: TOwnerDrawState);
+var
+  BitMap: TBitMap;
+begin
+  try
+    BitMap := TBitMap.Create;
+    with FileListBox1 do
+    begin
+      Canvas.FillRect(aRect);
+      //Название файла
+      Canvas.TextOut(aRect.Left + 26, aRect.Top + 5, Items[Index]);
+      //Иконка файла
+      ImageList1.GetBitMap(0, BitMap);
+      Canvas.Draw(aRect.Left + 2, aRect.Top + 2, BitMap);
+    end;
+  finally
+    BitMap.Free;
   end;
 end;
 
