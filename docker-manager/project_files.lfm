@@ -1,7 +1,7 @@
 object FilesForm: TFilesForm
-  Left = 309
+  Left = 396
   Height = 426
-  Top = 132
+  Top = 156
   Width = 322
   Caption = 'Project files'
   ClientHeight = 426
