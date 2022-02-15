@@ -2,7 +2,7 @@
 name=docker-manager
 
 [VERSION]
-version=1.4
+version=1.5
 
 [RELEASE]
 release=0.mrx8
