@@ -15,16 +15,13 @@ object DFileForm: TDFileForm
   object DFileMemo: TMemo
     AnchorSideTop.Control = BitBtn1
     AnchorSideTop.Side = asrBottom
-    Left = 3
-    Height = 579
+    Left = 0
+    Height = 582
     Top = 46
-    Width = 878
+    Width = 884
     Align = alBottom
     Anchors = [akTop, akLeft, akRight, akBottom]
-    BorderSpacing.Left = 3
     BorderSpacing.Top = 5
-    BorderSpacing.Right = 3
-    BorderSpacing.Bottom = 3
     Font.Height = -13
     Font.Name = 'Monospace'
     ParentFont = False
@@ -36,12 +33,12 @@ object DFileForm: TDFileForm
     AnchorSideRight.Side = asrBottom
     AnchorSideBottom.Control = Owner
     AnchorSideBottom.Side = asrBottom
-    Left = 769
+    Left = 771
     Height = 36
     Top = 5
     Width = 110
     Anchors = [akTop, akRight]
-    BorderSpacing.Right = 5
+    BorderSpacing.Right = 3
     BorderSpacing.Bottom = 5
     Default = True
     DefaultCaption = True
@@ -54,7 +51,7 @@ object DFileForm: TDFileForm
     AnchorSideRight.Control = BitBtn1
     AnchorSideBottom.Control = Owner
     AnchorSideBottom.Side = asrBottom
-    Left = 653
+    Left = 655
     Height = 36
     Top = 5
     Width = 113
@@ -81,12 +78,14 @@ object DFileForm: TDFileForm
     Text = 'my-new:image'
   end
   object Label1: TLabel
+    AnchorSideLeft.Control = Owner
     AnchorSideTop.Control = NewImageEdit
     AnchorSideTop.Side = asrCenter
     Left = 3
     Height = 17
     Top = 15
     Width = 70
+    BorderSpacing.Left = 3
     Caption = 'New image:'
   end
   object ClearBtn: TSpeedButton

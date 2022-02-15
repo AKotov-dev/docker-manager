@@ -3,6 +3,7 @@ object FilesForm: TFilesForm
   Height = 426
   Top = 133
   Width = 322
+  ActiveControl = FileListBox1
   Caption = 'Project files'
   ClientHeight = 426
   ClientWidth = 322
@@ -14,16 +15,13 @@ object FilesForm: TFilesForm
   object FileListBox1: TFileListBox
     AnchorSideTop.Control = AddBtn
     AnchorSideTop.Side = asrBottom
-    Left = 3
-    Height = 377
+    Left = 0
+    Height = 380
     Top = 46
-    Width = 316
+    Width = 322
     Align = alBottom
     Anchors = [akTop, akLeft, akRight, akBottom]
-    BorderSpacing.Left = 3
     BorderSpacing.Top = 5
-    BorderSpacing.Right = 3
-    BorderSpacing.Bottom = 3
     Directory = '/home/marsik'
     FileType = [ftHidden, ftNormal]
     Font.Height = -13
@@ -37,13 +35,13 @@ object FilesForm: TFilesForm
   end
   object AddBtn: TSpeedButton
     AnchorSideRight.Control = DeleteBtn
-    Left = 245
+    Left = 218
     Height = 36
     Hint = 'Add files'
     Top = 5
-    Width = 36
+    Width = 50
     Anchors = [akTop, akRight]
-    BorderSpacing.Right = 2
+    BorderSpacing.Right = 1
     Glyph.Data = {
       36090000424D3609000000000000360000002800000018000000180000000100
       2000000000000009000064000000640000000000000000000000000000000000
@@ -127,11 +125,11 @@ object FilesForm: TFilesForm
   object DeleteBtn: TSpeedButton
     AnchorSideRight.Control = Owner
     AnchorSideRight.Side = asrBottom
-    Left = 283
+    Left = 269
     Height = 36
     Hint = 'Delete files'
     Top = 5
-    Width = 36
+    Width = 50
     Anchors = [akTop, akRight]
     BorderSpacing.Right = 3
     Glyph.Data = {
