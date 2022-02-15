@@ -111,6 +111,7 @@ resourcestring
   SCreateImageCaption = 'Create a new Image';
   SConfirmDeletion = 'Do you confirm the deletion?';
   SDockerHub = '...image not selected; will be retrieved from DockerHub';
+  SDeleteFile = 'Delete selected file(s)?';
  { SExecCaption = 'Execute';
   SExecString = 'Enter the command';}
 

@@ -16,13 +16,14 @@ msgstr ""
 msgid "Dockerfile"
 msgstr ""
 
-#: tdfileform.clearbtn.caption
-msgid "Х"
-msgstr ""
-
 #: tdfileform.clearbtn.hint
 msgid "Do not create"
 msgstr "Не создавать"
+
+#: tdfileform.dfdirbtn.hint
+msgctxt "tdfileform.dfdirbtn.hint"
+msgid "Project files"
+msgstr "Файлы проекта"
 
 #: tdfileform.label1.caption
 msgid "New image:"
@@ -31,6 +32,25 @@ msgstr "Новый образ:"
 #: tdfileform.newimageedit.text
 msgctxt "tdfileform.newimageedit.text"
 msgid "my-new:image"
+msgstr ""
+
+#: tfilesform.addbtn.hint
+msgctxt "tfilesform.addbtn.hint"
+msgid "Add files"
+msgstr "Добавить файлы"
+
+#: tfilesform.caption
+msgctxt "tfilesform.caption"
+msgid "Project files"
+msgstr "Файлы проекта"
+
+#: tfilesform.deletebtn.hint
+msgctxt "tfilesform.deletebtn.hint"
+msgid "Delete files"
+msgstr "Удалить файлы"
+
+#: tfilesform.label1.caption
+msgid "Label1"
 msgstr ""
 
 #: tmainform.caption
@@ -140,6 +160,10 @@ msgstr "Вы подтверждаете удаление?"
 #: unit1.screateimagecaption
 msgid "Create a new Image"
 msgstr "Создать новый образ"
+
+#: unit1.sdeletefile
+msgid "Delete selected files?"
+msgstr "Удалить выбранные файлы?"
 
 #: unit1.sdockerhub
 msgid "...image not selected; will be retrieved from DockerHub"

@@ -1,0 +1,6 @@
+{"version":1,"strings":[
+{"hash":33229107,"name":"tfilesform.caption","sourcebytes":[80,114,111,106,101,99,116,32,102,105,108,101,115],"value":"Project files"},
+{"hash":107791715,"name":"tfilesform.addbtn.hint","sourcebytes":[65,100,100,32,102,105,108,101,115],"value":"Add files"},
+{"hash":62975587,"name":"tfilesform.deletebtn.hint","sourcebytes":[68,101,108,101,116,101,32,102,105,108,101,115],"value":"Delete files"},
+{"hash":86477809,"name":"tfilesform.label1.caption","sourcebytes":[76,97,98,101,108,49],"value":"Label1"}
+]}

@@ -20,9 +20,11 @@ type
     NewImageEdit: TEdit;
     IniPropStorage1: TIniPropStorage;
     ClearBtn: TSpeedButton;
+    DfDirBtn: TSpeedButton;
     procedure BitBtn1Click(Sender: TObject);
     procedure BitBtn2Click(Sender: TObject);
     procedure ClearBtnClick(Sender: TObject);
+    procedure DfDirBtnClick(Sender: TObject);
     procedure FormClose(Sender: TObject; var CloseAction: TCloseAction);
     procedure FormCreate(Sender: TObject);
     procedure FormShow(Sender: TObject);
@@ -37,7 +39,7 @@ var
 
 implementation
 
-uses unit1, start_docker_command;
+uses unit1, start_docker_command, project_files;
 
 {$R *.lfm}
 
@@ -75,6 +77,11 @@ begin
   NewImageEdit.Clear;
 end;
 
+procedure TDFileForm.DfDirBtnClick(Sender: TObject);
+begin
+  FilesForm.Show;
+end;
+
 procedure TDFileForm.FormClose(Sender: TObject; var CloseAction: TCloseAction);
 begin
   IniPropStorage1.Save;
@@ -83,7 +90,7 @@ end;
 procedure TDFileForm.FormCreate(Sender: TObject);
 begin
   //Файл конфигурации формы Dockerfile
-  DFileForm.IniPropStorage1.IniFileName := IniPropStorage1.IniFileName;
+  IniPropStorage1.IniFileName := MainForm.IniPropStorage1.IniFileName;
 end;
 
 //Восстанавливаем последний созданный Dockerfile

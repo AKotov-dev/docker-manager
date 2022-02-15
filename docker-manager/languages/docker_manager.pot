@@ -5,12 +5,13 @@ msgstr "Content-Type: text/plain; charset=UTF-8"
 msgid "Dockerfile"
 msgstr ""
 
-#: tdfileform.clearbtn.caption
-msgid "Х"
-msgstr ""
-
 #: tdfileform.clearbtn.hint
 msgid "Do not create"
+msgstr ""
+
+#: tdfileform.dfdirbtn.hint
+msgctxt "tdfileform.dfdirbtn.hint"
+msgid "Project files"
 msgstr ""
 
 #: tdfileform.label1.caption
@@ -20,6 +21,25 @@ msgstr ""
 #: tdfileform.newimageedit.text
 msgctxt "tdfileform.newimageedit.text"
 msgid "my-new:image"
+msgstr ""
+
+#: tfilesform.addbtn.hint
+msgctxt "tfilesform.addbtn.hint"
+msgid "Add files"
+msgstr ""
+
+#: tfilesform.caption
+msgctxt "tfilesform.caption"
+msgid "Project files"
+msgstr ""
+
+#: tfilesform.deletebtn.hint
+msgctxt "tfilesform.deletebtn.hint"
+msgid "Delete files"
+msgstr ""
+
+#: tfilesform.label1.caption
+msgid "Label1"
 msgstr ""
 
 #: tmainform.caption
@@ -128,6 +148,10 @@ msgstr ""
 
 #: unit1.screateimagecaption
 msgid "Create a new Image"
+msgstr ""
+
+#: unit1.sdeletefile
+msgid "Delete selected files?"
 msgstr ""
 
 #: unit1.sdockerhub
