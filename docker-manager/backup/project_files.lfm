@@ -35,14 +35,13 @@ object FilesForm: TFilesForm
   end
   object AddBtn: TSpeedButton
     AnchorSideRight.Control = DeleteBtn
-    Left = 245
+    Left = 218
     Height = 36
     Hint = 'Add files'
     Top = 5
-    Width = 36
+    Width = 50
     Anchors = [akTop, akRight]
-    BorderSpacing.Right = 2
-    Flat = True
+    BorderSpacing.Right = 1
     Glyph.Data = {
       36090000424D3609000000000000360000002800000018000000180000000100
       2000000000000009000064000000640000000000000000000000000000000000
@@ -126,14 +125,13 @@ object FilesForm: TFilesForm
   object DeleteBtn: TSpeedButton
     AnchorSideRight.Control = Owner
     AnchorSideRight.Side = asrBottom
-    Left = 283
+    Left = 269
     Height = 36
     Hint = 'Delete files'
     Top = 5
-    Width = 36
+    Width = 50
     Anchors = [akTop, akRight]
     BorderSpacing.Right = 3
-    Flat = True
     Glyph.Data = {
       36090000424D3609000000000000360000002800000018000000180000000100
       2000000000000009000064000000640000000000000000000000000000000000
