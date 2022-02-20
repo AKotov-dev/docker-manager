@@ -118,7 +118,7 @@ resourcestring
   SConfirmDeletion = 'Do you confirm the deletion?';
   SDockerHub = '...image not selected; will be retrieved from DockerHub';
   SDeleteFile = 'Delete selected files?';
-  SImportTarFile = 'Import from a *.tar file';
+  SImportTarFile = 'Import from a tar archive';
  { SExecCaption = 'Execute';
   SExecString = 'Enter the command';}
 

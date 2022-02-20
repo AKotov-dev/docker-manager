@@ -270,7 +270,7 @@ object MainForm: TMainForm
   end
   object SaveDialog1: TSaveDialog
     DefaultExt = '.*.tar'
-    Filter = 'Docker image file (*.tar)|*.tar'
+    Filter = 'Archive (*.tar)|*.tar'
     InitialDir = '~/'
     Options = [ofOverwritePrompt, ofEnableSizing, ofViewDetail]
     Left = 728
@@ -278,7 +278,7 @@ object MainForm: TMainForm
   end
   object OpenDialog1: TOpenDialog
     DefaultExt = '.*.tar'
-    Filter = 'Docker image file (*.tar)|*.tar'
+    Filter = 'Archive (*.tar)|*.tar'
     Options = [ofAllowMultiSelect, ofEnableSizing, ofViewDetail]
     Left = 840
     Top = 40
