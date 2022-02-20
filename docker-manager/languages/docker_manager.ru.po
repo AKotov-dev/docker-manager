@@ -127,7 +127,7 @@ msgstr "Импортировать архив tar и создать образ"
 
 #: tmainform.menuitem24.caption
 msgid "Export a container as a tar archive"
-msgstr "Экспортировать контейнер в архив *.tar"
+msgstr "Экспортировать контейнер в архив tar"
 
 #: tmainform.menuitem3.caption
 msgid "Start container"
