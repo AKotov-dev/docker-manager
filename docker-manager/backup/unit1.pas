@@ -205,7 +205,7 @@ begin
       (Pos('^^^', ImageBox.Items[ImageBox.ItemIndex]) <> 0) then
       for i := 1 to PopUpMenu1.Items.Count - 1 do
       begin
-        if (i <> 11) and (i <> 2) then
+        if (i <> 2) and (i <> 11) and (i <> 13) then
           PopUpMenu1.Items[i].Enabled := False;
       end
     else

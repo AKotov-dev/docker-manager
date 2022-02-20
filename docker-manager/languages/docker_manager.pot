@@ -111,7 +111,7 @@ msgid "All containers"
 msgstr ""
 
 #: tmainform.menuitem23.caption
-msgid "Import a *.tar archive and create a image"
+msgid "Import a tar archive and create a image"
 msgstr ""
 
 #: tmainform.menuitem24.caption
@@ -171,7 +171,7 @@ msgid "DockerManager: Warning! Docker not running or no superuser privileges!"
 msgstr ""
 
 #: unit1.simporttarfile
-msgid "Import from a *.tar file"
+msgid "Import from a tar archive"
 msgstr ""
 
 #: unit1.spullcaption

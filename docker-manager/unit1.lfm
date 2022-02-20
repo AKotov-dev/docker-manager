@@ -169,7 +169,7 @@ object MainForm: TMainForm
       Caption = '-'
     end
     object MenuItem23: TMenuItem
-      Caption = 'Import a *.tar archive and create a image'
+      Caption = 'Import a tar archive and create a image'
       ImageIndex = 1
       OnClick = MenuItem23Click
     end
