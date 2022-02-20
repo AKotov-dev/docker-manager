@@ -121,6 +121,14 @@ msgstr "Только выбранный"
 msgid "All containers"
 msgstr "Все контейнеры"
 
+#: tmainform.menuitem23.caption
+msgid "Import a *.tar archive and create a image"
+msgstr "Импортировать архив *.tar и создать образ"
+
+#: tmainform.menuitem24.caption
+msgid "Export a container as a tar archive"
+msgstr "Экспортировать контейнер в архив *.tar"
+
 #: tmainform.menuitem3.caption
 msgid "Start container"
 msgstr "Запустить контейнер"
@@ -172,6 +180,10 @@ msgstr "...образ не выбран; будет получен из DockerHu
 #: unit1.sdockernotrunning
 msgid "DockerManager: Warning! Docker not running or no superuser privileges!"
 msgstr "DockerManager: Внимание! Docker не запущен или нет прав суперпользователя!"
+
+#: unit1.simporttarfile
+msgid "Import from a *.tar file"
+msgstr ""
 
 #: unit1.spullcaption
 msgid "Pull image"

@@ -1,7 +1,7 @@
 object MainForm: TMainForm
-  Left = 353
+  Left = 301
   Height = 712
-  Top = 128
+  Top = 122
   Width = 1066
   ActiveControl = ImageBox
   Caption = 'Docker Manager'
@@ -168,6 +168,14 @@ object MainForm: TMainForm
     object N1: TMenuItem
       Caption = '-'
     end
+    object MenuItem23: TMenuItem
+      Caption = 'Import a *.tar archive and create a container'
+      ImageIndex = 1
+      OnClick = MenuItem23Click
+    end
+    object Separator2: TMenuItem
+      Caption = '-'
+    end
     object MenuItem2: TMenuItem
       Caption = 'Removing image(s)'
       ImageIndex = 2
@@ -222,6 +230,14 @@ object MainForm: TMainForm
       Caption = 'Create a new image from this container'
       ImageIndex = 3
       OnClick = MenuItem12Click
+    end
+    object Separator3: TMenuItem
+      Caption = '-'
+    end
+    object MenuItem24: TMenuItem
+      Caption = 'Export a container as a tar archive'
+      ImageIndex = 3
+      OnClick = MenuItem24Click
     end
     object N6: TMenuItem
       Caption = '-'

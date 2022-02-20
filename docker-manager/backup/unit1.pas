@@ -32,6 +32,10 @@ type
     MenuItem20: TMenuItem;
     MenuItem21: TMenuItem;
     MenuItem22: TMenuItem;
+    MenuItem23: TMenuItem;
+    MenuItem24: TMenuItem;
+    Separator3: TMenuItem;
+    Separator2: TMenuItem;
     Separator1: TMenuItem;
     N8: TMenuItem;
     N7: TMenuItem;
@@ -77,6 +81,8 @@ type
     procedure MenuItem20Click(Sender: TObject);
     procedure MenuItem21Click(Sender: TObject);
     procedure MenuItem22Click(Sender: TObject);
+    procedure MenuItem23Click(Sender: TObject);
+    procedure MenuItem24Click(Sender: TObject);
     procedure MenuItem3Click(Sender: TObject);
     procedure MenuItem6Click(Sender: TObject);
     procedure MenuItem7Click(Sender: TObject);
@@ -112,6 +118,7 @@ resourcestring
   SConfirmDeletion = 'Do you confirm the deletion?';
   SDockerHub = '...image not selected; will be retrieved from DockerHub';
   SDeleteFile = 'Delete selected files?';
+  SImportTarFile = 'Import from a *.tar file';
  { SExecCaption = 'Execute';
   SExecString = 'Enter the command';}
 
@@ -513,6 +520,40 @@ begin
   DockerCmd := 'docker stop ' + S;
   FStartDockerCommand := StartDockerCommand.Create(False);
   FStartDockerCommand.Priority := tpNormal;
+end;
+
+//Import the contents from a tarball to create a filesystem image
+procedure TMainForm.MenuItem23Click(Sender: TObject);
+var
+  S: string;
+  FStartDockerCommand: TThread;
+begin
+  if OpenDialog1.Execute then
+  begin
+    S := 'my-new:image';
+    repeat
+      if not InputQuery(SImportTarFile, SPullString, S) then
+        Exit
+    until S <> '';
+    DockerCmd := 'docker import "' + OpenDialog1.FileName + '" ' + Trim(S);
+    FStartDockerCommand := StartDockerCommand.Create(False);
+    FStartDockerCommand.Priority := tpNormal;
+  end;
+end;
+
+//Export a container’s filesystem as a tar archive
+procedure TMainForm.MenuItem24Click(Sender: TObject);
+var
+  FStartDockerCommand: TThread;
+begin
+  if SaveDialog1.Execute then
+  begin
+    DockerCmd := Trim('docker export --output="' + SaveDialog1.FileName +
+      '" ' + ContainerID);
+
+    FStartDockerCommand := StartDockerCommand.Create(False);
+    FStartDockerCommand.Priority := tpNormal;
+  end;
 end;
 
 //Старт контейнера с параметрами
