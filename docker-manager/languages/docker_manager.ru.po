@@ -129,6 +129,14 @@ msgstr "Импортировать архив tar и создать образ"
 msgid "Export a container as a tar archive"
 msgstr "Экспортировать контейнер в архив tar"
 
+#: tmainform.menuitem25.caption
+msgid "Rename this container"
+msgstr "Переименовать этот контейнер"
+
+#: tmainform.menuitem26.caption
+msgid "Rename this image (name:tag)"
+msgstr "Переименовать этот образ (name:tag)"
+
 #: tmainform.menuitem3.caption
 msgid "Start container"
 msgstr "Запустить контейнер"
@@ -193,6 +201,14 @@ msgstr "Получить образ"
 msgid "Enter name:tag"
 msgstr "Введите name:tag"
 
+#: unit1.srenamecaption
+msgid "Renaming"
+msgstr ""
+
+#: unit1.srenamestring
+msgid "Enter a new name:"
+msgstr ""
+
 #: unit1.srunimage
 msgid "Run image"
 msgstr "Запуск образа"
@@ -204,3 +220,4 @@ msgstr "Введите команду (пример: -p 8080:80 или echo \"he
 #: unit1.srunimagerm
 msgid "Run image with --rm"
 msgstr "Запуск образа с --rm"
+

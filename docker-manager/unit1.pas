@@ -34,6 +34,8 @@ type
     MenuItem22: TMenuItem;
     MenuItem23: TMenuItem;
     MenuItem24: TMenuItem;
+    MenuItem25: TMenuItem;
+    MenuItem26: TMenuItem;
     Separator3: TMenuItem;
     Separator2: TMenuItem;
     Separator1: TMenuItem;
@@ -83,6 +85,8 @@ type
     procedure MenuItem22Click(Sender: TObject);
     procedure MenuItem23Click(Sender: TObject);
     procedure MenuItem24Click(Sender: TObject);
+    procedure MenuItem25Click(Sender: TObject);
+    procedure MenuItem26Click(Sender: TObject);
     procedure MenuItem3Click(Sender: TObject);
     procedure MenuItem6Click(Sender: TObject);
     procedure MenuItem7Click(Sender: TObject);
@@ -119,6 +123,8 @@ resourcestring
   SDockerHub = '...image not selected; will be retrieved from DockerHub';
   SDeleteFile = 'Delete selected files?';
   SImportTarFile = 'Import from a tar archive';
+  SRenameCaption = 'Renaming';
+  SRenameString = 'Enter a new name:';
  { SExecCaption = 'Execute';
   SExecString = 'Enter the command';}
 
@@ -161,7 +167,7 @@ begin
   begin
     //Первый пробел сначала после слова
     a := Pos(' ', ImageBox.Items[ImageBox.ItemIndex]);
-    //Левая часть ContainerID до :
+    //Левая часть ImageTag до :
     L := Copy(ImageBox.Items[ImageBox.ItemIndex], 1, a - 1) + ':';
 
     //Листаем пробелы до первого знака
@@ -186,12 +192,25 @@ begin
   Result := Concat(L, R);
 end;
 
-//Функция вычисления ID контейнера
+{//Функция вычисления ID контейнера (заменена на ContainerName: 27.02.2022 для унификации)
 function ContainerID: string;
 begin
   with MainForm do
     Result := Copy(ContainerBox.Items[ContainerBox.ItemIndex], 1,
       Pos(' ', ContainerBox.Items[ContainerBox.ItemIndex]) - 1);
+end;}
+
+//Функция вычисления ContainerName
+function ContainerName: string;
+var
+  i: integer;
+begin
+  Result := '';
+  with MainForm do
+    for i := Length(ContainerBox.Items[ContainerBox.ItemIndex]) downto 0 do
+      if ContainerBox.Items[ContainerBox.ItemIndex][i] = ' ' then break
+      else
+        Result := ContainerBox.Items[ContainerBox.ItemIndex][i] + Result;
 end;
 
 //Контроль PopUpMenu Images
@@ -205,7 +224,7 @@ begin
       (Pos('^^^', ImageBox.Items[ImageBox.ItemIndex]) <> 0) then
       for i := 1 to PopUpMenu1.Items.Count - 1 do
       begin
-        if (i <> 2) and (i <> 11) and (i <> 13) then
+        if (i <> 2) and (i <> 12) and (i <> 14) then
           PopUpMenu1.Items[i].Enabled := False;
       end
     else
@@ -330,7 +349,7 @@ procedure TMainForm.MenuItem11Click(Sender: TObject);
 var
   FStartDockerCommand: TThread;
 begin
-  DockerCmd := Trim('docker inspect ' + ContainerID);
+  DockerCmd := Trim('docker inspect ' + ContainerName);
   FStartDockerCommand := StartDockerCommand.Create(False);
   FStartDockerCommand.Priority := tpNormal;
 end;
@@ -339,7 +358,7 @@ end;
 procedure TMainForm.MenuItem12Click(Sender: TObject);
 var
   FStartDockerCommand: TThread;
-  s: string;
+  S: string;
 begin
   S := '';
   repeat
@@ -348,7 +367,7 @@ begin
   until S <> '';
 
   DockerCmd := Trim('docker commit -a "' + GetEnvironmentVariable('USER') +
-    '" ' + ContainerID + ' ' + S);
+    '" ' + ContainerName + ' ' + S);
 
   FStartDockerCommand := StartDockerCommand.Create(False);
   FStartDockerCommand.Priority := tpNormal;
@@ -428,7 +447,7 @@ var
 begin
   if MessageDlg(SConfirmDeletion, mtConfirmation, [mbYes, mbNo], 0) = mrYes then
   begin
-    DockerCmd := 'docker rm ' + ContainerID;
+    DockerCmd := 'docker rm ' + ContainerName;
     FStartDockerCommand := StartDockerCommand.Create(False);
     FStartDockerCommand.Priority := tpNormal;
   end;
@@ -501,7 +520,7 @@ procedure TMainForm.MenuItem21Click(Sender: TObject);
 var
   FStartDockerCommand: TThread;
 begin
-  DockerCmd := 'docker stop ' + ContainerID;
+  DockerCmd := 'docker stop ' + ContainerName;
   FStartDockerCommand := StartDockerCommand.Create(False);
   FStartDockerCommand.Priority := tpNormal;
 end;
@@ -549,11 +568,47 @@ begin
   if SaveDialog1.Execute then
   begin
     DockerCmd := Trim('docker export --output="' + SaveDialog1.FileName +
-      '" ' + ContainerID);
+      '" ' + ContainerName);
 
     FStartDockerCommand := StartDockerCommand.Create(False);
     FStartDockerCommand.Priority := tpNormal;
   end;
+end;
+
+//Rename this Container
+procedure TMainForm.MenuItem25Click(Sender: TObject);
+var
+  S: string;
+  FStartDockerCommand: TThread;
+begin
+  S := 'new-container-name';
+  repeat
+    if not InputQuery(SRenameCaption, SRenameString, S) then
+      Exit
+  until S <> '';
+
+  DockerCmd := 'docker rename ' + ContainerName + ' ' + S;
+
+  FStartDockerCommand := StartDockerCommand.Create(False);
+  FStartDockerCommand.Priority := tpNormal;
+end;
+
+//Rename this Image
+procedure TMainForm.MenuItem26Click(Sender: TObject);
+var
+  S: string;
+  FStartDockerCommand: TThread;
+begin
+  S := 'new-image-name:tag';
+  repeat
+    if not InputQuery(SRenameCaption, SRenameString, S) then
+      Exit
+  until S <> '';
+
+  DockerCmd := 'docker image tag ' + ImageTag + ' ' + S + ' && docker rmi ' + ImageTag;
+
+  FStartDockerCommand := StartDockerCommand.Create(False);
+  FStartDockerCommand.Priority := tpNormal;
 end;
 
 //Старт контейнера с параметрами
@@ -561,7 +616,7 @@ procedure TMainForm.MenuItem3Click(Sender: TObject);
 var
   FStartDockerCommand: TThread;
 begin
-  DockerCmd := Trim('docker start ' + ContainerID);
+  DockerCmd := Trim('docker start ' + ContainerName);
   FStartDockerCommand := StartDockerCommand.Create(False);
   FStartDockerCommand.Priority := tpNormal;
 end;
@@ -572,9 +627,9 @@ procedure TMainForm.MenuItem6Click(Sender: TObject);
 var
   FStartTerminal: TThread;
 begin
-  DockerCmd := '[[ $(docker ps | grep ' + ContainerID + ') ]] || docker start ' +
-    ContainerID + '&& sakura -c 120 -r 40 -f 10 -x "docker exec -it ' +
-    ContainerID + ' /bin/bash"';
+  DockerCmd := '[[ $(docker ps | grep ' + ContainerName + ') ]] || docker start ' +
+    ContainerName + '&& sakura -c 120 -r 40 -f 10 -x "docker exec -it ' +
+    ContainerName + ' /bin/bash"';
   FStartTerminal := TerminalTRD.Create(False);
   FStartTerminal.Priority := tpNormal;
 end;

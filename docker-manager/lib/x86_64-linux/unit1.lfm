@@ -126,6 +126,11 @@ object MainForm: TMainForm
       ImageIndex = 3
       OnClick = MenuItem20Click
     end
+    object MenuItem26: TMenuItem
+      Caption = 'Rename this image (name:tag)'
+      ImageIndex = 6
+      OnClick = MenuItem26Click
+    end
     object Separator1: TMenuItem
       Caption = '-'
     end
@@ -242,6 +247,11 @@ object MainForm: TMainForm
     object N6: TMenuItem
       Caption = '-'
     end
+    object MenuItem25: TMenuItem
+      Caption = 'Rename this container'
+      ImageIndex = 6
+      OnClick = MenuItem25Click
+    end
     object MenuItem11: TMenuItem
       Caption = 'Сontainer version information'
       ImageIndex = 0
@@ -289,9 +299,9 @@ object MainForm: TMainForm
     Left = 288
     Top = 40
     Bitmap = {
-      4C7A060000000A0000000A000000440000000000000078DAEDD1B10900300C03
-      412FE9D502C9085AD2D9E04940A504DF5DA7998FA9B83876E6550B8B63E7FF83
-      8B6367FF435C1C3BFF1F8DC5B1736FED83C5B17BD905C2DAF6BB
+      4C7A070000000A0000000A000000490000000000000078DAEDD1B10D00200C03
+      C12C99D59060842C996CF080E4D296BEBBCEDD1FABE0ECD8891759981D3BFD1F
+      9C1D3BF91FC5D9B1D3FF91981D3BF5D63E981D3BF9F2921DBB870D1E395AC9
     }
   end
 end

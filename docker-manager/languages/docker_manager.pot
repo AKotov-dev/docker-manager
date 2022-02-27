@@ -118,6 +118,14 @@ msgstr ""
 msgid "Export a container as a tar archive"
 msgstr ""
 
+#: tmainform.menuitem25.caption
+msgid "Rename this container"
+msgstr ""
+
+#: tmainform.menuitem26.caption
+msgid "Rename this image (name:tag)"
+msgstr ""
+
 #: tmainform.menuitem3.caption
 msgid "Start container"
 msgstr ""
@@ -180,6 +188,14 @@ msgstr ""
 
 #: unit1.spullstring
 msgid "Enter name:tag"
+msgstr ""
+
+#: unit1.srenamecaption
+msgid "Renaming"
+msgstr ""
+
+#: unit1.srenamestring
+msgid "Enter a new name:"
 msgstr ""
 
 #: unit1.srunimage
