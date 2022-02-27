@@ -203,11 +203,11 @@ msgstr "Введите name:tag"
 
 #: unit1.srenamecaption
 msgid "Renaming"
-msgstr ""
+msgstr "Переименование"
 
 #: unit1.srenamestring
 msgid "Enter a new name:"
-msgstr ""
+msgstr "Введите новое имя:"
 
 #: unit1.srunimage
 msgid "Run image"
@@ -220,4 +220,3 @@ msgstr "Введите команду (пример: -p 8080:80 или echo \"he
 #: unit1.srunimagerm
 msgid "Run image with --rm"
 msgstr "Запуск образа с --rm"
-
