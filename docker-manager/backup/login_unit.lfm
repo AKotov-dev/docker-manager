@@ -11,7 +11,7 @@ object LoginForm: TLoginForm
   OnCreate = FormCreate
   OnShow = FormShow
   Position = poDefault
-  SessionProperties = 'Top;Left;Width;Height'
+  SessionProperties = 'Height;Left;Top;Width;Edit1.Text;Edit2.Text'
   LCLVersion = '2.2.0.4'
   object Label1: TLabel
     AnchorSideTop.Control = Edit1

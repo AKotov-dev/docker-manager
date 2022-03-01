@@ -82,12 +82,12 @@ object LoginForm: TLoginForm
     AnchorSideRight.Control = LoginBtn
     AnchorSideBottom.Control = Owner
     AnchorSideBottom.Side = asrBottom
-    Left = 153
+    Left = 157
     Height = 32
     Top = 93
     Width = 100
     Anchors = [akRight, akBottom]
-    BorderSpacing.Right = 5
+    BorderSpacing.Right = 1
     BorderSpacing.Bottom = 6
     Caption = 'Logout'
     OnClick = LogoutBtnClick
