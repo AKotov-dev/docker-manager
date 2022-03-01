@@ -581,7 +581,7 @@ var
   S: string;
   FStartDockerCommand: TThread;
 begin
-  S := 'new-container-name';
+  S := ContainerName;
   repeat
     if not InputQuery(SRenameCaption, SRenameString, S) then
       Exit
@@ -599,7 +599,7 @@ var
   S: string;
   FStartDockerCommand: TThread;
 begin
-  S := 'new-image-name:tag';
+  S := ImageTag;
   repeat
     if not InputQuery(SRenameCaption, SRenameString, S) then
       Exit
