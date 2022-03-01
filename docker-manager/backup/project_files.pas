@@ -74,7 +74,7 @@ end;
 procedure TFilesForm.FormCreate(Sender: TObject);
 begin
   //Файл конфигурации формы FilesForm
-  FilesForm.IniPropStorage1.IniFileName := MainForm.IniPropStorage1.IniFileName;
+  IniPropStorage1.IniFileName := MainForm.IniPropStorage1.IniFileName;
 end;
 
 procedure TFilesForm.FormClose(Sender: TObject; var CloseAction: TCloseAction);

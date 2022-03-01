@@ -71,11 +71,11 @@ msgstr "Пароль:"
 #: tloginform.loginbtn.caption
 msgctxt "tloginform.loginbtn.caption"
 msgid "Login"
-msgstr "Логин"
+msgstr ""
 
 #: tloginform.logoutbtn.caption
 msgid "Logout"
-msgstr "Логаут"
+msgstr ""
 
 #: tmainform.caption
 msgid "Docker Manager"

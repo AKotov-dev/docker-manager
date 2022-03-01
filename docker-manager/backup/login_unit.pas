@@ -13,8 +13,8 @@ type
   { TLoginForm }
 
   TLoginForm = class(TForm)
-    IniPropStorage1: TIniPropStorage;
     LogoutBtn: TBitBtn;
+    IniPropStorage1: TIniPropStorage;
     LoginBtn: TBitBtn;
     Edit1: TEdit;
     Edit2: TEdit;
