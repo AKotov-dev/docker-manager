@@ -42,6 +42,30 @@ msgstr ""
 msgid "Label1"
 msgstr ""
 
+#: tloginform.caption
+msgctxt "tloginform.caption"
+msgid "Login to DockerHub"
+msgstr ""
+
+#: tloginform.label1.caption
+msgctxt "tloginform.label1.caption"
+msgid "Name:"
+msgstr ""
+
+#: tloginform.label2.caption
+msgctxt "tloginform.label2.caption"
+msgid "Password:"
+msgstr ""
+
+#: tloginform.loginbtn.caption
+msgctxt "tloginform.loginbtn.caption"
+msgid "Login"
+msgstr ""
+
+#: tloginform.logoutbtn.caption
+msgid "Logout"
+msgstr ""
+
 #: tmainform.caption
 msgid "Docker Manager"
 msgstr ""
@@ -124,6 +148,19 @@ msgstr ""
 
 #: tmainform.menuitem26.caption
 msgid "Rename this image (name:tag)"
+msgstr ""
+
+#: tmainform.menuitem27.caption
+msgid "Push this image to DockerHub"
+msgstr ""
+
+#: tmainform.menuitem28.caption
+msgctxt "tmainform.menuitem28.caption"
+msgid "Login to DockerHub"
+msgstr ""
+
+#: tmainform.menuitem29.caption
+msgid "Push image to DockerHub"
 msgstr ""
 
 #: tmainform.menuitem3.caption

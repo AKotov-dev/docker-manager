@@ -7,7 +7,7 @@
         <CompatibilityMode Value="True"/>
       </Flags>
       <SessionStorage Value="InProjectDir"/>
-      <Title Value="DockerManager v1.7"/>
+      <Title Value="DockerManager v1.8"/>
       <Scaled Value="True"/>
       <ResourceType Value="res"/>
       <UseXPManifest Value="True"/>
@@ -74,7 +74,7 @@
         <PackageName Value="LCL"/>
       </Item1>
     </RequiredPackages>
-    <Units Count="8">
+    <Units Count="9">
       <Unit0>
         <Filename Value="docker_manager.lpr"/>
         <IsPartOfProject Value="True"/>
@@ -117,6 +117,13 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
       </Unit7>
+      <Unit8>
+        <Filename Value="login_unit.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="LoginForm"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+      </Unit8>
     </Units>
   </ProjectOptions>
   <CompilerOptions>

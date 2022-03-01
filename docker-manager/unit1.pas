@@ -36,6 +36,9 @@ type
     MenuItem24: TMenuItem;
     MenuItem25: TMenuItem;
     MenuItem26: TMenuItem;
+    MenuItem27: TMenuItem;
+    MenuItem28: TMenuItem;
+    MenuItem29: TMenuItem;
     Separator3: TMenuItem;
     Separator2: TMenuItem;
     Separator1: TMenuItem;
@@ -87,6 +90,8 @@ type
     procedure MenuItem24Click(Sender: TObject);
     procedure MenuItem25Click(Sender: TObject);
     procedure MenuItem26Click(Sender: TObject);
+    procedure MenuItem28Click(Sender: TObject);
+    procedure MenuItem29Click(Sender: TObject);
     procedure MenuItem3Click(Sender: TObject);
     procedure MenuItem6Click(Sender: TObject);
     procedure MenuItem7Click(Sender: TObject);
@@ -131,7 +136,7 @@ resourcestring
 implementation
 
 uses dockerfile_unit, docker_images_trd, docker_containers_trd,
-  start_docker_command, terminal_trd;
+  start_docker_command, terminal_trd, login_unit;
 
 {$R *.lfm}
 
@@ -224,7 +229,7 @@ begin
       (Pos('^^^', ImageBox.Items[ImageBox.ItemIndex]) <> 0) then
       for i := 1 to PopUpMenu1.Items.Count - 1 do
       begin
-        if (i <> 2) and (i <> 12) and (i <> 14) then
+        if (i <> 3) and (i <> 13) and (i <> 15) then
           PopUpMenu1.Items[i].Enabled := False;
       end
     else
@@ -607,6 +612,21 @@ begin
 
   DockerCmd := 'docker image tag ' + ImageTag + ' ' + S + ' && docker rmi ' + ImageTag;
 
+  FStartDockerCommand := StartDockerCommand.Create(False);
+  FStartDockerCommand.Priority := tpNormal;
+end;
+
+procedure TMainForm.MenuItem28Click(Sender: TObject);
+begin
+  LoginForm.Show;
+end;
+
+//Push Image to DockerHub
+procedure TMainForm.MenuItem29Click(Sender: TObject);
+var
+  FStartDockerCommand: TThread;
+begin
+  DockerCmd := Trim('docker push ' + ImageTag);
   FStartDockerCommand := StartDockerCommand.Create(False);
   FStartDockerCommand.Priority := tpNormal;
 end;

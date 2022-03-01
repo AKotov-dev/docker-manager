@@ -1,5 +1,5 @@
 object MainForm: TMainForm
-  Left = 301
+  Left = 300
   Height = 712
   Top = 122
   Width = 1066
@@ -117,6 +117,18 @@ object MainForm: TMainForm
       Caption = 'Pull image (name:tag)'
       ImageIndex = 0
       OnClick = MenuItem7Click
+    end
+    object MenuItem27: TMenuItem
+      Caption = 'Push this image to DockerHub'
+      ImageIndex = 3
+      object MenuItem28: TMenuItem
+        Caption = 'Login to DockerHub'
+        OnClick = MenuItem28Click
+      end
+      object MenuItem29: TMenuItem
+        Caption = 'Push image to DockerHub'
+        OnClick = MenuItem29Click
+      end
     end
     object N5: TMenuItem
       Caption = '-'

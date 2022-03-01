@@ -53,6 +53,30 @@ msgstr "Удалить файлы"
 msgid "Label1"
 msgstr ""
 
+#: tloginform.caption
+msgctxt "tloginform.caption"
+msgid "Login to DockerHub"
+msgstr "Зайти в DockerHub"
+
+#: tloginform.label1.caption
+msgctxt "tloginform.label1.caption"
+msgid "Name:"
+msgstr "Имя:"
+
+#: tloginform.label2.caption
+msgctxt "tloginform.label2.caption"
+msgid "Password:"
+msgstr "Пароль:"
+
+#: tloginform.loginbtn.caption
+msgctxt "tloginform.loginbtn.caption"
+msgid "Login"
+msgstr "Логин"
+
+#: tloginform.logoutbtn.caption
+msgid "Logout"
+msgstr "Логаут"
+
 #: tmainform.caption
 msgid "Docker Manager"
 msgstr ""
@@ -136,6 +160,19 @@ msgstr "Переименовать этот контейнер"
 #: tmainform.menuitem26.caption
 msgid "Rename this image (name:tag)"
 msgstr "Переименовать этот образ (name:tag)"
+
+#: tmainform.menuitem27.caption
+msgid "Push this image to DockerHub"
+msgstr "Отправить этот образ в DockerHub"
+
+#: tmainform.menuitem28.caption
+msgctxt "tmainform.menuitem28.caption"
+msgid "Login to DockerHub"
+msgstr "Зайти в DockerHub"
+
+#: tmainform.menuitem29.caption
+msgid "Push image to DockerHub"
+msgstr "Отправить образ в DockerHub"
 
 #: tmainform.menuitem3.caption
 msgid "Start container"
