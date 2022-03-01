@@ -1,12 +1,12 @@
 object LoginForm: TLoginForm
   Left = 319
-  Height = 136
+  Height = 129
   Top = 145
-  Width = 364
+  Width = 361
   ActiveControl = Edit1
   Caption = 'Login to DockerHub'
-  ClientHeight = 136
-  ClientWidth = 364
+  ClientHeight = 129
+  ClientWidth = 361
   OnClose = FormClose
   OnCreate = FormCreate
   OnShow = FormShow
@@ -27,7 +27,7 @@ object LoginForm: TLoginForm
     AnchorSideTop.Side = asrCenter
     Left = 8
     Height = 17
-    Top = 60
+    Top = 53
     Width = 61
     Caption = 'Password:'
   end
@@ -38,7 +38,7 @@ object LoginForm: TLoginForm
     Left = 71
     Height = 36
     Top = 8
-    Width = 288
+    Width = 285
     Anchors = [akTop, akLeft, akRight]
     BorderSpacing.Right = 5
     TabOrder = 0
@@ -51,8 +51,8 @@ object LoginForm: TLoginForm
     AnchorSideBottom.Control = LoginBtn
     Left = 71
     Height = 36
-    Top = 50
-    Width = 288
+    Top = 43
+    Width = 285
     Anchors = [akLeft, akRight, akBottom]
     BorderSpacing.Left = 2
     BorderSpacing.Bottom = 8
@@ -65,9 +65,9 @@ object LoginForm: TLoginForm
     AnchorSideRight.Side = asrBottom
     AnchorSideBottom.Control = Owner
     AnchorSideBottom.Side = asrBottom
-    Left = 249
+    Left = 246
     Height = 36
-    Top = 94
+    Top = 87
     Width = 110
     Anchors = [akRight, akBottom]
     BorderSpacing.Right = 5
@@ -118,9 +118,9 @@ object LoginForm: TLoginForm
     AnchorSideRight.Control = LoginBtn
     AnchorSideBottom.Control = Owner
     AnchorSideBottom.Side = asrBottom
-    Left = 138
+    Left = 135
     Height = 36
-    Top = 94
+    Top = 87
     Width = 110
     Anchors = [akRight, akBottom]
     BorderSpacing.Right = 1
