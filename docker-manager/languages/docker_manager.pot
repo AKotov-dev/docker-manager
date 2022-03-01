@@ -160,7 +160,7 @@ msgid "Login to DockerHub"
 msgstr ""
 
 #: tmainform.menuitem29.caption
-msgid "Push image to DockerHub"
+msgid "Push an image to DockerHub"
 msgstr ""
 
 #: tmainform.menuitem3.caption

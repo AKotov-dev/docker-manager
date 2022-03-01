@@ -1,7 +1,7 @@
 object LoginForm: TLoginForm
-  Left = 310
+  Left = 319
   Height = 129
-  Top = 130
+  Top = 145
   Width = 364
   ActiveControl = Edit1
   Caption = 'Login to DockerHub'

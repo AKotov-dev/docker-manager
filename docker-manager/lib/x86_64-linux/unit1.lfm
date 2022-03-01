@@ -126,7 +126,7 @@ object MainForm: TMainForm
         OnClick = MenuItem28Click
       end
       object MenuItem29: TMenuItem
-        Caption = 'Push image to DockerHub'
+        Caption = 'Push an image to DockerHub'
         OnClick = MenuItem29Click
       end
     end

@@ -4,7 +4,7 @@
 {"hash":203802441,"name":"tmainform.menuitem7.caption","sourcebytes":[80,117,108,108,32,105,109,97,103,101,32,40,110,97,109,101,58,116,97,103,41],"value":"Pull image (name:tag)"},
 {"hash":55702354,"name":"tmainform.menuitem27.caption","sourcebytes":[80,117,115,104,32,116,104,105,115,32,105,109,97,103,101,32,116,111,32,68,111,99,107,101,114,72,117,98],"value":"Push this image to DockerHub"},
 {"hash":213435618,"name":"tmainform.menuitem28.caption","sourcebytes":[76,111,103,105,110,32,116,111,32,68,111,99,107,101,114,72,117,98],"value":"Login to DockerHub"},
-{"hash":154767410,"name":"tmainform.menuitem29.caption","sourcebytes":[80,117,115,104,32,105,109,97,103,101,32,116,111,32,68,111,99,107,101,114,72,117,98],"value":"Push image to DockerHub"},
+{"hash":99891938,"name":"tmainform.menuitem29.caption","sourcebytes":[80,117,115,104,32,97,110,32,105,109,97,103,101,32,116,111,32,68,111,99,107,101,114,72,117,98],"value":"Push an image to DockerHub"},
 {"hash":240235621,"name":"tmainform.menuitem20.caption","sourcebytes":[67,114,101,97,116,101,32,97,110,32,105,109,97,103,101,32,118,105,97,32,68,111,99,107,101,114,102,105,108,101],"value":"Create an image via Dockerfile"},
 {"hash":111584857,"name":"tmainform.menuitem26.caption","sourcebytes":[82,101,110,97,109,101,32,116,104,105,115,32,105,109,97,103,101,32,40,110,97,109,101,58,116,97,103,41],"value":"Rename this image (name:tag)"},
 {"hash":234913081,"name":"tmainform.menuitem1.caption","sourcebytes":[82,117,110,32,105,109,97,103,101,32,119,105,116,104,32,112,97,114,97,109,101,116,101,114,115,32,40,111,112,116,105,111,110,97,108,41],"value":"Run image with parameters (optional)"},
