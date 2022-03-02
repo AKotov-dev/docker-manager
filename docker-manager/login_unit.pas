@@ -47,10 +47,10 @@ procedure TLoginForm.LoginBtnClick(Sender: TObject);
 var
   FStartDockerCommand: TThread;
 begin
+  LoginForm.Close;
   DockerCmd := Trim('docker login -u ' + Edit1.Text + ' -p ' + Edit2.Text);
   FStartDockerCommand := StartDockerCommand.Create(False);
   FStartDockerCommand.Priority := tpNormal;
-  LoginForm.Close;
 end;
 
 //Файл настроек
@@ -77,10 +77,10 @@ procedure TLoginForm.LogoutBtnClick(Sender: TObject);
 var
   FStartDockerCommand: TThread;
 begin
+  LoginForm.Close;
   DockerCmd := Trim('docker logout');
   FStartDockerCommand := StartDockerCommand.Create(False);
   FStartDockerCommand.Priority := tpNormal;
-  LoginForm.Close;
 end;
 
 end.

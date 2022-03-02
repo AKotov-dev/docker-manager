@@ -112,8 +112,8 @@ type
 
 var
   MainForm: TMainForm;
-  //DockerCmd - команда в поток, RunImageCmd - команда запуска образа (ПКМ) на время всего сеанса работы
-  DockerCmd, RunImageCmd: string;
+  //DockerCmd - команда в поток, RunImageCmd + ImageName + NewImageName - для InputQuery на время сеанса работы
+  DockerCmd, RunImageCmd, ImageName, NewImageName: string;
 
 resourcestring
   SPullCaption = 'Pull image';
@@ -363,16 +363,14 @@ end;
 procedure TMainForm.MenuItem12Click(Sender: TObject);
 var
   FStartDockerCommand: TThread;
-  S: string;
 begin
-  S := '';
   repeat
-    if not InputQuery(SCreateImageCaption, SPullString, S) then
+    if not InputQuery(SCreateImageCaption, SPullString, NewImageName) then
       Exit
-  until S <> '';
+  until NewImageName <> '';
 
   DockerCmd := Trim('docker commit -a "' + GetEnvironmentVariable('USER') +
-    '" ' + ContainerName + ' ' + S);
+    '" ' + ContainerName + ' ' + Trim(NewImageName));
 
   FStartDockerCommand := StartDockerCommand.Create(False);
   FStartDockerCommand.Priority := tpNormal;
@@ -657,16 +655,14 @@ end;
 //Получение Docker-Image
 procedure TMainForm.MenuItem7Click(Sender: TObject);
 var
-  S: string;
   FStartDockerCommand: TThread;
 begin
-  S := '';
   repeat
-    if not InputQuery(SPullCaption, SPullString, S) then
+    if not InputQuery(SPullCaption, SPullString, ImageName) then
       Exit
-  until S <> '';
+  until ImageName <> '';
 
-  DockerCmd := 'docker pull ' + Trim(S);
+  DockerCmd := 'docker pull ' + Trim(ImageName);
   FStartDockerCommand := StartDockerCommand.Create(False);
   FStartDockerCommand.Priority := tpNormal;
 end;
