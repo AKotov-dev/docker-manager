@@ -590,7 +590,7 @@ begin
       Exit
   until S <> '';
 
-  DockerCmd := 'docker rename ' + ContainerName + ' ' + Trim(S);
+  DockerCmd := 'docker rename ' + ContainerName + ' ' + S;
 
   FStartDockerCommand := StartDockerCommand.Create(False);
   FStartDockerCommand.Priority := tpNormal;

@@ -48,7 +48,7 @@ var
   FStartDockerCommand: TThread;
 begin
   LoginForm.Close;
-  DockerCmd := Trim('docker login -u ' + Trim(Edit1.Text) + ' -p ' + Trim(Edit2.Text));
+  DockerCmd := Trim('docker login -u ' + Edit1.Text + ' -p ' + Edit2.Text);
   FStartDockerCommand := StartDockerCommand.Create(False);
   FStartDockerCommand.Priority := tpNormal;
 end;
