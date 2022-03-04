@@ -223,12 +223,16 @@ msgid "...image not selected; will be retrieved from DockerHub"
 msgstr "...образ не выбран; будет получен из DockerHub"
 
 #: unit1.sdockernotrunning
-msgid "DockerManager: Warning! Docker not running or no superuser privileges!"
-msgstr "DockerManager: Внимание! Docker не запущен или нет прав суперпользователя!"
+msgid "Warning! Docker not running! Launch Docker: systemctl restart docker.service"
+msgstr "Внимание! Docker не запущен! Запустите Docker: systemctl restart docker.service"
 
 #: unit1.simporttarfile
 msgid "Import from a tar archive"
 msgstr "Импорт из архива tar"
+
+#: unit1.snouserindocker
+msgid "Warning! Include the user in the docker group and restart the computer: usermod -aG docker $LOGNAME; reboot"
+msgstr "Внимание! Включите пользователя в группу docker и перезагрузите компьютер: usermod -aG docker $LOGNAME; reboot"
 
 #: unit1.spullcaption
 msgid "Pull image"

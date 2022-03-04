@@ -121,8 +121,6 @@ resourcestring
   SRunImage = 'Run image';
   SRunImageCommand = 'Enter the parameters (sample: -p 8080:80 or echo "hello")';
   SRunImageRm = 'Run image with --rm';
-  SDockerNotRunning =
-    'DockerManager: Warning! Docker not running or no superuser privileges!';
   SCreateImageCaption = 'Create a new Image';
   SConfirmDeletion = 'Do you confirm the deletion?';
   SDockerHub = '...image not selected; will be retrieved from DockerHub';
@@ -130,6 +128,11 @@ resourcestring
   SImportTarFile = 'Import from a tar archive';
   SRenameCaption = 'Renaming';
   SRenameString = 'Enter a new name:';
+  SDockerNotRunning =
+    'Warning! Docker not running! Launch Docker: systemctl restart docker.service';
+  SNoUserInDocker =
+    'Warning! Include the user in the docker group and restart the computer: usermod -aG docker $LOGNAME; reboot';
+
  { SExecCaption = 'Execute';
   SExecString = 'Enter the command';}
 
@@ -295,15 +298,16 @@ begin
   ImageBox.ItemHeight := ImageBox.Font.Size + 10;
   ContainerBox.ItemHeight := ImageBox.ItemHeight;
 
+  //Проверка активности docker.service и включение $USER в группу docker
+  StartProcess('[[ $(systemctl is-active docker) != "active" ]] && echo "' +
+    SDockerNotRunning + '"; [[ $(groups | grep "docker") ]] || echo "' +
+    SNoUserInDocker + '"');
+
   FDImages := DImages.Create(False);
   FDImages.Priority := tpHighest;
 
   FDContainers := DContainers.Create(False);
   FDContainers.Priority := tpHighest;
-
-  //Проверка активности docker.service
-  StartProcess('[[ $(systemctl is-active docker) != "active" ]] && echo "' +
-    SDockerNotRunning + '"');
 end;
 
 //Запуск образа DblClick с контролем пунктов PopUp-меню (enable/disable)
@@ -639,7 +643,6 @@ begin
   FStartDockerCommand := StartDockerCommand.Create(False);
   FStartDockerCommand.Priority := tpNormal;
 end;
-
 
 //Войти в Shell запущенного контейнера
 procedure TMainForm.MenuItem6Click(Sender: TObject);

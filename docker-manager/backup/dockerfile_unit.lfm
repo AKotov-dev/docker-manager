@@ -51,12 +51,12 @@ object DFileForm: TDFileForm
     AnchorSideRight.Control = BitBtn1
     AnchorSideBottom.Control = Owner
     AnchorSideBottom.Side = asrBottom
-    Left = 680
+    Left = 678
     Height = 36
     Top = 5
     Width = 100
     Anchors = [akTop, akRight]
-    BorderSpacing.Right = 1
+    BorderSpacing.Right = 3
     BorderSpacing.Bottom = 5
     Cancel = True
     DefaultCaption = True

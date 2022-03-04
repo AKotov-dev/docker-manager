@@ -212,11 +212,15 @@ msgid "...image not selected; will be retrieved from DockerHub"
 msgstr ""
 
 #: unit1.sdockernotrunning
-msgid "DockerManager: Warning! Docker not running or no superuser privileges!"
+msgid "Warning! Docker not running! Launch Docker: systemctl restart docker.service"
 msgstr ""
 
 #: unit1.simporttarfile
 msgid "Import from a tar archive"
+msgstr ""
+
+#: unit1.snouserindocker
+msgid "Warning! Include the user in the docker group and restart the computer: usermod -aG docker $LOGNAME; reboot"
 msgstr ""
 
 #: unit1.spullcaption

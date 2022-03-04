@@ -8,7 +8,6 @@ object FilesForm: TFilesForm
   ClientHeight = 426
   ClientWidth = 322
   OnClose = FormClose
-  OnCreate = FormCreate
   OnShow = FormShow
   SessionProperties = 'Height;Left;Top;Width;OpenDialog1.InitialDir'
   LCLVersion = '2.2.0.4'
