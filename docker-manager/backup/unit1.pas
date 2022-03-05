@@ -300,7 +300,7 @@ begin
 
   //Проверка активности docker.service и включение $USER в группу docker
   StartProcess('[[ $(systemctl is-active docker) != "active" ]] && echo "' +
-    SDockerNotRunning + '"; [[ $(groups | grep "docker1") ]] || echo "' +
+    SDockerNotRunning + '"; [[ $(groups | grep "docker") ]] || echo "' +
     SNoUserInDocker + '"');
 
   FDImages := DImages.Create(False);
