@@ -113,7 +113,7 @@ type
 var
   MainForm: TMainForm;
   //DockerCmd - команда в поток, RunImageCmd + ImageName + NewImageName - для InputQuery на время сеанса работы
-  DockerCmd, RunImageCmd, ImageName, NewImageName: string;
+  DockerCmd, RunImageCmd, ImageName: string;
 
 resourcestring
   SPullCaption = 'Pull image';
@@ -219,6 +219,32 @@ begin
       if ContainerBox.Items[ContainerBox.ItemIndex][i] = ' ' then break
       else
         Result := ContainerBox.Items[ContainerBox.ItemIndex][i] + Result;
+end;
+
+//Функция вычисления NewImageName из строки контейнера (Создать образ из контейнера)
+function NewImageName: string;
+var
+  i, a: integer;
+begin
+  a := 0;
+  with MainForm do
+  begin
+    //Первый пробел сначала после слова
+    a := Pos(' ', ContainerBox.Items[ContainerBox.ItemIndex]);
+
+    //Листаем пробелы до первого знака
+    for i := a to Length(ContainerBox.Items[ContainerBox.ItemIndex]) - 1 do
+      if ContainerBox.Items[ContainerBox.ItemIndex][i] = ' ' then
+        a := i
+      else
+        Break;
+    //(a -1) - индекс начала второго слова. Пробелы пройдены
+
+    Result := Copy(Copy(ContainerBox.Items[ContainerBox.ItemIndex],
+      a + 1, Length(ContainerBox.Items[ContainerBox.ItemIndex])), 1,
+      Pos(' ', Copy(ContainerBox.Items[ContainerBox.ItemIndex], a +
+      1, Length(ContainerBox.Items[ContainerBox.ItemIndex]))) - 1);
+  end;
 end;
 
 //Контроль PopUpMenu Images
@@ -366,15 +392,17 @@ end;
 //Создать свой образ из контейнера
 procedure TMainForm.MenuItem12Click(Sender: TObject);
 var
+  S: string;
   FStartDockerCommand: TThread;
 begin
+  S := NewImageName;
   repeat
-    if not InputQuery(SCreateImageCaption, SPullString, NewImageName) then
+    if not InputQuery(SCreateImageCaption, SPullString, S) then
       Exit
-  until NewImageName <> '';
+  until S <> '';
 
   DockerCmd := Trim('docker commit -a "' + GetEnvironmentVariable('USER') +
-    '" ' + ContainerName + ' ' + Trim(NewImageName));
+    '" ' + ContainerName + ' ' + Trim(S));
 
   FStartDockerCommand := StartDockerCommand.Create(False);
   FStartDockerCommand.Priority := tpNormal;
