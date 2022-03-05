@@ -1,4 +1,4 @@
-# Docker Manager
+# DockerManager
 The GUI is designed to manage Docker images and containers. It allows you to monitor the status of certain objects in real time and perform entry-level operations on them (right-click menu). It can also be useful as a monitor of Docker objects activity during deployment and configuration.
 + Getting/Downloading images from Docker storage
 + Launching/Stopping images and containers with and without additional commands
