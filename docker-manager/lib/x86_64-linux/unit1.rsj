@@ -6,7 +6,7 @@
 {"hash":79039213,"name":"unit1.srunimagerm","sourcebytes":[82,117,110,32,105,109,97,103,101,32,119,105,116,104,32,45,45,114,109],"value":"Run image with --rm"},
 {"hash":176544693,"name":"unit1.screateimagecaption","sourcebytes":[67,114,101,97,116,101,32,97,32,110,101,119,32,73,109,97,103,101],"value":"Create a new Image"},
 {"hash":211737135,"name":"unit1.sconfirmdeletion","sourcebytes":[68,111,32,121,111,117,32,99,111,110,102,105,114,109,32,116,104,101,32,100,101,108,101,116,105,111,110,63],"value":"Do you confirm the deletion?"},
-{"hash":77412834,"name":"unit1.sdockerhub","sourcebytes":[46,46,46,105,109,97,103,101,32,110,111,116,32,115,101,108,101,99,116,101,100,59,32,119,105,108,108,32,98,101,32,114,101,116,114,105,101,118,101,100,32,102,114,111,109,32,68,111,99,107,101,114,72,117,98],"value":"...image not selected; will be retrieved from DockerHub"},
+{"hash":21135346,"name":"unit1.sdockerhub","sourcebytes":[46,46,46,116,104,101,32,109,97,105,110,32,105,109,97,103,101,32,105,115,32,110,111,116,32,115,101,108,101,99,116,101,100,59,32,119,105,108,108,32,98,101,32,114,101,116,114,105,101,118,101,100,32,102,114,111,109,32,68,111,99,107,101,114,72,117,98],"value":"...the main image is not selected; will be retrieved from DockerHub"},
 {"hash":148329135,"name":"unit1.sdeletefile","sourcebytes":[68,101,108,101,116,101,32,115,101,108,101,99,116,101,100,32,102,105,108,101,115,63],"value":"Delete selected files?"},
 {"hash":223568629,"name":"unit1.simporttarfile","sourcebytes":[73,109,112,111,114,116,32,102,114,111,109,32,97,32,116,97,114,32,97,114,99,104,105,118,101],"value":"Import from a tar archive"},
 {"hash":206060487,"name":"unit1.srenamecaption","sourcebytes":[82,101,110,97,109,105,110,103],"value":"Renaming"},

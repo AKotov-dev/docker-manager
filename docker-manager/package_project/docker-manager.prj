@@ -52,8 +52,7 @@ deb=1
 1=/usr/share/applications/docker-manager.desktop
 2=/usr/share/docker-manager/
 3=/usr/share/icons/docker-manager.png
-4=/usr/share/polkit-1/actions/docker-manager.policy
-5=/usr/share/doc/docker-manager/
+4=/usr/share/doc/docker-manager/
 
 [URL32]
 url32=https://github.com/AKotov-dev/docker-manager

@@ -123,7 +123,7 @@ resourcestring
   SRunImageRm = 'Run image with --rm';
   SCreateImageCaption = 'Create a new Image';
   SConfirmDeletion = 'Do you confirm the deletion?';
-  SDockerHub = '...image not selected; will be retrieved from DockerHub';
+  SDockerHub = '...the main image is not selected; will be retrieved from DockerHub';
   SDeleteFile = 'Delete selected files?';
   SImportTarFile = 'Import from a tar archive';
   SRenameCaption = 'Renaming';
@@ -221,7 +221,7 @@ begin
         Result := ContainerBox.Items[ContainerBox.ItemIndex][i] + Result;
 end;
 
-//Функция вычисления NewImageName из строки контейнера
+//Функция вычисления NewImageName из строки контейнера (Создать образ из контейнера)
 function NewImageName: string;
 var
   i, a: integer;

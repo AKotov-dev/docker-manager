@@ -5,22 +5,18 @@ msgstr "Content-Type: text/plain; charset=UTF-8"
 msgid "Dockerfile"
 msgstr ""
 
-#: tdfileform.clearbtn.hint
-msgid "Do not create"
-msgstr ""
-
 #: tdfileform.dfdirbtn.hint
 msgctxt "tdfileform.dfdirbtn.hint"
 msgid "Project files"
 msgstr ""
 
 #: tdfileform.label1.caption
-msgid "New image:"
+msgid "Create an image:"
 msgstr ""
 
 #: tdfileform.newimageedit.text
 msgctxt "tdfileform.newimageedit.text"
-msgid "my-new:image"
+msgid "my-new-image:tag"
 msgstr ""
 
 #: tfilesform.addbtn.hint
@@ -208,7 +204,7 @@ msgid "Delete selected files?"
 msgstr ""
 
 #: unit1.sdockerhub
-msgid "...image not selected; will be retrieved from DockerHub"
+msgid "...the main image is not selected; will be retrieved from DockerHub"
 msgstr ""
 
 #: unit1.sdockernotrunning

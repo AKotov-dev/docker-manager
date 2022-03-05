@@ -112,7 +112,7 @@ type
 
 var
   MainForm: TMainForm;
-  //DockerCmd - команда в поток, RunImageCmd + ImageName + NewImageName - для InputQuery на время сеанса работы
+  //DockerCmd - команда в поток, RunImageCmd + ImageName - для InputQuery на время сеанса работы
   DockerCmd, RunImageCmd, ImageName: string;
 
 resourcestring
@@ -123,7 +123,7 @@ resourcestring
   SRunImageRm = 'Run image with --rm';
   SCreateImageCaption = 'Create a new Image';
   SConfirmDeletion = 'Do you confirm the deletion?';
-  SDockerHub = '...image not selected; will be retrieved from DockerHub';
+  SDockerHub = '...the main image is not selected; will be retrieved from DockerHub';
   SDeleteFile = 'Delete selected files?';
   SImportTarFile = 'Import from a tar archive';
   SRenameCaption = 'Renaming';

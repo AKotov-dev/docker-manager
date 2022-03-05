@@ -16,22 +16,18 @@ msgstr ""
 msgid "Dockerfile"
 msgstr ""
 
-#: tdfileform.clearbtn.hint
-msgid "Do not create"
-msgstr "Не создавать"
-
 #: tdfileform.dfdirbtn.hint
 msgctxt "tdfileform.dfdirbtn.hint"
 msgid "Project files"
 msgstr "Файлы проекта"
 
 #: tdfileform.label1.caption
-msgid "New image:"
-msgstr "Новый образ:"
+msgid "Create an image:"
+msgstr "Создать образ:"
 
 #: tdfileform.newimageedit.text
 msgctxt "tdfileform.newimageedit.text"
-msgid "my-new:image"
+msgid "my-new-image:tag"
 msgstr ""
 
 #: tfilesform.addbtn.hint
@@ -219,8 +215,8 @@ msgid "Delete selected files?"
 msgstr "Удалить выбранные файлы?"
 
 #: unit1.sdockerhub
-msgid "...image not selected; will be retrieved from DockerHub"
-msgstr "...образ не выбран; будет получен из DockerHub"
+msgid "...the main image is not selected; will be retrieved from DockerHub"
+msgstr "...основной образ не выбран; будет получен из DockerHub"
 
 #: unit1.sdockernotrunning
 msgid "Warning! Docker not running! Launch Docker: systemctl restart docker.service"

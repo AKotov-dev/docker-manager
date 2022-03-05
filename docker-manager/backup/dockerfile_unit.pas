@@ -6,7 +6,7 @@ interface
 
 uses
   Classes, SysUtils, Forms, Controls, Graphics, Dialogs, StdCtrls, Buttons,
-  IniPropStorage;
+  IniPropStorage, LCLType;
 
 type
 
@@ -19,15 +19,16 @@ type
     Label1: TLabel;
     NewImageEdit: TEdit;
     IniPropStorage1: TIniPropStorage;
-    ClearBtn: TSpeedButton;
     DfDirBtn: TSpeedButton;
     procedure BitBtn1Click(Sender: TObject);
     procedure BitBtn2Click(Sender: TObject);
-    procedure ClearBtnClick(Sender: TObject);
     procedure DfDirBtnClick(Sender: TObject);
     procedure FormClose(Sender: TObject; var CloseAction: TCloseAction);
     procedure FormCreate(Sender: TObject);
     procedure FormShow(Sender: TObject);
+    procedure NewImageEditChange(Sender: TObject);
+    procedure NewImageEditKeyDown(Sender: TObject; var Key: word;
+      Shift: TShiftState);
   private
 
   public
@@ -53,12 +54,9 @@ begin
   Application.ProcessMessages;
   DFileMemo.Lines.SaveToFile(GetUserDir + '.config/DockerManager/Dockerfile');
 
-  //Если сборка из DockerHub
-  if Trim(NewImageEdit.Text) <> '' then
-    DockerCmd := 'cd ~/.config/DockerManager; docker build --tag ' +
-      NewImageEdit.Text + ' .'
-  else
-    DockerCmd := 'cd ~/.config/DockerManager; docker build .';
+  //Сборка нового образа
+  DockerCmd := 'cd ~/.config/DockerManager; docker build --tag ' +
+    NewImageEdit.Text + ' .';
 
   FStartDockerCommand := StartDockerCommand.Create(False);
   FStartDockerCommand.Priority := tpNormal;
@@ -71,12 +69,7 @@ begin
   DFileForm.Close;
 end;
 
-//Очистка имени нового образа (пустой = новый образ не создаётся)
-procedure TDFileForm.ClearBtnClick(Sender: TObject);
-begin
-  NewImageEdit.Clear;
-end;
-
+//Файлы проекта
 procedure TDFileForm.DfDirBtnClick(Sender: TObject);
 begin
   FilesForm.Show;
@@ -98,13 +91,26 @@ procedure TDFileForm.FormShow(Sender: TObject);
 begin
   IniPropStorage1.Restore;
 
-  ClearBtn.Width := NewImageEdit.Height;
-
   if FileExists(GetUserDir + '.config/DockerManager/Dockerfile') then
     DFileMemo.Lines.LoadFromFile(GetUserDir + '.config/DockerManager/Dockerfile');
 
   if DFileForm.Caption <> SDockerHub then
     DFileMemo.Lines[0] := 'FROM ' + DFileForm.Caption;
+end;
+
+//Имя_образа:тэг задаём обязательно
+procedure TDFileForm.NewImageEditChange(Sender: TObject);
+begin
+  if NewImageEdit.Text = '' then BitBtn1.Enabled := False
+  else
+    BitBtn1.Enabled := True;
+end;
+
+//Запрет пробелов в имени нового образа
+procedure TDFileForm.NewImageEditKeyDown(Sender: TObject; var Key: word;
+  Shift: TShiftState);
+begin
+  if Key = VK_SPACE then Key := #0;
 end;
 
 end.
