@@ -51,7 +51,7 @@ begin
   IniPropStorage1.Restore;
 
   FileListBox1.Directory := GetUserDir + '.config/DockerManager';
-  Label1.Caption := FileListBox1.Directory;
+  Label1.Caption := '~/.config/DockerManager';
   if FileListBox1.Count <> 0 then FileListBox1.ItemIndex := 0;
 end;
 
@@ -63,7 +63,7 @@ begin
   if OpenDialog1.Execute then
   begin
     for i := 0 to OpenDialog1.Files.Count - 1 do
-      CopyFile(OpenDialog1.Files[i], Label1.Caption + '/' +
+      CopyFile(OpenDialog1.Files[i], FileListBox1.Directory + '/' +
         ExtractFileName(OpenDialog1.Files[i]), False);
 
     FileListBox1.UpdateFileList;
@@ -91,7 +91,7 @@ begin
   begin
     for i := 0 to FileListBox1.Count - 1 do
       if FileListBox1.Selected[i] then
-        DeleteFile(Label1.Caption + '/' + FileListBox1.Items[i]);
+        DeleteFile(FileListBox1.Directory + '/' + FileListBox1.Items[i]);
 
     FileListBox1.UpdateFileList;
     if FileListBox1.Count <> 0 then FileListBox1.ItemIndex := 0;

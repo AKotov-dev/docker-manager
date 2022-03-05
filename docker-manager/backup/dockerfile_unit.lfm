@@ -51,12 +51,12 @@ object DFileForm: TDFileForm
     AnchorSideRight.Control = BitBtn1
     AnchorSideBottom.Control = Owner
     AnchorSideBottom.Side = asrBottom
-    Left = 678
+    Left = 680
     Height = 36
     Top = 5
     Width = 100
     Anchors = [akTop, akRight]
-    BorderSpacing.Right = 3
+    BorderSpacing.Right = 1
     BorderSpacing.Bottom = 5
     Cancel = True
     DefaultCaption = True
@@ -72,7 +72,7 @@ object DFileForm: TDFileForm
     Left = 75
     Height = 36
     Top = 5
-    Width = 192
+    Width = 397
     BorderSpacing.Left = 2
     TabOrder = 0
     Text = 'my-new:image'
@@ -94,7 +94,7 @@ object DFileForm: TDFileForm
     AnchorSideTop.Control = NewImageEdit
     AnchorSideBottom.Control = NewImageEdit
     AnchorSideBottom.Side = asrBottom
-    Left = 267
+    Left = 472
     Height = 36
     Hint = 'Do not create'
     Top = 5
@@ -183,7 +183,7 @@ object DFileForm: TDFileForm
   object DfDirBtn: TSpeedButton
     AnchorSideLeft.Control = ClearBtn
     AnchorSideLeft.Side = asrBottom
-    Left = 333
+    Left = 538
     Height = 36
     Hint = 'Project files'
     Top = 5
