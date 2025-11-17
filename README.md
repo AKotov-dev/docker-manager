@@ -17,6 +17,7 @@ There is a [Bug 29096](https://bugs.mageia.org/show_bug.cgi?id=29096) in Mageia 
   
 Don't forget to include the active user in the `docker` group: `usermod -aG docker $LOGNAME && reboot`
   
-**Dependencies:** docker, sakura, polkit, systemd, (docker.io for Ubuntu)
 **Working directory:** ~/DockeManager  
+**Dependencies:** docker, sakura, polkit, systemd, (docker.io for Ubuntu)  
+  
 ![](https://github.com/AKotov-dev/docker-manager/blob/main/ScreenShot.png)
