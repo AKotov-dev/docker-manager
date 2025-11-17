@@ -1,0 +1,135 @@
+[NAME]
+name=docker-manager
+
+[VERSION]
+version=2.0
+
+[RELEASE]
+release=0.mrx9
+
+[GROUP]
+group=Applications/System
+
+[DESCRIPTION]
+0=The GUI is designed to manage Docker images and containers. It allows you to monitor
+1=the status of certain objects in real time and perform entry-level operations on them (right-click menu).
+2=It can also be useful as a monitor of Docker objects activity during deployment and configuration
+3=---
+4=More information: /usr/share/doc/package_name/repack.txt
+
+[MAINTAINER]
+maintainer=Alex Kotov
+
+[VENDOR]
+vendor=alex_q_2000 (C) 2025
+
+[SUMMARY]
+summary=Manager for Docker
+
+[URLCOPY]
+urlcopy=https://github.com/AKotov-dev/docker-manager
+
+[LICENSE]
+license=GPLv3
+
+[DEPS]
+deps=docker.io sakura systemd libgtk2.0-0
+
+[META]
+meta=0
+
+[NOARCH]
+noarch=0
+
+[DEB]
+deb=1
+
+[FILES]
+0=/usr/bin/docker-manager
+1=/usr/share/icons/docker-manager.png
+2=/usr/share/applications/docker-manager.desktop
+3=/usr/share/docker-manager/
+4=/usr/share/doc/docker-manager/
+
+[URL32]
+url32=https://github.com/AKotov-dev/docker-manager
+
+[PROGRAMNAME]
+programname=DockerManager
+
+[DEVTOOL]
+devtool=Lazarus
+
+[TOOLVERSION]
+toolversion=4.4.0
+
+[INFO]
+0=The manager is designed to manage Docker images and containers. It allows you to monitor the status of certain objects in real time and perform entry-level operations on them (right-click menu). It can also be useful as a monitor of Docker object activity during deployment and configuration.
+1=
+2=There is a Bug 29096 in Mageia when completing docker. To fix it, install the rpm docker-shutdown-patch.
+3=
+4=Dependencies: docker, sakura, polkit, systemd
+5=
+6=v2.0
+7=+ Save image launch command
+8=+ Working directory: ~/DockerManager
+9=+ Remove unnecessary images <none>:<none>
+10=
+11=v1.9
+12=+ launching DockerManager from a regular user
+13=+ сhecking the presence of a user in the 'docker' group
+14=+ checking the launch of docker.service
+15=
+16=v1.8
+17=+ Login/Logout to DockerHub
+18=+ Push the image to DockerHub
+19=
+20=v1.7
+21=+ unification: ContainerName instead of ContainerID
+22=+ renaming Docker Images and Containers
+23=+ rpm and deb-packages prefixes changed to mrx9
+24=
+25=v1.6
+26=+ import the contents from a tarball to create a filesystem image
+27=+ export a container’s filesystem as a tar archive
+28=
+29=v1.5
+30=+ project file management (COPY, ADD)
+31=
+32=v1.4
+33=+ getting an image based on Dockerfile
+34=+ table of images: sorting by "IMAGE ID" field
+35=
+36=v1.3
+37=+ stopping one or all containers
+38=+ category icons in the PopUp menu
+39=+ fixed the build of the image with the --tag
+40=
+41=v1.2
+42=+ creating an image based on Dockerfile
+43=
+44=v1.1
+45=+ elimination of increased CPU usage
+46=+ putting the sakura launch into a separate thread
+47=
+48=v1.0
+49=+ confirmation of deleting objects
+50=+ increase the state polling time to 600 ms
+51=+ correction of launch shortcuts
+52=
+53=v0.5
+54=+ multi-selection when restoring images
+55=+ double-click - launch the image/container
+56=+ fixed indexing in image and container lists
+57=
+58=v0.4
+59=+ recognition of an internal or external command
+60=+ clarification of the translation, cosmetic edits
+61=
+62=v0.3 - build in Lazarus-2.2.0
+63=
+64=v0.2
+65=+ backup/restore images
+66=+ creating an image from a container
+67=
+68=v0.1 - initial release

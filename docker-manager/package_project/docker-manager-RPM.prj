@@ -33,7 +33,7 @@ urlcopy=https://github.com/AKotov-dev/docker-manager
 license=GPLv3
 
 [DEPS]
-deps=docker sakura systemd
+deps=gtk2 docker sakura systemd
 
 [META]
 meta=0
