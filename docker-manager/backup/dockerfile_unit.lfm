@@ -1,5 +1,5 @@
 object DFileForm: TDFileForm
-  Left = 337
+  Left = 362
   Height = 639
   Top = 139
   Width = 895

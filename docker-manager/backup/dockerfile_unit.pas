@@ -55,7 +55,7 @@ begin
   DFileMemo.Lines.SaveToFile(GetUserDir + '.config/DockerManager/Dockerfile');
 
   //Сборка нового образа
-  DockerCmd := 'cd ~/.config/DockerManager; docker build --tag ' +
+  DockerCmd := 'cd ~/DockerManager; docker build --tag ' +
     NewImageEdit.Text + ' .';
 
   FStartDockerCommand := StartDockerCommand.Create(False);
