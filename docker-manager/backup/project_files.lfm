@@ -1,16 +1,16 @@
 object FilesForm: TFilesForm
-  Left = 351
+  Left = 379
   Height = 426
-  Top = 148
+  Top = 153
   Width = 322
   ActiveControl = FileListBox1
   Caption = 'Project files'
   ClientHeight = 426
   ClientWidth = 322
+  SessionProperties = 'Height;Left;Top;Width;OpenDialog1.InitialDir'
+  LCLVersion = '4.4.0.0'
   OnClose = FormClose
   OnShow = FormShow
-  SessionProperties = 'Height;Left;Top;Width;OpenDialog1.InitialDir'
-  LCLVersion = '2.2.0.4'
   object FileListBox1: TFileListBox
     AnchorSideTop.Control = AddBtn
     AnchorSideTop.Side = asrBottom
@@ -27,10 +27,10 @@ object FilesForm: TFilesForm
     Font.Name = 'Monospace'
     ItemHeight = 22
     MultiSelect = True
-    OnDrawItem = FileListBox1DrawItem
     ParentFont = False
     Style = lbOwnerDrawFixed
     TabOrder = 0
+    OnDrawItem = FileListBox1DrawItem
   end
   object AddBtn: TSpeedButton
     AnchorSideRight.Control = DeleteBtn
@@ -117,9 +117,9 @@ object FilesForm: TFilesForm
       4BB74FAE4BD74FAD4BF44FAD4BF44FAE4BD74EAE4CB64FAE4A6B52AD491C0000
       0000000000000000000000000000000000000000000000000000
     }
-    OnClick = AddBtnClick
     ShowHint = True
     ParentShowHint = False
+    OnClick = AddBtnClick
   end
   object DeleteBtn: TSpeedButton
     AnchorSideRight.Control = Owner
@@ -207,9 +207,9 @@ object FilesForm: TFilesForm
       FFB74141FFD74141FFF44141FFF44141FFD74141FFB74040FF6B4040FF1C0000
       0000000000000000000000000000000000000000000000000000
     }
-    OnClick = DeleteBtnClick
     ShowHint = True
     ParentShowHint = False
+    OnClick = DeleteBtnClick
   end
   object Label1: TLabel
     AnchorSideBottom.Control = DeleteBtn

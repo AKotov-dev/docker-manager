@@ -42,9 +42,9 @@ implementation
 
 uses unit1, start_docker_command, project_files;
 
-{$R *.lfm}
+  {$R *.lfm}
 
-{ TDFileForm }
+  { TDFileForm }
 
 //Создаём новый образ по сценарию Dockerfile
 procedure TDFileForm.BitBtn1Click(Sender: TObject);
@@ -91,11 +91,11 @@ procedure TDFileForm.FormShow(Sender: TObject);
 begin
   IniPropStorage1.Restore;
 
-  if FileExists(GetUserDir + '.config/DockerManager/Dockerfile') then
-    DFileMemo.Lines.LoadFromFile(GetUserDir + '.config/DockerManager/Dockerfile');
+  if FileExists(GetUserDir + 'DockerManager/Dockerfile') then
+    DFileMemo.Lines.LoadFromFile(GetUserDir + 'DockerManager/Dockerfile');
 
-  if DFileForm.Caption <> SDockerHub then
-    DFileMemo.Lines[0] := 'FROM ' + DFileForm.Caption;
+ { if DFileForm.Caption <> SDockerHub then
+    DFileMemo.Lines[0] := 'FROM ' + DFileForm.Caption;}
 end;
 
 //Имя_образа:тэг задаём обязательно

@@ -16,7 +16,7 @@ dockerfile_unit, project_files, login_unit { you can add units after this };
 
 begin
   RequireDerivedFormResource := True;
-  Application.Title:='DockerManager v1.9';
+  Application.Title:='DockerManager v2.0';
   Application.Scaled:=True;
   Application.Initialize;
   Application.CreateForm(TMainForm, MainForm);

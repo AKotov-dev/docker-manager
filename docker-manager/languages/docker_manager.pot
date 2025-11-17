@@ -2,7 +2,7 @@ msgid ""
 msgstr "Content-Type: text/plain; charset=UTF-8"
 
 #: tdfileform.caption
-msgid "Dockerfile"
+msgid "~/DockerManager/Dockerfile"
 msgstr ""
 
 #: tdfileform.dfdirbtn.hint
@@ -16,7 +16,7 @@ msgstr ""
 
 #: tdfileform.newimageedit.text
 msgctxt "tdfileform.newimageedit.text"
-msgid "my-new-image:tag"
+msgid "new-image:tag"
 msgstr ""
 
 #: tfilesform.addbtn.hint

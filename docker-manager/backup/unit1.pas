@@ -112,7 +112,7 @@ type
 
 var
   MainForm: TMainForm;
-  //DockerCmd - команда в поток, RunImageCmd + ImageName + NewImageName - для InputQuery на время сеанса работы
+  //DockerCmd - команда в поток, RunImageCmd + ImageName - для InputQuery на время сеанса работы
   DockerCmd, RunImageCmd, ImageName: string;
 
 resourcestring
@@ -141,9 +141,9 @@ implementation
 uses dockerfile_unit, docker_images_trd, docker_containers_trd,
   start_docker_command, terminal_trd, login_unit;
 
-{$R *.lfm}
+  {$R *.lfm}
 
-{ TMainForm }
+  { TMainForm }
 
 //StartCommand (служебные команды)
 procedure TMainForm.StartProcess(command: string);
@@ -443,7 +443,11 @@ var
 begin
   if MessageDlg(SConfirmDeletion, mtConfirmation, [mbYes, mbNo], 0) = mrYes then
   begin
+    StartProcess('docker images -a | grep none | awk ' + '''' +
+      '{ print $3; }' + '''' + ' | xargs docker rmi --force');
+
     DockerCmd := 'docker rmi ' + ImageTag;
+
     FStartDockerCommand := StartDockerCommand.Create(False);
     FStartDockerCommand.Priority := tpNormal;
   end;
@@ -456,6 +460,9 @@ var
 begin
   if MessageDlg(SConfirmDeletion, mtConfirmation, [mbYes, mbNo], 0) = mrYes then
   begin
+    StartProcess('docker images -a | grep none | awk ' + '''' +
+      '{ print $3; }' + '''' + ' | xargs docker rmi --force');
+
     DockerCmd := 'docker image prune -f';
     FStartDockerCommand := StartDockerCommand.Create(False);
     FStartDockerCommand.Priority := tpNormal;
@@ -469,6 +476,9 @@ var
 begin
   if MessageDlg(SConfirmDeletion, mtConfirmation, [mbYes, mbNo], 0) = mrYes then
   begin
+    StartProcess('docker images -a | grep none | awk ' + '''' +
+      '{ print $3; }' + '''' + ' | xargs docker rmi --force');
+
     DockerCmd := 'docker image prune -f -a';
     FStartDockerCommand := StartDockerCommand.Create(False);
     FStartDockerCommand.Priority := tpNormal;
@@ -525,13 +535,18 @@ procedure TMainForm.MenuItem1Click(Sender: TObject);
 var
   FStartDockerCommand: TThread;
 begin
+  //  IniPropStorage1.IniSection:='TApplication.MainForm';
+  RunImageCmd := IniPropStorage1.ReadString('RUNCMD', '');
+
   if InputQuery(SRunImage, SRunImageCommand, RunImageCmd) then
     //Внутренняя или внешняя команда?
   begin
     if Pos('-', RunImageCmd) <> 0 then
-      DockerCmd := Trim('docker run ' + RunImageCmd + ' ' + ImageTag)
+      DockerCmd := Trim('docker run ' + Trim(RunImageCmd) + ' ' + Trim(ImageTag))
     else
-      DockerCmd := Trim('docker run ' + ImageTag + ' ' + Trim(RunImageCmd));
+      DockerCmd := Trim('docker run ' + Trim(ImageTag) + ' ' + Trim(RunImageCmd));
+
+    IniPropStorage1.WriteString('RUNCMD', RunImageCmd);
 
     FStartDockerCommand := StartDockerCommand.Create(False);
     FStartDockerCommand.Priority := tpNormal;
@@ -541,11 +556,11 @@ end;
 //Форма Dockerfile
 procedure TMainForm.MenuItem20Click(Sender: TObject);
 begin
-  if (ImageBox.Count <> 2) and (ImageBox.SelCount <> 0) and
+  {if (ImageBox.Count <> 2) and (ImageBox.SelCount <> 0) and
     (ImageBox.ItemIndex <> 0) and (ImageBox.ItemIndex <> ImageBox.Count - 1) then
     DFileForm.Caption := ImageTag
   else
-    DFileForm.Caption := SDockerHub;
+    DFileForm.Caption := SDockerHub;}
 
   DFileForm.Show;
 end;
@@ -704,6 +719,9 @@ procedure TMainForm.MenuItem8Click(Sender: TObject);
 var
   FStartDockerCommand: TThread;
 begin
+  //  IniPropStorage1.IniSection:='TApplication.MainForm';
+  RunImageCmd := IniPropStorage1.ReadString('RUNCMD', '');
+
   if InputQuery(SRunImageRm, SRunImageCommand, RunImageCmd) then
     //Внутренняя или внешняя команда?
   begin
@@ -711,6 +729,8 @@ begin
       DockerCmd := Trim('docker run --rm ' + Trim(RunImageCmd) + ' ' + ImageTag)
     else
       DockerCmd := Trim('docker run --rm ' + ImageTag + ' ' + Trim(RunImageCmd));
+
+    IniPropStorage1.WriteString('RUNCMD', RunImageCmd);
 
     FStartDockerCommand := StartDockerCommand.Create(False);
     FStartDockerCommand.Priority := tpNormal;

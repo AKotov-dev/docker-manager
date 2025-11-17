@@ -40,9 +40,9 @@ implementation
 
 uses unit1;
 
-{$R *.lfm}
+  {$R *.lfm}
 
-{ TFilesForm }
+  { TFilesForm }
 
 
 procedure TFilesForm.FormShow(Sender: TObject);
@@ -50,8 +50,9 @@ begin
   //Восстанавливаем для Plasma (масштабирование)
   IniPropStorage1.Restore;
 
-  FileListBox1.Directory := GetUserDir + '.config/DockerManager';
-  Label1.Caption := '~/.config/DockerManager';
+  FileListBox1.Directory := GetUserDir + 'DockerManager';
+  Label1.Caption := '~/DockerManager';
+
   if FileListBox1.Count <> 0 then FileListBox1.ItemIndex := 0;
 end;
 

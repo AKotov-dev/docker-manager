@@ -1,17 +1,17 @@
 object DFileForm: TDFileForm
-  Left = 302
+  Left = 337
   Height = 639
-  Top = 126
+  Top = 139
   Width = 895
-  Caption = 'Dockerfile'
+  Caption = '~/DockerManager/Dockerfile'
   ClientHeight = 639
   ClientWidth = 895
+  Position = poDefault
+  SessionProperties = 'Height;Left;NewImageEdit.Text;Top;Width'
+  LCLVersion = '4.4.0.0'
   OnClose = FormClose
   OnCreate = FormCreate
   OnShow = FormShow
-  Position = poDefault
-  SessionProperties = 'Height;Left;NewImageEdit.Text;Top;Width'
-  LCLVersion = '2.2.0.4'
   object DFileMemo: TMemo
     AnchorSideTop.Control = BitBtn1
     AnchorSideTop.Side = asrBottom
@@ -44,8 +44,8 @@ object DFileForm: TDFileForm
     DefaultCaption = True
     Kind = bkOK
     ModalResult = 1
-    OnClick = BitBtn1Click
     TabOrder = 2
+    OnClick = BitBtn1Click
   end
   object BitBtn2: TBitBtn
     AnchorSideRight.Control = BitBtn1
@@ -62,22 +62,22 @@ object DFileForm: TDFileForm
     DefaultCaption = True
     Kind = bkCancel
     ModalResult = 2
-    OnClick = BitBtn2Click
     TabOrder = 1
+    OnClick = BitBtn2Click
   end
   object NewImageEdit: TEdit
     AnchorSideLeft.Control = Label1
     AnchorSideLeft.Side = asrBottom
     AnchorSideTop.Control = BitBtn2
     Left = 106
-    Height = 36
+    Height = 37
     Top = 5
     Width = 397
     BorderSpacing.Left = 2
+    TabOrder = 0
+    Text = 'new-image:tag'
     OnChange = NewImageEditChange
     OnKeyDown = NewImageEditKeyDown
-    TabOrder = 0
-    Text = 'my-new-image:tag'
   end
   object Label1: TLabel
     AnchorSideLeft.Control = Owner
@@ -175,9 +175,9 @@ object DFileForm: TDFileForm
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000
     }
-    OnClick = DfDirBtnClick
     ShowHint = True
     ParentShowHint = False
+    OnClick = DfDirBtnClick
   end
   object IniPropStorage1: TIniPropStorage
     StoredValues = <>

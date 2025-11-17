@@ -1,16 +1,16 @@
 object MainForm: TMainForm
-  Left = 304
+  Left = 443
   Height = 712
-  Top = 122
+  Top = 302
   Width = 1066
   ActiveControl = ImageBox
   Caption = 'Docker Manager'
   ClientHeight = 712
   ClientWidth = 1066
+  SessionProperties = 'ContainerBox.Height;Height;ImageBox.Height;Left;SaveDialog1.InitialDir;Top;Width;OpenDialog1.InitialDir'
+  LCLVersion = '4.4.0.0'
   OnCreate = FormCreate
   OnShow = FormShow
-  SessionProperties = 'ContainerBox.Height;Height;ImageBox.Height;Left;SaveDialog1.InitialDir;Top;Width;OpenDialog1.InitialDir'
-  LCLVersion = '2.2.0.4'
   object ImageBox: TListBox
     Left = 0
     Height = 198
@@ -24,13 +24,13 @@ object MainForm: TMainForm
     )
     ItemHeight = 25
     ItemIndex = 0
-    OnDblClick = ImageBoxDblClick
-    OnDrawItem = ImageBoxDrawItem
     ParentFont = False
     PopupMenu = PopupMenu1
     ScrollWidth = 1077
     Style = lbOwnerDrawVariable
     TabOrder = 1
+    OnDblClick = ImageBoxDblClick
+    OnDrawItem = ImageBoxDrawItem
   end
   object ContainerBox: TListBox
     Left = 0
@@ -45,13 +45,13 @@ object MainForm: TMainForm
     )
     ItemHeight = 25
     ItemIndex = 0
-    OnDblClick = ContainerBoxDblClick
-    OnDrawItem = ImageBoxDrawItem
     ParentFont = False
     PopupMenu = PopupMenu2
     ScrollWidth = 1077
     Style = lbOwnerDrawVariable
     TabOrder = 0
+    OnDblClick = ContainerBoxDblClick
+    OnDrawItem = ImageBoxDrawItem
   end
   object Splitter1: TSplitter
     Cursor = crVSplit
