@@ -13,6 +13,7 @@ type
   { TFilesForm }
 
   TFilesForm = class(TForm)
+    UpdateBtn: TSpeedButton;
     FileListBox1: TFileListBox;
     ImageList1: TImageList;
     IniPropStorage1: TIniPropStorage;
@@ -27,6 +28,7 @@ type
     procedure FormCreate(Sender: TObject);
     procedure FormShow(Sender: TObject);
     procedure AddBtnClick(Sender: TObject);
+    procedure UpdateBtnClick(Sender: TObject);
   private
 
   public
@@ -51,7 +53,6 @@ begin
   IniPropStorage1.Restore;
 
   FileListBox1.Directory := GetUserDir + 'DockerManager';
-  Label1.Caption := '~/DockerManager';
 
   if FileListBox1.Count <> 0 then FileListBox1.ItemIndex := 0;
 end;
@@ -67,9 +68,15 @@ begin
       CopyFile(OpenDialog1.Files[i], FileListBox1.Directory + '/' +
         ExtractFileName(OpenDialog1.Files[i]), False);
 
-    FileListBox1.UpdateFileList;
-    if FileListBox1.Count <> 0 then FileListBox1.ItemIndex := 0;
+    UpdateBtn.Click;
   end;
+end;
+
+//Refresh the list
+procedure TFilesForm.UpdateBtnClick(Sender: TObject);
+begin
+  FileListBox1.UpdateFileList;
+    if FileListBox1.Count <> 0 then FileListBox1.ItemIndex := 0;
 end;
 
 procedure TFilesForm.FormCreate(Sender: TObject);
@@ -94,9 +101,7 @@ begin
       if FileListBox1.Selected[i] then
         DeleteFile(FileListBox1.Directory + '/' + FileListBox1.Items[i]);
 
-    FileListBox1.UpdateFileList;
-
-    if FileListBox1.Count <> 0 then FileListBox1.ItemIndex := 0;
+   UpdateBtn.Click;
   end;
 end;
 

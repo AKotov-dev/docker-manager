@@ -2,5 +2,6 @@
 {"hash":33229107,"name":"tfilesform.caption","sourcebytes":[80,114,111,106,101,99,116,32,102,105,108,101,115],"value":"Project files"},
 {"hash":107791715,"name":"tfilesform.addbtn.hint","sourcebytes":[65,100,100,32,102,105,108,101,115],"value":"Add files"},
 {"hash":62975587,"name":"tfilesform.deletebtn.hint","sourcebytes":[68,101,108,101,116,101,32,102,105,108,101,115],"value":"Delete files"},
-{"hash":86477809,"name":"tfilesform.label1.caption","sourcebytes":[76,97,98,101,108,49],"value":"Label1"}
+{"hash":138338466,"name":"tfilesform.label1.caption","sourcebytes":[126,47,68,111,99,107,101,114,77,97,110,97,103,101,114],"value":"~/DockerManager"},
+{"hash":112925908,"name":"tfilesform.updatebtn.hint","sourcebytes":[82,101,102,114,101,115,104,32,116,104,101,32,108,105,115,116],"value":"Refresh the list"}
 ]}

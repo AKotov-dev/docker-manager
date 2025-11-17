@@ -35,7 +35,11 @@ msgid "Delete files"
 msgstr ""
 
 #: tfilesform.label1.caption
-msgid "Label1"
+msgid "~/DockerManager"
+msgstr ""
+
+#: tfilesform.updatebtn.hint
+msgid "Refresh the list"
 msgstr ""
 
 #: tloginform.caption
