@@ -40,9 +40,9 @@ implementation
 
 uses unit1;
 
-{$R *.lfm}
+  {$R *.lfm}
 
-{ TFilesForm }
+  { TFilesForm }
 
 
 procedure TFilesForm.FormShow(Sender: TObject);

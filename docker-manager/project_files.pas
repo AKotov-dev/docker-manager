@@ -95,6 +95,7 @@ begin
         DeleteFile(FileListBox1.Directory + '/' + FileListBox1.Items[i]);
 
     FileListBox1.UpdateFileList;
+
     if FileListBox1.Count <> 0 then FileListBox1.ItemIndex := 0;
   end;
 end;
