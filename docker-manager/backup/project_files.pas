@@ -6,7 +6,7 @@ interface
 
 uses
   Classes, SysUtils, Forms, Controls, Graphics, Dialogs, FileCtrl, Buttons,
-  StdCtrls, IniPropStorage, FileUtil;
+  StdCtrls, IniPropStorage, FileUtil, LCLType;
 
 type
 
@@ -53,7 +53,6 @@ begin
   IniPropStorage1.Restore;
 
   FileListBox1.Directory := GetUserDir + 'DockerManager';
-  Label1.Caption := '~/DockerManager';
 
   if FileListBox1.Count <> 0 then FileListBox1.ItemIndex := 0;
 end;
@@ -77,7 +76,7 @@ end;
 procedure TFilesForm.UpdateBtnClick(Sender: TObject);
 begin
   FileListBox1.UpdateFileList;
-    if FileListBox1.Count <> 0 then FileListBox1.ItemIndex := 0;
+  if FileListBox1.Count <> 0 then FileListBox1.ItemIndex := 0;
 end;
 
 procedure TFilesForm.FormCreate(Sender: TObject);
@@ -96,35 +95,72 @@ procedure TFilesForm.DeleteBtnClick(Sender: TObject);
 var
   i: integer;
 begin
+  if (FileListBox1.Count = 0) or (FileListBox1.Items[FileListBox1.ItemIndex] =
+    'Dockerfile') then
+    Exit;
+
   if MessageDlg(SDeleteFile, mtConfirmation, [mbYes, mbNo], 0) = mrYes then
   begin
     for i := 0 to FileListBox1.Count - 1 do
       if FileListBox1.Selected[i] then
         DeleteFile(FileListBox1.Directory + '/' + FileListBox1.Items[i]);
 
-   UpdateBtn.Click;
+    UpdateBtn.Click;
   end;
 end;
 
 procedure TFilesForm.FileListBox1DrawItem(Control: TWinControl;
-  Index: integer; ARect: TRect; State: TOwnerDrawState);
+  Index: Integer; ARect: TRect; State: TOwnerDrawState);
 var
-  BitMap: TBitMap;
+  Bmp: TBitmap;
+  TextY, IconY: Integer;
+  ImgIndex: Integer;
 begin
+  Bmp := TBitmap.Create;
   try
-    BitMap := TBitMap.Create;
-    with FileListBox1 do
+    with FileListBox1, Canvas do
     begin
-      Canvas.FillRect(aRect);
-      //Название файла
-      Canvas.TextOut(aRect.Left + 26, aRect.Top + 5, Items[Index]);
-      //Иконка файла
-      ImageList1.GetBitMap(0, BitMap);
-      Canvas.Draw(aRect.Left + 2, aRect.Top + 2, BitMap);
+      // Цвет выделения
+      if odSelected in State then
+      begin
+        Brush.Color := clHighlight;
+        Font.Color := clHighlightText;
+      end
+      else
+      begin
+        Brush.Color := Color;
+        if Items[Index] = 'Dockerfile' then
+          Font.Color := clGray
+        else
+          Font.Color := clWindowText;
+      end;
+
+      FillRect(ARect);
+
+      // Вертикальное центрирование
+      TextY := ARect.Top + (ItemHeight - TextHeight(Items[Index])) div 2 + 2;
+      IconY := ARect.Top + (ItemHeight - ImageList1.Height) div 2 + 2; // визуальная компенсация
+
+      // Выбор иконки
+      if Items[Index] = 'Dockerfile' then
+        ImgIndex := 0
+      else
+        ImgIndex := 1;
+
+      // Отрисовка иконки
+      ImageList1.GetBitmap(ImgIndex, Bmp);
+      Draw(ARect.Left + 2, IconY, Bmp);
+
+      // Отрисовка текста
+      TextOut(ARect.Left + ImageList1.Width + 6, TextY, Items[Index]);
     end;
   finally
-    BitMap.Free;
+    Bmp.Free;
   end;
 end;
+
+
+
+
 
 end.
