@@ -312,8 +312,8 @@ begin
   IniPropStorage1.IniFileName := GetUserDir + '.config/docker-manager.conf';
 
   //Каталог для файла Dockerfile
-  if not DirectoryExists(GetUserDir + '.config/DockerManager') then
-    mkDir(GetUserDir + '.config/DockerManager');
+  if not DirectoryExists(GetUserDir + 'DockerManager') then
+    mkDir(GetUserDir + 'DockerManager');
 
   ImageBox.ScrollWidth := 0;
   ContainerBox.ScrollWidth := 0;

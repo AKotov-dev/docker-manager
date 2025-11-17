@@ -1,16 +1,16 @@
 msgid ""
 msgstr ""
-"Content-Type: text/plain; charset=UTF-8\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "Project-Id-Version: Docker Manager\n"
 "POT-Creation-Date: \n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: alex_q_2000 (C) 2022\n"
-"MIME-Version: 1.0\n"
-"Content-Transfer-Encoding: 8bit\n"
 "Language: ru\n"
-"X-Generator: Poedit 2.4.2\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 3.5\n"
 
 #: tdfileform.caption
 msgid "~/DockerManager/Dockerfile"
@@ -199,8 +199,8 @@ msgid "Run and goto Shell > /bin/bash"
 msgstr "Запустить и зайти в Shell > /bin/bash"
 
 #: tmainform.statictext1.caption
-msgid "License: GPLv3   Author: alex_q_2000 (C) 2022   URL: https://linuxforum.ru"
-msgstr "Лицензия: GPLv3   Автор: alex_q_2000 (C) 2022   URL: https://linuxforum.ru"
+msgid "License: GPLv3   Author: alex_q_2000 (C) 2022   URL: https://github.com/AKotov-dev/docker-manager"
+msgstr "Лицензия: GPLv3   Автор: alex_q_2000 (C) 2022   URL: https://github.com/AKotov-dev/docker-manager"
 
 #: unit1.sconfirmdeletion
 msgid "Do you confirm the deletion?"
@@ -257,4 +257,3 @@ msgstr "Введите команду (пример: -p 8080:80 или echo \"he
 #: unit1.srunimagerm
 msgid "Run image with --rm"
 msgstr "Запуск образа с --rm"
-
