@@ -38,9 +38,9 @@ implementation
 
 uses unit1, start_docker_command;
 
-{$R *.lfm}
+  {$R *.lfm}
 
-{ TLoginForm }
+  { TLoginForm }
 
 //Login to DockerHub (Name/Password)
 procedure TLoginForm.LoginBtnClick(Sender: TObject);

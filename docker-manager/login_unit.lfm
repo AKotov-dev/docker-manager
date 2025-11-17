@@ -7,12 +7,12 @@ object LoginForm: TLoginForm
   Caption = 'Login to DockerHub'
   ClientHeight = 129
   ClientWidth = 361
+  Position = poDefault
+  SessionProperties = 'Height;Left;Top;Width;Edit1.Text;Edit2.Text'
+  LCLVersion = '4.4.0.0'
   OnClose = FormClose
   OnCreate = FormCreate
   OnShow = FormShow
-  Position = poDefault
-  SessionProperties = 'Height;Left;Top;Width;Edit1.Text;Edit2.Text'
-  LCLVersion = '2.2.0.4'
   object Label1: TLabel
     AnchorSideTop.Control = Edit1
     AnchorSideTop.Side = asrCenter
@@ -27,7 +27,7 @@ object LoginForm: TLoginForm
     AnchorSideTop.Side = asrCenter
     Left = 8
     Height = 17
-    Top = 53
+    Top = 52
     Width = 61
     Caption = 'Password:'
   end
@@ -36,7 +36,7 @@ object LoginForm: TLoginForm
     AnchorSideRight.Control = Owner
     AnchorSideRight.Side = asrBottom
     Left = 71
-    Height = 36
+    Height = 37
     Top = 8
     Width = 285
     Anchors = [akTop, akLeft, akRight]
@@ -50,8 +50,8 @@ object LoginForm: TLoginForm
     AnchorSideRight.Side = asrBottom
     AnchorSideBottom.Control = LoginBtn
     Left = 71
-    Height = 36
-    Top = 43
+    Height = 37
+    Top = 42
     Width = 285
     Anchors = [akLeft, akRight, akBottom]
     BorderSpacing.Left = 2
@@ -111,8 +111,8 @@ object LoginForm: TLoginForm
       4BD450AE4A9051AE4B2C00000000000000000000000000000000
     }
     ModalResult = 6
-    OnClick = LoginBtnClick
     TabOrder = 2
+    OnClick = LoginBtnClick
   end
   object LogoutBtn: TBitBtn
     AnchorSideRight.Control = LoginBtn
@@ -162,8 +162,8 @@ object LoginForm: TLoginForm
       000000000000000000006C60F42D6A61F6916A61F7D46A61F6F46A61F6F46A61
       F7D46A61F6906863F32C00000000000000000000000000000000
     }
-    OnClick = LogoutBtnClick
     TabOrder = 3
+    OnClick = LogoutBtnClick
   end
   object IniPropStorage1: TIniPropStorage
     StoredValues = <>

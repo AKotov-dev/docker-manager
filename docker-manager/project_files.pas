@@ -95,14 +95,13 @@ procedure TFilesForm.DeleteBtnClick(Sender: TObject);
 var
   i: integer;
 begin
-  if (FileListBox1.Count = 0) or (FileListBox1.Items[FileListBox1.ItemIndex] =
-    'Dockerfile') then
-    Exit;
+  if FileListBox1.Count = 0 then Exit;
 
   if MessageDlg(SDeleteFile, mtConfirmation, [mbYes, mbNo], 0) = mrYes then
   begin
     for i := 0 to FileListBox1.Count - 1 do
-      if FileListBox1.Selected[i] then
+      if (FileListBox1.Selected[i]) and
+        (FileListBox1.Items[FileListBox1.ItemIndex] <> 'Dockerfile') then
         DeleteFile(FileListBox1.Directory + '/' + FileListBox1.Items[i]);
 
     UpdateBtn.Click;
@@ -110,11 +109,11 @@ begin
 end;
 
 procedure TFilesForm.FileListBox1DrawItem(Control: TWinControl;
-  Index: Integer; ARect: TRect; State: TOwnerDrawState);
+  Index: integer; ARect: TRect; State: TOwnerDrawState);
 var
   Bmp: TBitmap;
-  TextY, IconY: Integer;
-  ImgIndex: Integer;
+  TextY, IconY: integer;
+  ImgIndex: integer;
 begin
   Bmp := TBitmap.Create;
   try
@@ -139,7 +138,8 @@ begin
 
       // Вертикальное центрирование
       TextY := ARect.Top + (ItemHeight - TextHeight(Items[Index])) div 2 + 2;
-      IconY := ARect.Top + (ItemHeight - ImageList1.Height) div 2 + 2; // визуальная компенсация
+      IconY := ARect.Top + (ItemHeight - ImageList1.Height) div 2 + 2;
+      // визуальная компенсация
 
       // Выбор иконки
       if Items[Index] = 'Dockerfile' then
@@ -158,7 +158,6 @@ begin
     Bmp.Free;
   end;
 end;
-
 
 
 

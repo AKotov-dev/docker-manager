@@ -52,7 +52,7 @@ var
   FStartDockerCommand: TThread;
 begin
   Application.ProcessMessages;
-  DFileMemo.Lines.SaveToFile(GetUserDir + '.config/DockerManager/Dockerfile');
+  DFileMemo.Lines.SaveToFile(GetUserDir + 'DockerManager/Dockerfile');
 
   //Сборка нового образа
   DockerCmd := 'cd ~/DockerManager; docker build --tag ' +

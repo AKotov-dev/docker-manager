@@ -21,7 +21,7 @@ implementation
 
 uses Unit1;
 
-  { TRD }
+{ TRD }
 
 procedure TerminalTRD.Execute;
 var

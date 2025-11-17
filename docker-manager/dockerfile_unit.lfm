@@ -1,7 +1,7 @@
 object DFileForm: TDFileForm
-  Left = 316
+  Left = 315
   Height = 639
-  Top = 135
+  Top = 123
   Width = 895
   Caption = '~/DockerManager/Dockerfile'
   ClientHeight = 639
