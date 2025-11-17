@@ -16,6 +16,6 @@ The GUI is designed to manage Docker images and containers. It allows you to mon
 Don't forget to include the active user in the `docker` group: `usermod -aG docker $LOGNAME && reboot`
   
 **Working directory:** ~/DockerManager  
-**Dependencies:** docker, sakura, polkit, systemd, (docker.io for Ubuntu)  
+**Dependencies:** gtk2, docker, sakura, polkit, systemd, (libgtk2.0-0, docker.io for Ubuntu)  
   
 ![](https://github.com/AKotov-dev/docker-manager/blob/main/ScreenShot.png)
