@@ -1,6 +1,6 @@
 {"version":1,"strings":[
 {"hash":241912821,"name":"unit1.spullcaption","sourcebytes":[80,117,108,108,32,105,109,97,103,101],"value":"Pull image"},
-{"hash":60119543,"name":"unit1.spullstring","sourcebytes":[69,110,116,101,114,32,110,97,109,101,58,116,97,103],"value":"Enter name:tag"},
+{"hash":97792345,"name":"unit1.spullstring","sourcebytes":[69,110,116,101,114,32,110,97,109,101,58,116,97,103,32,111,114,32,110,97,109,101,47,114,101,112,111,115,105,116,111,114,121],"value":"Enter name:tag or name\/repository"},
 {"hash":7368213,"name":"unit1.srunimage","sourcebytes":[82,117,110,32,105,109,97,103,101],"value":"Run image"},
 {"hash":63681449,"name":"unit1.srunimagecommand","sourcebytes":[69,110,116,101,114,32,116,104,101,32,112,97,114,97,109,101,116,101,114,115,32,40,115,97,109,112,108,101,58,32,45,112,32,56,48,56,48,58,56,48,32,111,114,32,101,99,104,111,32,34,104,101,108,108,111,34,41],"value":"Enter the parameters (sample: -p 8080:80 or echo \"hello\")"},
 {"hash":79039213,"name":"unit1.srunimagerm","sourcebytes":[82,117,110,32,105,109,97,103,101,32,119,105,116,104,32,45,45,114,109],"value":"Run image with --rm"},

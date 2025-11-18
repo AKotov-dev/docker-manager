@@ -239,8 +239,8 @@ msgid "Pull image"
 msgstr "Получить образ"
 
 #: unit1.spullstring
-msgid "Enter name:tag"
-msgstr "Введите name:tag"
+msgid "Enter name:tag or name/repository"
+msgstr "Введите name:tag или name/repository"
 
 #: unit1.srenamecaption
 msgid "Renaming"
