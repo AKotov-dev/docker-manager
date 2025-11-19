@@ -7,9 +7,12 @@ object MainForm: TMainForm
   Caption = 'Docker Manager'
   ClientHeight = 712
   ClientWidth = 1066
+  KeyPreview = True
   SessionProperties = 'ContainerBox.Height;Height;ImageBox.Height;Left;SaveDialog1.InitialDir;Top;Width;OpenDialog1.InitialDir'
   LCLVersion = '4.4.0.0'
   OnCreate = FormCreate
+  OnKeyDown = FormKeyDown
+  OnKeyUp = FormKeyUp
   OnShow = FormShow
   object ImageBox: TListBox
     Left = 0
@@ -24,6 +27,7 @@ object MainForm: TMainForm
     )
     ItemHeight = 25
     ItemIndex = 0
+    MultiSelect = True
     ParentFont = False
     PopupMenu = PopupMenu1
     ScrollWidth = 1077
@@ -45,6 +49,7 @@ object MainForm: TMainForm
     )
     ItemHeight = 25
     ItemIndex = 0
+    MultiSelect = True
     ParentFont = False
     PopupMenu = PopupMenu2
     ScrollWidth = 1077

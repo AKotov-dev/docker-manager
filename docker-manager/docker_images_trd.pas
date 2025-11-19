@@ -55,8 +55,10 @@ begin
       ImageList.LoadFromStream(ExProcess.Output);
       // ImageList.Text := Trim(ImageList.Text);
 
-      if ImageList.Count <> 0 then
-        Synchronize(@Show);
+
+      if not StartStopTRDFlag then
+        if ImageList.Count <> 0 then
+          Synchronize(@Show);
 
       Sleep(600);
     end;
@@ -64,7 +66,7 @@ begin
   finally
     ImageList.Free;
     ExProcess.Free;
-    Terminate;
+    //    Terminate;
   end;
 end;
 

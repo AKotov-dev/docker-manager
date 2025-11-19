@@ -27,7 +27,7 @@ implementation
 
 uses Unit1;
 
-{ TRD }
+  { TRD }
 
 procedure dimages.Execute;
 var
@@ -55,6 +55,8 @@ begin
       ImageList.LoadFromStream(ExProcess.Output);
       // ImageList.Text := Trim(ImageList.Text);
 
+
+      if not StartStopTRDFlag then
       if ImageList.Count <> 0 then
         Synchronize(@Show);
 
@@ -64,7 +66,7 @@ begin
   finally
     ImageList.Free;
     ExProcess.Free;
-    Terminate;
+//    Terminate;
   end;
 end;
 

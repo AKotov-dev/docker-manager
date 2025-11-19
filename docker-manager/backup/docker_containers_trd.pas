@@ -27,7 +27,7 @@ implementation
 
 uses Unit1;
 
-{ TRD }
+  { TRD }
 
 procedure DContainers.Execute;
 var
@@ -54,8 +54,9 @@ begin
       ContainerList.LoadFromStream(ExProcess.Output);
       //   ContainerList.Text := Trim(ContainerList.Text);
 
-      if ContainerList.Count <> 0 then
-        Synchronize(@Show);
+      if not StartStopTRDFlag then
+        if ContainerList.Count <> 0 then
+          Synchronize(@Show);
 
       Sleep(600);
     end;
@@ -63,7 +64,7 @@ begin
   finally
     ContainerList.Free;
     ExProcess.Free;
-    Terminate;
+//    Terminate;
   end;
 end;
 
