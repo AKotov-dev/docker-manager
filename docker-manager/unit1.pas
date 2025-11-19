@@ -138,9 +138,6 @@ resourcestring
   SNoUserInDocker =
     'Warning! Include the user in the docker group and restart the computer: usermod -aG docker $LOGNAME; reboot';
 
- { SExecCaption = 'Execute';
-  SExecString = 'Enter the command';}
-
 implementation
 
 uses dockerfile_unit, docker_images_trd, docker_containers_trd,
@@ -624,7 +621,7 @@ begin
   DFileForm.Show;
 end;
 
-//Стоп выбранного контейнера
+//Стоп выбранных контейнеров
 procedure TMainForm.MenuItem21Click(Sender: TObject);
 var
   i: integer;
@@ -634,7 +631,10 @@ begin
 
   for i := 1 to ContainerBox.Count - 2 do
     if ContainerBox.Selected[i] then
-      DockerCmd := 'docker stop ' + ContainerName(ContainerBox.ItemIndex);
+      DockerCmd := DockerCmd + 'docker stop ' + ContainerName(i) + ';';
+
+  StartStopTRDFlag := False;
+  MainForm.Caption := Application.Title;
 
   FStartDockerCommand := StartDockerCommand.Create(False);
   FStartDockerCommand.Priority := tpNormal;
@@ -652,6 +652,7 @@ begin
     S := S + ' ' + Copy(ContainerBox.Items[i], 1, Pos(' ', ContainerBox.Items[i]) - 1);
 
   DockerCmd := 'docker stop ' + S;
+
   FStartDockerCommand := StartDockerCommand.Create(False);
   FStartDockerCommand.Priority := tpNormal;
 end;
@@ -664,7 +665,7 @@ var
 begin
   if OpenDialog1.Execute then
   begin
-    S := 'my-new:image';
+    S := 'new-image:latest';
     repeat
       if not InputQuery(SImportTarFile, SPullString, S) then
         Exit
