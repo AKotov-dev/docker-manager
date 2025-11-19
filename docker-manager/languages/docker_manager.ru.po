@@ -108,7 +108,7 @@ msgstr "Восстановить образ(ы) docker из бэкапа"
 #: tmainform.menuitem15.caption
 msgctxt "tmainform.menuitem15.caption"
 msgid "Selected only"
-msgstr "Только выбранный"
+msgstr "Только выбранные"
 
 #: tmainform.menuitem16.caption
 msgid "All untagged (prune -f)"
@@ -121,7 +121,7 @@ msgstr "Все без контейнеров (prune -f -a)"
 #: tmainform.menuitem18.caption
 msgctxt "tmainform.menuitem18.caption"
 msgid "Selected only"
-msgstr "Только выбранный"
+msgstr "Только выбранные"
 
 #: tmainform.menuitem19.caption
 msgid "All stoped (prune -f)"
@@ -139,7 +139,7 @@ msgstr "Создать образ через Dockerfile"
 #: tmainform.menuitem21.caption
 msgctxt "tmainform.menuitem21.caption"
 msgid "Selected only"
-msgstr "Только выбранный"
+msgstr "Только выбранные"
 
 #: tmainform.menuitem22.caption
 msgid "All containers"
@@ -261,4 +261,3 @@ msgstr "Введите команду (пример: -p 8080:80 или echo \"he
 #: unit1.srunimagerm
 msgid "Run image with --rm"
 msgstr "Запуск образа с --rm"
-
