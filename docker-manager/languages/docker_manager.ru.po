@@ -112,7 +112,7 @@ msgstr "Только выбранные"
 
 #: tmainform.menuitem16.caption
 msgid "All untagged (prune -f)"
-msgstr "Все непомеченные (prune -f)"
+msgstr "Все неотмеченные (prune -f)"
 
 #: tmainform.menuitem17.caption
 msgid "All without containers (prune -f -a)"
