@@ -13,6 +13,7 @@ type
   { TMainForm }
 
   TMainForm = class(TForm)
+    Image1: TImage;
     ImageBox: TListBox;
     ContainerBox: TListBox;
     ImageList1: TImageList;
@@ -304,8 +305,19 @@ end;
 //Запуск потоков
 procedure TMainForm.FormCreate(Sender: TObject);
 var
+  bmp: TBitmap;
   FDImages, FDContainers: TThread;
 begin
+   // Устраняем баг иконки приложения
+  bmp := TBitmap.Create;
+  try
+    bmp.PixelFormat := pf32bit;
+    bmp.Assign(Image1.Picture.Graphic);
+    Application.Icon.Assign(bmp);
+  finally
+    bmp.Free;
+  end;
+
   //Файл конфигурации
   if not DirectoryExists(GetUserDir + '.config') then
     mkDir(GetUserDir + '.config');

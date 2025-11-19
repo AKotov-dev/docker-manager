@@ -117,7 +117,7 @@ var
 
 resourcestring
   SPullCaption = 'Pull image';
-  SPullString = 'Enter name:tag';
+  SPullString = 'Enter name:tag or name/repository';
   SRunImage = 'Run image';
   SRunImageCommand = 'Enter the parameters (sample: -p 8080:80 or echo "hello")';
   SRunImageRm = 'Run image with --rm';
