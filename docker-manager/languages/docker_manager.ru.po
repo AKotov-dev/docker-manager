@@ -234,6 +234,10 @@ msgstr "Импорт из архива tar"
 msgid "Warning! Include the user in the docker group and restart the computer: usermod -aG docker $LOGNAME; reboot"
 msgstr "Внимание! Включите пользователя в группу docker и перезагрузите компьютер: usermod -aG docker $LOGNAME; reboot"
 
+#: unit1.spauselists
+msgid "(Pause lists...)"
+msgstr "(Пауза списков...)"
+
 #: unit1.spullcaption
 msgid "Pull image"
 msgstr "Получить образ"

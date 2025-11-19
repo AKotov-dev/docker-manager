@@ -138,6 +138,8 @@ resourcestring
   SNoUserInDocker =
     'Warning! Include the user in the docker group and restart the computer: usermod -aG docker $LOGNAME; reboot';
 
+  SPauseLists = '(Pause lists...)';
+
 implementation
 
 uses dockerfile_unit, docker_images_trd, docker_containers_trd,
@@ -355,7 +357,7 @@ begin
   if Key = VK_CONTROL then
   begin
     StartStopTRDFlag := True;
-    MainForm.Caption := Application.Title + ' (Stop thread...)';
+    MainForm.Caption := Application.Title + ' ' + SPauseLists;
   end;
 end;
 

@@ -137,10 +137,6 @@ resourcestring
     'Warning! Docker not running! Launch Docker: systemctl restart docker.service';
   SNoUserInDocker =
     'Warning! Include the user in the docker group and restart the computer: usermod -aG docker $LOGNAME; reboot';
-  SConfirmStop = 'Stop selected containers?';
-
- { SExecCaption = 'Execute';
-  SExecString = 'Enter the command';}
 
 implementation
 
@@ -637,14 +633,11 @@ begin
     if ContainerBox.Selected[i] then
       DockerCmd := DockerCmd + 'docker stop ' + ContainerName(i) + ';';
 
- // if MessageDlg(SConfirmStop, mtConfirmation, [mbYes, mbNo], 0) = mrYes then
-  begin
-    StartStopTRDFlag := False;
-    MainForm.Caption := Application.Title;
+  StartStopTRDFlag := False;
+  MainForm.Caption := Application.Title;
 
-    FStartDockerCommand := StartDockerCommand.Create(False);
-    FStartDockerCommand.Priority := tpNormal;
-  end;
+  FStartDockerCommand := StartDockerCommand.Create(False);
+  FStartDockerCommand.Priority := tpNormal;
 end;
 
 //Стоп всех контейнеров

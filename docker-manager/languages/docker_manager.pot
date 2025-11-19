@@ -223,6 +223,10 @@ msgstr ""
 msgid "Warning! Include the user in the docker group and restart the computer: usermod -aG docker $LOGNAME; reboot"
 msgstr ""
 
+#: unit1.spauselists
+msgid "(Pause lists...)"
+msgstr ""
+
 #: unit1.spullcaption
 msgid "Pull image"
 msgstr ""
