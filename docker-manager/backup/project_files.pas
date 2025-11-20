@@ -40,7 +40,7 @@ var
 
 implementation
 
-uses unit1;
+uses unit1, dockerfile_unit;
 
   {$R *.lfm}
 
@@ -69,6 +69,9 @@ begin
         ExtractFileName(OpenDialog1.Files[i]), False);
 
     UpdateBtn.Click;
+
+    if FileExists(GetUserDir + 'DockerManager/Dockerfile') then
+      DFileForm.DFileMemo.Lines.LoadFromFile(GetUserDir + 'DockerManager/Dockerfile');
   end;
 end;
 
@@ -100,8 +103,7 @@ begin
   if MessageDlg(SDeleteFile, mtConfirmation, [mbYes, mbNo], 0) = mrYes then
   begin
     for i := 0 to FileListBox1.Count - 1 do
-      if (FileListBox1.Selected[i]) and
-        (FileListBox1.Items[FileListBox1.ItemIndex] <> 'Dockerfile') then
+      if (FileListBox1.Selected[i]) and (FileListBox1.Items[i] <> 'Dockerfile') then
         DeleteFile(FileListBox1.Directory + '/' + FileListBox1.Items[i]);
 
     UpdateBtn.Click;
