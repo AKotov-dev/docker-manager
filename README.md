@@ -18,6 +18,6 @@ Starting with v2.0, multiple selections in lists are supported when deleting/sto
 Don't forget to include the active user in the `docker` group: `usermod -aG docker $LOGNAME && reboot`
   
 **Working directory:** ~/DockerManager  
-**Dependencies:** gtk2, docker, sakura, polkit, systemd, (libgtk2.0-0, docker.io for Ubuntu)  
+**Dependencies:** gtk2, docker, sakura, polkit, systemd, procps (libgtk2.0-0, docker.io for Ubuntu)  
   
 ![](https://github.com/AKotov-dev/docker-manager/blob/main/ScreenShot.png)
