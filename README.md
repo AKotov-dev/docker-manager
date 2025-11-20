@@ -13,7 +13,7 @@ The GUI is designed to manage Docker images and containers. It allows you to mon
 + Renaming images and containers
 + Login/Logout, Push the image to DockerHub  
   
-Starting with v2.0, multiple selections in lists are supported when deleting/stopping images/containers. To select multiple list entries, press and hold `Ctrl` while choosing an action from the pop-up menu. This enables the "Pause lists..." mode (see window title), which allows you to select records in static mode.
+Starting with v2.0, multiple selections in lists are supported when deleting/stopping images/containers. To select multiple list entries, press and hold `Ctrl` while choosing an action from the pop-up menu. This enables the "Pause lists..." mode (see window title), which allows you to select records in static mode. Additionally, you can use the `Esc` button to interrupt frozen Dodnload/Upload processes when working with DockerHub.
   
 Don't forget to include the active user in the `docker` group: `usermod -aG docker $LOGNAME && reboot`
   
