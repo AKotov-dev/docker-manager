@@ -101,7 +101,9 @@ type
     procedure MenuItem7Click(Sender: TObject);
     procedure MenuItem8Click(Sender: TObject);
     procedure MenuItem9Click(Sender: TObject);
+    procedure PopupMenu1Close(Sender: TObject);
     procedure PopupMenu1Popup(Sender: TObject);
+    procedure PopupMenu2Close(Sender: TObject);
     procedure PopupMenu2Popup(Sender: TObject);
     procedure StartProcess(command: string);
     procedure ImageMenuControl;
@@ -118,7 +120,7 @@ var
   MainForm: TMainForm;
   //DockerCmd - команда в поток, RunImageCmd + ImageName - для InputQuery на время сеанса работы
   RunImageCmd, ImageName: string;  // DockerCmd,
-  //MultiSelect Flag
+  //MultiSelect Flag (включение/отключение опроса состояния)
   StartStopTRDFlag: boolean;
 
 resourcestring
@@ -143,8 +145,7 @@ resourcestring
 
 implementation
 
-uses dockerfile_unit, docker_images_trd, docker_containers_trd,
-  terminal_trd, login_unit;
+uses dockerfile_unit, docker_images_trd, docker_containers_trd, terminal_trd, login_unit;
 
   {$R *.lfm}
 
@@ -356,9 +357,11 @@ begin
 
   StartProcess('[[ $(groups | grep "docker") ]] || echo "' + SNoUserInDocker + '"');
 
+  //Список Images
   FDImages := DImages.Create(False);
   FDImages.Priority := tpNormal;
 
+  //Список контейнеров
   FDContainers := DContainers.Create(False);
   FDContainers.Priority := tpNormal;
 end;
@@ -494,6 +497,8 @@ var
   i: integer;
   DockerCmd: string;
 begin
+  DockerCmd := '';
+
   //Собираем команду
   for i := 1 to ImageBox.Count - 2 do
     if ImageBox.Selected[i] then
@@ -504,8 +509,9 @@ begin
     StartProcess('docker images -a | grep none | awk ' + '''' +
       '{ print $3; }' + '''' + ' | xargs docker rmi --force');
 
-    StartStopTRDFlag := False;
+  {  StartStopTRDFlag := False;
     MainForm.Caption := Application.Title;
+    Application.ProcessMessages;}
 
     TStartDockerCommand.Create(DockerCmd);
   end;
@@ -520,6 +526,10 @@ begin
   begin
     StartProcess('docker images -a | grep none | awk ' + '''' +
       '{ print $3; }' + '''' + ' | xargs docker rmi --force');
+
+   { StartStopTRDFlag := False;
+    MainForm.Caption := Application.Title;
+    Application.ProcessMessages; }
 
     DockerCmd := 'docker image prune -f';
     TStartDockerCommand.Create(DockerCmd);
@@ -536,6 +546,10 @@ begin
     StartProcess('docker images -a | grep none | awk ' + '''' +
       '{ print $3; }' + '''' + ' | xargs docker rmi --force');
 
+   { StartStopTRDFlag := False;
+    MainForm.Caption := Application.Title;
+    Application.ProcessMessages; }
+
     DockerCmd := 'docker image prune -f -a';
     TStartDockerCommand.Create(DockerCmd);
   end;
@@ -547,14 +561,16 @@ var
   i: integer;
   DockerCmd: string;
 begin
+  DockerCmd := '';
   for i := 1 to ContainerBox.Count - 2 do
     if ContainerBox.Selected[i] then
       DockerCmd := DockerCmd + 'docker rm ' + ContainerName(i) + ';';
 
   if MessageDlg(SConfirmDeletion, mtConfirmation, [mbYes, mbNo], 0) = mrYes then
   begin
-    StartStopTRDFlag := False;
+   { StartStopTRDFlag := False;
     MainForm.Caption := Application.Title;
+    Application.ProcessMessages;}
 
     TStartDockerCommand.Create(DockerCmd);
   end;
@@ -567,6 +583,10 @@ var
 begin
   if MessageDlg(SConfirmDeletion, mtConfirmation, [mbYes, mbNo], 0) = mrYes then
   begin
+   { StartStopTRDFlag := False;
+    MainForm.Caption := Application.Title;
+    Application.ProcessMessages;}
+
     DockerCmd := 'docker container prune -f';
     TStartDockerCommand.Create(DockerCmd);
   end;
@@ -627,12 +647,15 @@ var
   i: integer;
   DockerCmd: string;
 begin
+  DockerCmd := '';
+
   for i := 1 to ContainerBox.Count - 2 do
     if ContainerBox.Selected[i] then
       DockerCmd := DockerCmd + 'docker stop ' + ContainerName(i) + ';';
 
   StartStopTRDFlag := False;
   MainForm.Caption := Application.Title;
+  Application.ProcessMessages;
 
   TStartDockerCommand.Create(DockerCmd);
 end;
@@ -647,6 +670,10 @@ begin
   S := '';
   for i := 1 to ContainerBox.Count - 2 do
     S := S + ' ' + Copy(ContainerBox.Items[i], 1, Pos(' ', ContainerBox.Items[i]) - 1);
+
+  StartStopTRDFlag := False;
+  MainForm.Caption := Application.Title;
+  Application.ProcessMessages;
 
   DockerCmd := 'docker stop ' + S;
 
@@ -805,10 +832,26 @@ begin
   TTerminalTRD.Create(DockerCmd);
 end;
 
+//Продолжить сканирование списка образов
+procedure TMainForm.PopupMenu1Close(Sender: TObject);
+begin
+   StartStopTRDFlag := False;
+    MainForm.Caption := Application.Title;
+    Application.ProcessMessages;
+end;
+
 //Меню образов
 procedure TMainForm.PopupMenu1Popup(Sender: TObject);
 begin
   ImageMenuControl;
+end;
+
+//Продолжить сканирование списка контейнеров
+procedure TMainForm.PopupMenu2Close(Sender: TObject);
+begin
+   StartStopTRDFlag := False;
+    MainForm.Caption := Application.Title;
+    Application.ProcessMessages;
 end;
 
 //Меню контейнеров

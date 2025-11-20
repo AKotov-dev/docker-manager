@@ -198,6 +198,7 @@ object MainForm: TMainForm
   object PopupMenu1: TPopupMenu
     Images = ImageList1
     OnPopup = PopupMenu1Popup
+    OnClose = PopupMenu1Close
     Left = 408
     Top = 40
     object MenuItem7: TMenuItem
@@ -300,6 +301,7 @@ object MainForm: TMainForm
   object PopupMenu2: TPopupMenu
     Images = ImageList1
     OnPopup = PopupMenu2Popup
+    OnClose = PopupMenu2Close
     Left = 408
     Top = 256
     object MenuItem3: TMenuItem
