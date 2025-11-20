@@ -8,41 +8,44 @@ uses
   Classes, Process, SysUtils, ComCtrls;
 
 type
-  TerminalTRD = class(TThread)
+  TTerminalTRD = class(TThread)
   private
-
-    { Private declarations }
+    FCmd: string;
   protected
     procedure Execute; override;
-
+  public
+    constructor Create(const Cmd: string);
   end;
 
 implementation
 
 uses Unit1;
 
-  { TRD }
+constructor TTerminalTRD.Create(const Cmd: string);
+begin
+  inherited Create(False);
+  // поток создаётся и сразу запускается
+  FreeOnTerminate := True; // самоуничтожение
+  FCmd := Cmd;
+end;
 
-procedure TerminalTRD.Execute;
+procedure TTerminalTRD.Execute;
 var
   ExProcess: TProcess;
 begin
   try
-    FreeOnTerminate := True; //Уничтожить по завершении
-
-    //Рабочий процесс
     ExProcess := TProcess.Create(nil);
-    ExProcess.Executable := 'bash';
-    // ExProcess.Options := [poUsePipes, poWaitOnExit]; //poStderrToOutPut
-    ExProcess.Parameters.Add('-c');
 
-    ExProcess.Parameters.Add(DockerCmd);
+    ExProcess.Executable := 'bash';
+    ExProcess.Parameters.Add('-c');
+    ExProcess.Parameters.Add(FCmd);
+    ExProcess.Options := [poUsePipes];
+    // при необходимости можно добавить poWaitOnExit
     ExProcess.Execute;
+
   finally
     ExProcess.Free;
-    Terminate;
   end;
-
 end;
 
 end.

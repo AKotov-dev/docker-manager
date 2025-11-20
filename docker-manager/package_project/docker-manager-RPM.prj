@@ -33,7 +33,7 @@ urlcopy=https://github.com/AKotov-dev/docker-manager
 license=GPLv3
 
 [DEPS]
-deps=gtk2 docker sakura systemd procps-ng
+deps=gtk2 docker sakura systemd procps
 
 [META]
 meta=0
@@ -74,8 +74,8 @@ toolversion=4.4.0
 7=+ Save image launch command
 8=+ Working directory: ~/DockerManager
 9=+ Remove unnecessary images <none>:<none>
-10=+ Esc - отмена долгих Upload/Download из DockerHub
-11=+ Ctrl+Mouse - мультивыбор в списках образов и контейнеров (с удержанием Ctrl)
+10=+ Esc - Cancel long Upload/Download operations from DockerHub
+11=+ Ctrl + Mouse - Multi-select in image and container lists (hold Ctrl)
 12=
 13=v1.9
 14=+ launching DockerManager from a regular user

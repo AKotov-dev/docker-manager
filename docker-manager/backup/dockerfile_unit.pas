@@ -6,7 +6,7 @@ interface
 
 uses
   Classes, SysUtils, Forms, Controls, Graphics, Dialogs, StdCtrls, Buttons,
-  IniPropStorage, LCLType;
+  IniPropStorage, LCLType, start_docker_command;
 
 type
 
@@ -40,7 +40,7 @@ var
 
 implementation
 
-uses unit1, start_docker_command, project_files;
+uses unit1, project_files;
 
   {$R *.lfm}
 
@@ -49,17 +49,18 @@ uses unit1, start_docker_command, project_files;
 //Создаём новый образ по сценарию Dockerfile
 procedure TDFileForm.BitBtn1Click(Sender: TObject);
 var
-  FStartDockerCommand: TThread;
+  DockerCmd: String;
+//  FStartDockerCommand: TThread;
 begin
   Application.ProcessMessages;
   DFileMemo.Lines.SaveToFile(GetUserDir + 'DockerManager/Dockerfile');
 
   //Сборка нового образа
-  DockerCmd := 'cd ~/DockerManager; docker build --tag ' +
-    NewImageEdit.Text + ' .';
+  DockerCmd := 'cd ~/DockerManager; docker build --tag ' + NewImageEdit.Text + ' .';
 
-  FStartDockerCommand := StartDockerCommand.Create(False);
-  FStartDockerCommand.Priority := tpNormal;
+ // FStartDockerCommand := StartDockerCommand.Create(False);
+ // FStartDockerCommand.Priority := tpNormal;
+ TStartDockerCommand.Create(DockerCmd);
 
   DFileForm.Close;
 end;

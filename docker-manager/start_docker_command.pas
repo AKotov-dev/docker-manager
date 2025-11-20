@@ -8,76 +8,70 @@ uses
   Classes, Process, SysUtils, ComCtrls, Forms;
 
 type
-  StartDockerCommand = class(TThread)
+  TStartDockerCommand = class(TThread)
   private
-
-    { Private declarations }
+    FCmd: string;            // локальная команда для потока
+    FResult: TStringList;
   protected
-  var
-    Result: TStringList;
-
     procedure Execute; override;
-
     procedure ShowLog;
     procedure StartProgress;
     procedure StopProgress;
-
+  public
+    constructor Create(const Cmd: string);
   end;
 
 implementation
 
 uses Unit1;
 
-  { TRD }
+{ ======= CONSTRUCTOR ======= }
+constructor TStartDockerCommand.Create(const Cmd: string);
+begin
+  inherited Create(False);  // поток создаётся и запускается
+  FreeOnTerminate := True;
+  FCmd := Cmd;
+  FResult := TStringList.Create;
+end;
 
-procedure StartDockerCommand.Execute;
+{ ======= EXECUTE ======= }
+procedure TStartDockerCommand.Execute;
 var
   ExProcess: TProcess;
 begin
-  try //Вывод лога и прогресса
+  try
     Synchronize(@StartProgress);
 
-    FreeOnTerminate := True; //Уничтожить по завершении
-    Result := TStringList.Create;
-
-    //Рабочий процесс
     ExProcess := TProcess.Create(nil);
+    try
+      ExProcess.Executable := 'bash';
+      ExProcess.Parameters.Add('-c');
+      ExProcess.Parameters.Add(FCmd);
+      ExProcess.Options := [poUsePipes, poStderrToOutPut];
 
-    ExProcess.Executable := 'bash';
-    ExProcess.Parameters.Add('-c');
-    ExProcess.Parameters.Add(DockerCmd);
+      ExProcess.Execute;
 
-    ExProcess.Options := [poUsePipes, poStderrToOutPut];
-    //, poWaitOnExit (синхронный вывод)
+      while ExProcess.Running do
+      begin
+        FResult.LoadFromStream(ExProcess.Output);
+        FResult.Text := Trim(FResult.Text);
+        if FResult.Count <> 0 then
+          Synchronize(@ShowLog);
+      end;
 
-    ExProcess.Execute;
-
-    //Выводим лог динамически
-    while ExProcess.Running do
-    begin
-      Result.LoadFromStream(ExProcess.Output);
-
-      //Выводим лог
-      Result.Text := Trim(Result.Text);
-
-      if Result.Count <> 0 then
-        Synchronize(@ShowLog);
+    finally
+      ExProcess.Free;
     end;
 
   finally
     Synchronize(@StopProgress);
-    //Для взаимного исключения выполнения команд и отображения списков Images/Containers/DockerCmd
-    DockerCmd := '';
-    Result.Free;
-    ExProcess.Free;
-    Terminate;
+    FResult.Free;
+    //    Terminate;
   end;
 end;
 
-{ БЛОК ОТОБРАЖЕНИЯ ЛОГА }
-
-//Старт индикатора
-procedure StartDockerCommand.StartProgress;
+{ ======= ЛОГИ ======= }
+procedure TStartDockerCommand.StartProgress;
 begin
   with MainForm do
   begin
@@ -88,13 +82,12 @@ begin
   end;
 end;
 
-//Стоп индикатора
-procedure StartDockerCommand.StopProgress;
+procedure TStartDockerCommand.StopProgress;
 begin
   with MainForm do
   begin
-    //Вывод информации о контейнере сначала
-    if Pos('docker inspect', DockerCmd) <> 0 then
+    // Вывод информации о контейнере сначала
+    if Pos('docker inspect', FCmd) <> 0 then
     begin
       LogMemo.SelStart := 0;
       LogMemo.SelLength := 0;
@@ -106,17 +99,12 @@ begin
   end;
 end;
 
-//Вывод лога
-procedure StartDockerCommand.ShowLog;
+procedure TStartDockerCommand.ShowLog;
 var
   i: integer;
 begin
-  //Вывод построчно
-  for i := 0 to Result.Count - 1 do
-    MainForm.LogMemo.Lines.Append(Result[i]);
-
-  //Вывод пачками
-  //MainForm.LogMemo.Lines.Assign(Result);
+  for i := 0 to FResult.Count - 1 do
+    MainForm.LogMemo.Lines.Append(FResult[i]);
 end;
 
 end.

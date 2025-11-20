@@ -6,7 +6,8 @@ interface
 
 uses
   Classes, SysUtils, Forms, Controls, Graphics, Dialogs, StdCtrls,
-  ExtCtrls, Menus, ComCtrls, Process, DefaultTranslator, IniPropStorage, LCLType;
+  ExtCtrls, Menus, ComCtrls, Process, DefaultTranslator, IniPropStorage,
+  LCLType, start_docker_command;
 
 type
 
@@ -116,7 +117,7 @@ type
 var
   MainForm: TMainForm;
   //DockerCmd - команда в поток, RunImageCmd + ImageName - для InputQuery на время сеанса работы
-  DockerCmd, RunImageCmd, ImageName: string;
+  RunImageCmd, ImageName: string;  // DockerCmd,
   //MultiSelect Flag
   StartStopTRDFlag: boolean;
 
@@ -143,7 +144,7 @@ resourcestring
 implementation
 
 uses dockerfile_unit, docker_images_trd, docker_containers_trd,
-  start_docker_command, terminal_trd, login_unit;
+  terminal_trd, login_unit;
 
   {$R *.lfm}
 
@@ -307,11 +308,10 @@ end;
 //Запуск потоков
 procedure TMainForm.FormCreate(Sender: TObject);
 var
+  DockerCmd: string;
   bmp: TBitmap;
   FDImages, FDContainers: TThread;
 begin
-  DockerCmd := '';
-
   // Устраняем баг иконки приложения
   bmp := TBitmap.Create;
   try
@@ -354,16 +354,19 @@ end;
 //StopTRD и Отмена долгих операций
 procedure TMainForm.FormKeyDown(Sender: TObject; var Key: word; Shift: TShiftState);
 begin
-  if Key = VK_CONTROL then
-  begin
-    StartStopTRDFlag := True;
-    MainForm.Caption := Application.Title + ' ' + SPauseLists;
-  end;
+  case Key of
+    VK_CONTROL:
+    begin
+      StartStopTRDFlag := True;
+      MainForm.Caption := Application.Title + ' ' + SPauseLists;
+    end;
 
-  if Key = VK_ESCAPE then   // отмена операций
-  begin
-    StartProcess('pkill -f "docker pull"');
-    StartProcess('pkill -f "docker push"');
+    VK_ESCAPE:
+    begin
+      // Отмена долгих операций: docker pull и docker push
+      StartProcess('pkill -f "docker pull"');
+      StartProcess('pkill -f "docker push"');
+    end;
   end;
 end;
 
@@ -412,29 +415,27 @@ end;
 
 procedure TMainForm.MenuItem10Click(Sender: TObject);
 var
-  FStartTerminal: TThread;
+  DockerCmd: string;
 begin
   DockerCmd := 'sakura -c 120 -r 40 -f 10 -x "docker run -it --rm ' +
     ImageTag(ImageBox.ItemIndex) + ' /bin/bash"';
-  FStartTerminal := TerminalTRD.Create(False);
-  FStartTerminal.Priority := tpNormal;
+  TTerminalTRD.Create(DockerCmd);
 end;
 
 //Вывод информации о версии контейнера
 procedure TMainForm.MenuItem11Click(Sender: TObject);
 var
-  FStartDockerCommand: TThread;
+  DockerCmd: string;
 begin
   DockerCmd := Trim('docker inspect ' + ContainerName(ContainerBox.ItemIndex));
-  FStartDockerCommand := StartDockerCommand.Create(False);
-  FStartDockerCommand.Priority := tpNormal;
+  TStartDockerCommand.Create(DockerCmd);
 end;
 
 //Создать свой образ из контейнера
 procedure TMainForm.MenuItem12Click(Sender: TObject);
 var
   S: string;
-  FStartDockerCommand: TThread;
+  DockerCmd: string;
 begin
   S := NewImageName;
   repeat
@@ -445,22 +446,19 @@ begin
   DockerCmd := Trim('docker commit -a "' + GetEnvironmentVariable('USER') +
     '" ' + ContainerName(ContainerBox.ItemIndex) + ' ' + Trim(S));
 
-  FStartDockerCommand := StartDockerCommand.Create(False);
-  FStartDockerCommand.Priority := tpNormal;
+  TStartDockerCommand.Create(DockerCmd);
 end;
 
 //Backup Image
 procedure TMainForm.MenuItem13Click(Sender: TObject);
 var
-  FStartDockerCommand: TThread;
+  DockerCmd: string;
 begin
   if SaveDialog1.Execute then
   begin
-    DockerCmd := '';
     DockerCmd := 'docker save -o "' + SaveDialog1.FileName + '" ' +
       ImageTag(ImageBox.ItemIndex);
-    FStartDockerCommand := StartDockerCommand.Create(False);
-    FStartDockerCommand.Priority := tpNormal;
+    TStartDockerCommand.Create(DockerCmd);
   end;
 end;
 
@@ -468,15 +466,13 @@ end;
 procedure TMainForm.MenuItem14Click(Sender: TObject);
 var
   i: integer;
-  FStartDockerCommand: TThread;
+  DockerCmd: string;
 begin
   if OpenDialog1.Execute then
   begin
-    DockerCmd := '';
     for i := 0 to OpenDialog1.Files.Count - 1 do
       DockerCmd := DockerCmd + 'docker load -i "' + OpenDialog1.Files[i] + '"; ';
-    FStartDockerCommand := StartDockerCommand.Create(False);
-    FStartDockerCommand.Priority := tpNormal;
+    TStartDockerCommand.Create(DockerCmd);
   end;
 end;
 
@@ -484,10 +480,8 @@ end;
 procedure TMainForm.MenuItem15Click(Sender: TObject);
 var
   i: integer;
-  FStartDockerCommand: TThread;
+  DockerCmd: string;
 begin
-  DockerCmd := '';
-
   //Собираем команду
   for i := 1 to ImageBox.Count - 2 do
     if ImageBox.Selected[i] then
@@ -501,15 +495,14 @@ begin
     StartStopTRDFlag := False;
     MainForm.Caption := Application.Title;
 
-    FStartDockerCommand := StartDockerCommand.Create(False);
-    FStartDockerCommand.Priority := tpNormal;
+    TStartDockerCommand.Create(DockerCmd);
   end;
 end;
 
 //Delete untagged Images
 procedure TMainForm.MenuItem16Click(Sender: TObject);
 var
-  FStartDockerCommand: TThread;
+  DockerCmd: string;
 begin
   if MessageDlg(SConfirmDeletion, mtConfirmation, [mbYes, mbNo], 0) = mrYes then
   begin
@@ -517,15 +510,14 @@ begin
       '{ print $3; }' + '''' + ' | xargs docker rmi --force');
 
     DockerCmd := 'docker image prune -f';
-    FStartDockerCommand := StartDockerCommand.Create(False);
-    FStartDockerCommand.Priority := tpNormal;
+    TStartDockerCommand.Create(DockerCmd);
   end;
 end;
 
 //Delete Images without Containers
 procedure TMainForm.MenuItem17Click(Sender: TObject);
 var
-  FStartDockerCommand: TThread;
+  DockerCmd: string;
 begin
   if MessageDlg(SConfirmDeletion, mtConfirmation, [mbYes, mbNo], 0) = mrYes then
   begin
@@ -533,8 +525,7 @@ begin
       '{ print $3; }' + '''' + ' | xargs docker rmi --force');
 
     DockerCmd := 'docker image prune -f -a';
-    FStartDockerCommand := StartDockerCommand.Create(False);
-    FStartDockerCommand.Priority := tpNormal;
+    TStartDockerCommand.Create(DockerCmd);
   end;
 end;
 
@@ -542,10 +533,8 @@ end;
 procedure TMainForm.MenuItem18Click(Sender: TObject);
 var
   i: integer;
-  FStartDockerCommand: TThread;
+  DockerCmd: string;
 begin
-  DockerCmd := '';
-
   for i := 1 to ContainerBox.Count - 2 do
     if ContainerBox.Selected[i] then
       DockerCmd := DockerCmd + 'docker rm ' + ContainerName(i) + ';';
@@ -555,21 +544,19 @@ begin
     StartStopTRDFlag := False;
     MainForm.Caption := Application.Title;
 
-    FStartDockerCommand := StartDockerCommand.Create(False);
-    FStartDockerCommand.Priority := tpNormal;
+    TStartDockerCommand.Create(DockerCmd);
   end;
 end;
 
 //Удаление остановленных контейнеров
 procedure TMainForm.MenuItem19Click(Sender: TObject);
 var
-  FStartDockerCommand: TThread;
+  DockerCmd: string;
 begin
   if MessageDlg(SConfirmDeletion, mtConfirmation, [mbYes, mbNo], 0) = mrYes then
   begin
     DockerCmd := 'docker container prune -f';
-    FStartDockerCommand := StartDockerCommand.Create(False);
-    FStartDockerCommand.Priority := tpNormal;
+    TStartDockerCommand.Create(DockerCmd);
   end;
 end;
 
@@ -595,7 +582,7 @@ end;}
 //Старт Image с параметрами
 procedure TMainForm.MenuItem1Click(Sender: TObject);
 var
-  FStartDockerCommand: TThread;
+  DockerCmd: string;
 begin
   //  IniPropStorage1.IniSection:='TApplication.MainForm';
   RunImageCmd := IniPropStorage1.ReadString('RUNCMD', '');
@@ -612,8 +599,7 @@ begin
 
     IniPropStorage1.WriteString('RUNCMD', RunImageCmd);
 
-    FStartDockerCommand := StartDockerCommand.Create(False);
-    FStartDockerCommand.Priority := tpNormal;
+    TStartDockerCommand.Create(DockerCmd);
   end;
 end;
 
@@ -633,10 +619,8 @@ end;
 procedure TMainForm.MenuItem21Click(Sender: TObject);
 var
   i: integer;
-  FStartDockerCommand: TThread;
+  DockerCmd: string;
 begin
-  DockerCmd := '';
-
   for i := 1 to ContainerBox.Count - 2 do
     if ContainerBox.Selected[i] then
       DockerCmd := DockerCmd + 'docker stop ' + ContainerName(i) + ';';
@@ -644,8 +628,7 @@ begin
   StartStopTRDFlag := False;
   MainForm.Caption := Application.Title;
 
-  FStartDockerCommand := StartDockerCommand.Create(False);
-  FStartDockerCommand.Priority := tpNormal;
+  TStartDockerCommand.Create(DockerCmd);
 end;
 
 //Стоп всех контейнеров
@@ -653,7 +636,7 @@ procedure TMainForm.MenuItem22Click(Sender: TObject);
 var
   i: integer;
   S: string;
-  FStartDockerCommand: TThread;
+  DockerCmd: string;
 begin
   S := '';
   for i := 1 to ContainerBox.Count - 2 do
@@ -661,15 +644,14 @@ begin
 
   DockerCmd := 'docker stop ' + S;
 
-  FStartDockerCommand := StartDockerCommand.Create(False);
-  FStartDockerCommand.Priority := tpNormal;
+  TStartDockerCommand.Create(DockerCmd);
 end;
 
 //Import the contents from a tarball to create a filesystem image
 procedure TMainForm.MenuItem23Click(Sender: TObject);
 var
   S: string;
-  FStartDockerCommand: TThread;
+  DockerCmd: string;
 begin
   if OpenDialog1.Execute then
   begin
@@ -679,23 +661,21 @@ begin
         Exit
     until S <> '';
     DockerCmd := 'docker import "' + OpenDialog1.FileName + '" ' + Trim(S);
-    FStartDockerCommand := StartDockerCommand.Create(False);
-    FStartDockerCommand.Priority := tpNormal;
+    TStartDockerCommand.Create(DockerCmd);
   end;
 end;
 
 //Export a container’s filesystem as a tar archive
 procedure TMainForm.MenuItem24Click(Sender: TObject);
 var
-  FStartDockerCommand: TThread;
+  DockerCmd: string;
 begin
   if SaveDialog1.Execute then
   begin
     DockerCmd := Trim('docker export --output="' + SaveDialog1.FileName +
       '" ' + ContainerName(ContainerBox.ItemIndex));
 
-    FStartDockerCommand := StartDockerCommand.Create(False);
-    FStartDockerCommand.Priority := tpNormal;
+    TStartDockerCommand.Create(DockerCmd);
   end;
 end;
 
@@ -703,7 +683,7 @@ end;
 procedure TMainForm.MenuItem25Click(Sender: TObject);
 var
   S: string;
-  FStartDockerCommand: TThread;
+  DockerCmd: string;
 begin
   S := ContainerName(ContainerBox.ItemIndex);
   repeat
@@ -713,15 +693,14 @@ begin
 
   DockerCmd := 'docker rename ' + ContainerName(ContainerBox.ItemIndex) + ' ' + Trim(S);
 
-  FStartDockerCommand := StartDockerCommand.Create(False);
-  FStartDockerCommand.Priority := tpNormal;
+  TStartDockerCommand.Create(DockerCmd);
 end;
 
 //Rename this Image
 procedure TMainForm.MenuItem26Click(Sender: TObject);
 var
   S: string;
-  FStartDockerCommand: TThread;
+  DockerCmd: string;
 begin
   S := ImageTag(ImageBox.ItemIndex);
   repeat
@@ -732,8 +711,7 @@ begin
   DockerCmd := 'docker image tag ' + ImageTag(ImageBox.ItemIndex) +
     ' ' + Trim(S) + ' && docker rmi ' + ImageTag(ImageBox.ItemIndex);
 
-  FStartDockerCommand := StartDockerCommand.Create(False);
-  FStartDockerCommand.Priority := tpNormal;
+  TStartDockerCommand.Create(DockerCmd);
 end;
 
 procedure TMainForm.MenuItem28Click(Sender: TObject);
@@ -744,40 +722,38 @@ end;
 //Push Image to DockerHub
 procedure TMainForm.MenuItem29Click(Sender: TObject);
 var
-  FStartDockerCommand: TThread;
+  DockerCmd: string;
 begin
   DockerCmd := Trim('docker push ' + ImageTag(ImageBox.ItemIndex));
-  FStartDockerCommand := StartDockerCommand.Create(False);
-  FStartDockerCommand.Priority := tpNormal;
+  TStartDockerCommand.Create(DockerCmd);
 end;
 
 //Старт контейнера с параметрами
 procedure TMainForm.MenuItem3Click(Sender: TObject);
 var
-  FStartDockerCommand: TThread;
+  DockerCmd: string;
 begin
   DockerCmd := Trim('docker start ' + ContainerName(ContainerBox.ItemIndex));
-  FStartDockerCommand := StartDockerCommand.Create(False);
-  FStartDockerCommand.Priority := tpNormal;
+  TStartDockerCommand.Create(DockerCmd);
 end;
 
 //Войти в Shell запущенного контейнера
 procedure TMainForm.MenuItem6Click(Sender: TObject);
 var
-  FStartTerminal: TThread;
+  DockerCmd: string;
 begin
   DockerCmd := '[[ $(docker ps | grep ' + ContainerName(ContainerBox.ItemIndex) +
     ') ]] || docker start ' + ContainerName(ContainerBox.ItemIndex) +
     '&& sakura -c 120 -r 40 -f 10 -x "docker exec -it ' +
     ContainerName(ContainerBox.ItemIndex) + ' /bin/bash"';
-  FStartTerminal := TerminalTRD.Create(False);
-  FStartTerminal.Priority := tpNormal;
+
+  TTerminalTRD.Create(DockerCmd);
 end;
 
 //Получение Docker-Image
 procedure TMainForm.MenuItem7Click(Sender: TObject);
 var
-  FStartDockerCommand: TThread;
+  DockerCmd: String;
 begin
   repeat
     if not InputQuery(SPullCaption, SPullString, ImageName) then
@@ -785,14 +761,13 @@ begin
   until ImageName <> '';
 
   DockerCmd := 'docker pull ' + Trim(ImageName);
-  FStartDockerCommand := StartDockerCommand.Create(False);
-  FStartDockerCommand.Priority := tpNormal;
+  TStartDockerCommand.Create(DockerCmd);
 end;
 
 //Старт Docker-Image с командой --rm
 procedure TMainForm.MenuItem8Click(Sender: TObject);
 var
-  FStartDockerCommand: TThread;
+  DockerCmd: String;
 begin
   //  IniPropStorage1.IniSection:='TApplication.MainForm';
   RunImageCmd := IniPropStorage1.ReadString('RUNCMD', '');
@@ -809,20 +784,19 @@ begin
 
     IniPropStorage1.WriteString('RUNCMD', RunImageCmd);
 
-    FStartDockerCommand := StartDockerCommand.Create(False);
-    FStartDockerCommand.Priority := tpNormal;
+    TStartDockerCommand.Create(DockerCmd);
   end;
 end;
 
 //Запуск образа и вход в BASH
 procedure TMainForm.MenuItem9Click(Sender: TObject);
 var
-  FStartTerminal: TThread;
+  DockerCmd: String;
 begin
   DockerCmd := 'sakura -c 120 -r 40 -f 10 -x "docker run -it ' +
     ImageTag(ImageBox.ItemIndex) + ' /bin/bash"';
-  FStartTerminal := TerminalTRD.Create(False);
-  FStartTerminal.Priority := tpNormal;
+
+  TTerminalTRD.Create(DockerCmd);
 end;
 
 //Меню образов

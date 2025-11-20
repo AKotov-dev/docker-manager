@@ -6,7 +6,7 @@ interface
 
 uses
   Classes, SysUtils, Forms, Controls, Graphics, Dialogs, StdCtrls, Buttons,
-  IniPropStorage;
+  IniPropStorage, start_docker_command;
 
 type
 
@@ -36,7 +36,7 @@ var
 
 implementation
 
-uses unit1, start_docker_command;
+uses unit1;
 
   {$R *.lfm}
 
@@ -45,12 +45,11 @@ uses unit1, start_docker_command;
 //Login to DockerHub (Name/Password)
 procedure TLoginForm.LoginBtnClick(Sender: TObject);
 var
-  FStartDockerCommand: TThread;
+  DockerCmd: string;
 begin
   LoginForm.Close;
   DockerCmd := Trim('docker login -u ' + Trim(Edit1.Text) + ' -p ' + Trim(Edit2.Text));
-  FStartDockerCommand := StartDockerCommand.Create(False);
-  FStartDockerCommand.Priority := tpNormal;
+  TStartDockerCommand.Create(DockerCmd);
 end;
 
 //Файл настроек
@@ -75,12 +74,11 @@ end;
 //Logout from Docker
 procedure TLoginForm.LogoutBtnClick(Sender: TObject);
 var
-  FStartDockerCommand: TThread;
+  DockerCmd: string;
 begin
   LoginForm.Close;
   DockerCmd := Trim('docker logout');
-  FStartDockerCommand := StartDockerCommand.Create(False);
-  FStartDockerCommand.Priority := tpNormal;
+  TStartDockerCommand.Create(DockerCmd);
 end;
 
 end.
