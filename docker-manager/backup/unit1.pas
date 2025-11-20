@@ -163,7 +163,8 @@ begin
     ExProcess.Executable := 'bash';
     ExProcess.Parameters.Add('-c');
     ExProcess.Parameters.Add(command);
-    ExProcess.Options := [poUsePipes, poStderrToOutPut]; //, poStderrToOutPut, poWaitOnExit
+    ExProcess.Options := [poUsePipes, poStderrToOutPut];
+    //, poStderrToOutPut, poWaitOnExit
     ExProcess.Execute;
 
     S.LoadFromStream(ExProcess.Output);
@@ -377,6 +378,7 @@ begin
       // Отмена долгих операций: docker pull и docker push
       StartProcess('pkill -f "docker pull"');
       StartProcess('pkill -f "docker push"');
+      StartProcess('pkill -f "docker load"');
     end;
   end;
 end;
