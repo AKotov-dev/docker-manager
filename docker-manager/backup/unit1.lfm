@@ -1,5 +1,5 @@
 object MainForm: TMainForm
-  Left = 322
+  Left = 314
   Height = 712
   Top = 120
   Width = 1066
@@ -288,11 +288,11 @@ object MainForm: TMainForm
         OnClick = MenuItem15Click
       end
       object MenuItem16: TMenuItem
-        Caption = 'Dangling images (prune -f)'
+        Caption = 'All dangling images (prune -f)'
         OnClick = MenuItem16Click
       end
       object MenuItem17: TMenuItem
-        Caption = 'Unused images (prune -f -a)'
+        Caption = 'All unused images (prune -f -a)'
         OnClick = MenuItem17Click
       end
     end

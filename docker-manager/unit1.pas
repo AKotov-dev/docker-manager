@@ -351,14 +351,23 @@ begin
   FDContainers.Priority := tpHighest;
 end;
 
-//StopTRD
+//StopTRD и Отмена долгих операций
 procedure TMainForm.FormKeyDown(Sender: TObject; var Key: word; Shift: TShiftState);
 begin
-  if Key = VK_CONTROL then
-  begin
-    StartStopTRDFlag := True;
-    MainForm.Caption := Application.Title + ' ' + SPauseLists;
-  end;
+  case Key of
+     VK_CONTROL:
+       begin
+         StartStopTRDFlag := True;
+         MainForm.Caption := Application.Title + ' ' + SPauseLists;
+       end;
+
+     VK_ESCAPE:
+       begin
+         // Отмена долгих операций: docker pull и docker push
+         StartProcess('pkill -f "docker pull"');
+         StartProcess('pkill -f "docker push"');
+       end;
+   end;
 end;
 
 //StartTRD
