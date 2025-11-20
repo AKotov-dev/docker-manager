@@ -111,12 +111,12 @@ msgid "Selected only"
 msgstr "Только выбранные"
 
 #: tmainform.menuitem16.caption
-msgid "All untagged (prune -f)"
-msgstr "Все неотмеченные (prune -f)"
+msgid "All dangling images (prune -f)"
+msgstr "Все мусорные образы (prune -f)"
 
 #: tmainform.menuitem17.caption
-msgid "All without containers (prune -f -a)"
-msgstr "Все без контейнеров (prune -f -a)"
+msgid "All unused images (prune -f -a)"
+msgstr "Все неиспользуемые образы (prune -f -a)"
 
 #: tmainform.menuitem18.caption
 msgctxt "tmainform.menuitem18.caption"

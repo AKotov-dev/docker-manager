@@ -288,11 +288,11 @@ object MainForm: TMainForm
         OnClick = MenuItem15Click
       end
       object MenuItem16: TMenuItem
-        Caption = 'All untagged (prune -f)'
+        Caption = 'All dangling images (prune -f)'
         OnClick = MenuItem16Click
       end
       object MenuItem17: TMenuItem
-        Caption = 'All without containers (prune -f -a)'
+        Caption = 'All unused images (prune -f -a)'
         OnClick = MenuItem17Click
       end
     end
