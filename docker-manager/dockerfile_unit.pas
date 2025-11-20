@@ -50,16 +50,13 @@ uses unit1, project_files;
 procedure TDFileForm.BitBtn1Click(Sender: TObject);
 var
   DockerCmd: string;
-  //  FStartDockerCommand: TThread;
 begin
   Application.ProcessMessages;
-  DFileMemo.Lines.SaveToFile(GetUserDir + 'DockerManager/Dockerfile');
+  // DFileMemo.Lines.SaveToFile(GetUserDir + 'DockerManager/Dockerfile');
 
   //Сборка нового образа
   DockerCmd := 'cd ~/DockerManager; docker build --tag ' + NewImageEdit.Text + ' .';
 
-  // FStartDockerCommand := StartDockerCommand.Create(False);
-  // FStartDockerCommand.Priority := tpNormal;
   TStartDockerCommand.Create(DockerCmd);
 
   DFileForm.Close;
@@ -79,6 +76,8 @@ end;
 procedure TDFileForm.FormClose(Sender: TObject; var CloseAction: TCloseAction);
 begin
   IniPropStorage1.Save;
+
+  DFileMemo.Lines.SaveToFile(GetUserDir + 'DockerManager/Dockerfile');
 end;
 
 procedure TDFileForm.FormCreate(Sender: TObject);
@@ -92,11 +91,11 @@ procedure TDFileForm.FormShow(Sender: TObject);
 begin
   IniPropStorage1.Restore;
 
+  //Если Doсkerfile существует - показываем, иначе создаём новый
   if FileExists(GetUserDir + 'DockerManager/Dockerfile') then
-    DFileMemo.Lines.LoadFromFile(GetUserDir + 'DockerManager/Dockerfile');
-
- { if DFileForm.Caption <> SDockerHub then
-    DFileMemo.Lines[0] := 'FROM ' + DFileForm.Caption;}
+    DFileMemo.Lines.LoadFromFile(GetUserDir + 'DockerManager/Dockerfile')
+  else
+    DFileMemo.Lines.SaveToFile(GetUserDir + 'DockerManager/Dockerfile');
 end;
 
 //Имя_образа:тэг задаём обязательно

@@ -57,8 +57,8 @@ begin
 
 
       if not StartStopTRDFlag then
-      if ImageList.Count <> 0 then
-        Synchronize(@Show);
+        if ImageList.Count <> 0 then
+          Synchronize(@Show);
 
       Sleep(600);
     end;
@@ -66,7 +66,7 @@ begin
   finally
     ImageList.Free;
     ExProcess.Free;
-//    Terminate;
+    //    Terminate;
   end;
 end;
 

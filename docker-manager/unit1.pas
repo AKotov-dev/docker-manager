@@ -118,7 +118,7 @@ var
   MainForm: TMainForm;
   //DockerCmd - команда в поток, RunImageCmd + ImageName - для InputQuery на время сеанса работы
   RunImageCmd, ImageName: string;  // DockerCmd,
-  //MultiSelect Flag
+  //MultiSelect Flag (включение/отключение опроса состояния)
   StartStopTRDFlag: boolean;
 
 resourcestring
@@ -143,8 +143,7 @@ resourcestring
 
 implementation
 
-uses dockerfile_unit, docker_images_trd, docker_containers_trd,
-  terminal_trd, login_unit;
+uses dockerfile_unit, docker_images_trd, docker_containers_trd, terminal_trd, login_unit;
 
   {$R *.lfm}
 
@@ -356,9 +355,11 @@ begin
 
   StartProcess('[[ $(groups | grep "docker") ]] || echo "' + SNoUserInDocker + '"');
 
+  //Список Images
   FDImages := DImages.Create(False);
   FDImages.Priority := tpNormal;
 
+  //Список контейнеров
   FDContainers := DContainers.Create(False);
   FDContainers.Priority := tpNormal;
 end;
@@ -618,12 +619,6 @@ end;
 //Форма Dockerfile
 procedure TMainForm.MenuItem20Click(Sender: TObject);
 begin
-  {if (ImageBox.Count <> 2) and (ImageBox.SelCount <> 0) and
-    (ImageBox.ItemIndex <> 0) and (ImageBox.ItemIndex <> ImageBox.Count - 1) then
-    DFileForm.Caption := ImageTag
-  else
-    DFileForm.Caption := SDockerHub;}
-
   DFileForm.Show;
 end;
 

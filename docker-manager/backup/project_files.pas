@@ -68,8 +68,10 @@ begin
       CopyFile(OpenDialog1.Files[i], FileListBox1.Directory + '/' +
         ExtractFileName(OpenDialog1.Files[i]), False);
 
+    //обновить список
     UpdateBtn.Click;
 
+    //на случай обновления Dockerfile
     if FileExists(GetUserDir + 'DockerManager/Dockerfile') then
       DFileForm.DFileMemo.Lines.LoadFromFile(GetUserDir + 'DockerManager/Dockerfile');
   end;

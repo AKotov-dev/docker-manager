@@ -378,7 +378,6 @@ begin
       // Отмена долгих операций: docker pull и docker push
       StartProcess('pkill -f "docker pull"');
       StartProcess('pkill -f "docker push"');
-      StartProcess('pkill -f "docker load"');
     end;
   end;
 end;
@@ -619,12 +618,6 @@ end;
 //Форма Dockerfile
 procedure TMainForm.MenuItem20Click(Sender: TObject);
 begin
-  {if (ImageBox.Count <> 2) and (ImageBox.SelCount <> 0) and
-    (ImageBox.ItemIndex <> 0) and (ImageBox.ItemIndex <> ImageBox.Count - 1) then
-    DFileForm.Caption := ImageTag
-  else
-    DFileForm.Caption := SDockerHub;}
-
   DFileForm.Show;
 end;
 

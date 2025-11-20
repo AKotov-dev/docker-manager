@@ -38,9 +38,10 @@
       <Unit0>
         <Filename Value="docker_manager.lpr"/>
         <IsPartOfProject Value="True"/>
-        <EditorIndex Value="-1"/>
+        <EditorIndex Value="4"/>
         <CursorPos X="25"/>
-        <UsageCount Value="79"/>
+        <UsageCount Value="80"/>
+        <Loaded Value="True"/>
       </Unit0>
       <Unit1>
         <Filename Value="unit1.pas"/>
@@ -49,40 +50,43 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="Unit1"/>
-        <IsVisibleTab Value="True"/>
-        <TopLine Value="338"/>
-        <CursorPos X="3" Y="326"/>
-        <UsageCount Value="79"/>
+        <CursorPos X="13"/>
+        <UsageCount Value="80"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit1>
       <Unit2>
         <Filename Value="docker_images_trd.pas"/>
         <IsPartOfProject Value="True"/>
-        <EditorIndex Value="-1"/>
+        <EditorIndex Value="3"/>
         <CursorPos X="25"/>
-        <UsageCount Value="79"/>
+        <UsageCount Value="80"/>
+        <Loaded Value="True"/>
       </Unit2>
       <Unit3>
         <Filename Value="start_docker_command.pas"/>
         <IsPartOfProject Value="True"/>
-        <EditorIndex Value="-1"/>
-        <CursorPos X="29"/>
-        <UsageCount Value="74"/>
+        <EditorIndex Value="7"/>
+        <CursorPos X="28"/>
+        <UsageCount Value="75"/>
+        <Loaded Value="True"/>
       </Unit3>
       <Unit4>
         <Filename Value="docker_containers_trd.pas"/>
         <IsPartOfProject Value="True"/>
-        <EditorIndex Value="-1"/>
+        <EditorIndex Value="2"/>
         <CursorPos X="29"/>
-        <UsageCount Value="66"/>
+        <UsageCount Value="67"/>
+        <Loaded Value="True"/>
       </Unit4>
       <Unit5>
         <Filename Value="terminal_trd.pas"/>
         <IsPartOfProject Value="True"/>
-        <EditorIndex Value="-1"/>
+        <IsVisibleTab Value="True"/>
+        <EditorIndex Value="8"/>
         <CursorPos X="20"/>
-        <UsageCount Value="54"/>
+        <UsageCount Value="55"/>
+        <Loaded Value="True"/>
       </Unit5>
       <Unit6>
         <Filename Value="dockerfile_unit.pas"/>
@@ -92,8 +96,9 @@
         <ResourceBaseClass Value="Form"/>
         <EditorIndex Value="1"/>
         <CursorPos X="23"/>
-        <UsageCount Value="53"/>
+        <UsageCount Value="54"/>
         <Loaded Value="True"/>
+        <LoadedDesigner Value="True"/>
       </Unit6>
       <Unit7>
         <Filename Value="project_files.pas"/>
@@ -101,9 +106,9 @@
         <ComponentName Value="FilesForm"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-        <EditorIndex Value="2"/>
+        <EditorIndex Value="6"/>
         <CursorPos X="21"/>
-        <UsageCount Value="45"/>
+        <UsageCount Value="46"/>
         <Loaded Value="True"/>
       </Unit7>
       <Unit8>
@@ -112,9 +117,10 @@
         <ComponentName Value="LoginForm"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-        <EditorIndex Value="-1"/>
+        <EditorIndex Value="5"/>
         <CursorPos X="18"/>
-        <UsageCount Value="40"/>
+        <UsageCount Value="41"/>
+        <Loaded Value="True"/>
       </Unit8>
     </Units>
     <JumpHistory Count="30" HistoryIndex="29">
@@ -223,20 +229,20 @@
         <Caret Line="486" Column="33" TopLine="477"/>
       </Position26>
       <Position27>
-        <Filename Value="dockerfile_unit.pas"/>
-        <Caret Column="23"/>
-      </Position27>
-      <Position28>
-        <Filename Value="project_files.pas"/>
-        <Caret Column="21"/>
-      </Position28>
-      <Position29>
-        <Filename Value="project_files.pas"/>
-        <Caret Line="43" Column="28" TopLine="27"/>
-      </Position29>
-      <Position30>
         <Filename Value="unit1.pas"/>
         <Caret Column="13"/>
+      </Position27>
+      <Position28>
+        <Filename Value="dockerfile_unit.pas"/>
+        <Caret Column="23" TopLine="75"/>
+      </Position28>
+      <Position29>
+        <Filename Value="dockerfile_unit.pas"/>
+        <Caret Line="55" Column="3" TopLine="49"/>
+      </Position29>
+      <Position30>
+        <Filename Value="dockerfile_unit.pas"/>
+        <Caret Line="80" Column="72" TopLine="58"/>
       </Position30>
     </JumpHistory>
     <RunParams>

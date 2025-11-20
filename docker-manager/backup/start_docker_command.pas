@@ -66,7 +66,7 @@ begin
   finally
     Synchronize(@StopProgress);
     FResult.Free;
-//    Terminate;
+    //    Terminate;
   end;
 end;
 

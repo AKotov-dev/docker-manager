@@ -66,7 +66,6 @@ begin
   finally
     ImageList.Free;
     ExProcess.Free;
-    //    Terminate;
   end;
 end;
 
