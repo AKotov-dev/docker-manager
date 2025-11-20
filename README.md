@@ -13,6 +13,8 @@ The GUI is designed to manage Docker images and containers. It allows you to mon
 + Renaming images and containers
 + Login/Logout, Push the image to DockerHub  
   
+Starting with v2.0, multiple selections in lists are supported when deleting/stopping images/containers. To select multiple list entries, press and hold `Ctrl` while choosing an action from the pop-up menu.
+  
 Don't forget to include the active user in the `docker` group: `usermod -aG docker $LOGNAME && reboot`
   
 **Working directory:** ~/DockerManager  
