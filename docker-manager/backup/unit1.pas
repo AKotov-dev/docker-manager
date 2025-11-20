@@ -150,20 +150,31 @@ uses dockerfile_unit, docker_images_trd, docker_containers_trd,
 
   { TMainForm }
 
-//StartCommand (служебные команды)
+//StartCommand (служебные команды) - не чистим лог, а дополняем
 procedure TMainForm.StartProcess(command: string);
 var
+  i: integer;
+  S: TStringList;
   ExProcess: TProcess;
 begin
   try
+    S := TStringList.Create;
     ExProcess := TProcess.Create(nil);
     ExProcess.Executable := 'bash';
     ExProcess.Parameters.Add('-c');
     ExProcess.Parameters.Add(command);
-    ExProcess.Options := [poUsePipes]; //, poStderrToOutPut, poWaitOnExit
+    ExProcess.Options := [poUsePipes, poStderrToOutPut]; //, poStderrToOutPut, poWaitOnExit
     ExProcess.Execute;
-    MainForm.LogMemo.Lines.LoadFromStream(ExProcess.Output);
+
+    S.LoadFromStream(ExProcess.Output);
+    S.Text := Trim(S.Text);
+
+    if S.Count <> 0 then
+      for i := 0 to S.Count - 1 do
+        LogMemo.Lines.Append(S[i]);
+
   finally
+    S.Free;
     ExProcess.Free;
   end;
 end;
@@ -308,7 +319,6 @@ end;
 //Запуск потоков
 procedure TMainForm.FormCreate(Sender: TObject);
 var
-  DockerCmd: string;
   bmp: TBitmap;
   FDImages, FDContainers: TThread;
 begin
@@ -341,14 +351,15 @@ begin
 
   //Проверка активности docker.service и включение $USER в группу docker
   StartProcess('[[ $(systemctl is-active docker) != "active" ]] && echo "' +
-    SDockerNotRunning + '"; [[ $(groups | grep "docker") ]] || echo "' +
-    SNoUserInDocker + '"');
+    SDockerNotRunning + '"');
+
+  StartProcess('[[ $(groups | grep "docker") ]] || echo "' + SNoUserInDocker + '"');
 
   FDImages := DImages.Create(False);
-  FDImages.Priority := tpHighest;
+  FDImages.Priority := tpNormal;
 
   FDContainers := DContainers.Create(False);
-  FDContainers.Priority := tpHighest;
+  FDContainers.Priority := tpNormal;
 end;
 
 //StopTRD и Отмена долгих операций
@@ -753,7 +764,7 @@ end;
 //Получение Docker-Image
 procedure TMainForm.MenuItem7Click(Sender: TObject);
 var
-  DockerCmd: String;
+  DockerCmd: string;
 begin
   repeat
     if not InputQuery(SPullCaption, SPullString, ImageName) then
@@ -767,7 +778,7 @@ end;
 //Старт Docker-Image с командой --rm
 procedure TMainForm.MenuItem8Click(Sender: TObject);
 var
-  DockerCmd: String;
+  DockerCmd: string;
 begin
   //  IniPropStorage1.IniSection:='TApplication.MainForm';
   RunImageCmd := IniPropStorage1.ReadString('RUNCMD', '');
@@ -791,7 +802,7 @@ end;
 //Запуск образа и вход в BASH
 procedure TMainForm.MenuItem9Click(Sender: TObject);
 var
-  DockerCmd: String;
+  DockerCmd: string;
 begin
   DockerCmd := 'sakura -c 120 -r 40 -f 10 -x "docker run -it ' +
     ImageTag(ImageBox.ItemIndex) + ' /bin/bash"';
