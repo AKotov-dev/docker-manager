@@ -104,7 +104,7 @@ object MainForm: TMainForm
     Top = 694
     Width = 1066
     Align = alBottom
-    Caption = 'License: GPLv3   Author: alex_q_2000 (C) 2022   URL: https://github.com/AKotov-dev/docker-manager'
+    Caption = 'License: GPLv3   Author: alex_q_2000 (C) 2025   URL: https://github.com/AKotov-dev/docker-manager'
     Color = clDefault
     Font.Color = clGray
     Font.Height = -11

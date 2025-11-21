@@ -835,9 +835,9 @@ end;
 //Продолжить сканирование списка образов
 procedure TMainForm.PopupMenu1Close(Sender: TObject);
 begin
-   StartStopTRDFlag := False;
-    MainForm.Caption := Application.Title;
-    Application.ProcessMessages;
+  StartStopTRDFlag := False;
+  MainForm.Caption := Application.Title;
+  Application.ProcessMessages;
 end;
 
 //Меню образов
@@ -849,9 +849,9 @@ end;
 //Продолжить сканирование списка контейнеров
 procedure TMainForm.PopupMenu2Close(Sender: TObject);
 begin
-   StartStopTRDFlag := False;
-    MainForm.Caption := Application.Title;
-    Application.ProcessMessages;
+  StartStopTRDFlag := False;
+  MainForm.Caption := Application.Title;
+  Application.ProcessMessages;
 end;
 
 //Меню контейнеров

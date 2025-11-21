@@ -2,5 +2,6 @@
 {"hash":186160517,"name":"tdfileform.caption","sourcebytes":[126,47,68,111,99,107,101,114,77,97,110,97,103,101,114,47,68,111,99,107,101,114,102,105,108,101],"value":"~/DockerManager/Dockerfile"},
 {"hash":51599927,"name":"tdfileform.newimageedit.text","sourcebytes":[110,101,119,45,105,109,97,103,101,58,116,97,103],"value":"new-image:tag"},
 {"hash":241216826,"name":"tdfileform.label1.caption","sourcebytes":[67,114,101,97,116,101,32,97,110,32,105,109,97,103,101,58],"value":"Create an image:"},
-{"hash":33229107,"name":"tdfileform.dfdirbtn.hint","sourcebytes":[80,114,111,106,101,99,116,32,102,105,108,101,115],"value":"Project files"}
+{"hash":33229107,"name":"tdfileform.dfdirbtn.hint","sourcebytes":[80,114,111,106,101,99,116,32,102,105,108,101,115],"value":"Project files"},
+{"hash":230540293,"name":"tdfileform.savebtn.hint","sourcebytes":[83,97,118,101,32,68,111,99,107,101,114,102,105,108,101],"value":"Save Dockerfile"}
 ]}

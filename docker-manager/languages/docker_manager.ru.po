@@ -30,6 +30,10 @@ msgctxt "tdfileform.newimageedit.text"
 msgid "new-image:tag"
 msgstr ""
 
+#: tdfileform.savebtn.hint
+msgid "Save Dockerfile"
+msgstr "Сохранить Dockerfile"
+
 #: tfilesform.addbtn.hint
 msgctxt "tfilesform.addbtn.hint"
 msgid "Add files"
@@ -71,11 +75,11 @@ msgstr "Пароль:"
 #: tloginform.loginbtn.caption
 msgctxt "tloginform.loginbtn.caption"
 msgid "Login"
-msgstr ""
+msgstr "Зайти"
 
 #: tloginform.logoutbtn.caption
 msgid "Logout"
-msgstr ""
+msgstr "Выйти"
 
 #: tmainform.caption
 msgid "Docker Manager"
@@ -203,8 +207,8 @@ msgid "Run and goto Shell > /bin/bash"
 msgstr "Запустить и зайти в Shell > /bin/bash"
 
 #: tmainform.statictext1.caption
-msgid "License: GPLv3   Author: alex_q_2000 (C) 2022   URL: https://github.com/AKotov-dev/docker-manager"
-msgstr "Лицензия: GPLv3   Автор: alex_q_2000 (C) 2022   URL: https://github.com/AKotov-dev/docker-manager"
+msgid "License: GPLv3   Author: alex_q_2000 (C) 2025   URL: https://github.com/AKotov-dev/docker-manager"
+msgstr "Лицензия: GPLv3   Автор: alex_q_2000 (C) 2025   URL: https://github.com/AKotov-dev/docker-manager"
 
 #: unit1.sconfirmdeletion
 msgid "Do you confirm the deletion?"

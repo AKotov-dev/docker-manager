@@ -20,6 +20,7 @@ type
     NewImageEdit: TEdit;
     IniPropStorage1: TIniPropStorage;
     DfDirBtn: TSpeedButton;
+    SaveBtn: TSpeedButton;
     procedure BitBtn1Click(Sender: TObject);
     procedure BitBtn2Click(Sender: TObject);
     procedure DfDirBtnClick(Sender: TObject);
@@ -29,6 +30,7 @@ type
     procedure NewImageEditChange(Sender: TObject);
     procedure NewImageEditKeyDown(Sender: TObject; var Key: word;
       Shift: TShiftState);
+    procedure SaveBtnClick(Sender: TObject);
   private
 
   public
@@ -52,7 +54,8 @@ var
   DockerCmd: string;
 begin
   Application.ProcessMessages;
-  // DFileMemo.Lines.SaveToFile(GetUserDir + 'DockerManager/Dockerfile');
+  //Сохраняем Dockerfile
+  SaveBtn.Click;
 
   //Сборка нового образа
   DockerCmd := 'cd ~/DockerManager; docker build --tag ' + NewImageEdit.Text + ' .';
@@ -76,8 +79,6 @@ end;
 procedure TDFileForm.FormClose(Sender: TObject; var CloseAction: TCloseAction);
 begin
   IniPropStorage1.Save;
-
-  DFileMemo.Lines.SaveToFile(GetUserDir + 'DockerManager/Dockerfile');
 end;
 
 procedure TDFileForm.FormCreate(Sender: TObject);
@@ -111,6 +112,12 @@ procedure TDFileForm.NewImageEditKeyDown(Sender: TObject; var Key: word;
   Shift: TShiftState);
 begin
   if Key = VK_SPACE then Key := 0;
+end;
+
+//Сохраняем Dockerfile
+procedure TDFileForm.SaveBtnClick(Sender: TObject);
+begin
+  DFileMemo.Lines.SaveToFile(GetUserDir + 'DockerManager/Dockerfile');
 end;
 
 end.
