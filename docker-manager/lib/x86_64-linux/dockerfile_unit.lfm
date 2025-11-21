@@ -27,6 +27,7 @@ object DFileForm: TDFileForm
     ParentFont = False
     ScrollBars = ssVertical
     TabOrder = 3
+    OnChange = DFileMemoChange
   end
   object BitBtn1: TBitBtn
     AnchorSideRight.Control = Owner

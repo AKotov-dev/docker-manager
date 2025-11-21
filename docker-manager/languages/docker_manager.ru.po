@@ -222,6 +222,10 @@ msgstr "Создать новый образ"
 msgid "Delete selected files?"
 msgstr "Удалить выбранные файлы?"
 
+#: unit1.sdockerfilesave
+msgid "The Dockerfile has changed. Save?"
+msgstr "Dockerfile изменился. Сохранить?"
+
 #: unit1.sdockerhub
 msgid "...the main image is not selected; will be retrieved from DockerHub"
 msgstr "...основной образ не выбран; будет получен из DockerHub"

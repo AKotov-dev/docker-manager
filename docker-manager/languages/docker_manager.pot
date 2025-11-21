@@ -211,6 +211,10 @@ msgstr ""
 msgid "Delete selected files?"
 msgstr ""
 
+#: unit1.sdockerfilesave
+msgid "The Dockerfile has changed. Save?"
+msgstr ""
+
 #: unit1.sdockerhub
 msgid "...the main image is not selected; will be retrieved from DockerHub"
 msgstr ""

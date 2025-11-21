@@ -1,7 +1,7 @@
 object DFileForm: TDFileForm
-  Left = 532
+  Left = 331
   Height = 639
-  Top = 270
+  Top = 132
   Width = 895
   Caption = '~/DockerManager/Dockerfile'
   ClientHeight = 639
@@ -27,6 +27,7 @@ object DFileForm: TDFileForm
     ParentFont = False
     ScrollBars = ssVertical
     TabOrder = 3
+    OnChange = DFileMemoChange
   end
   object BitBtn1: TBitBtn
     AnchorSideRight.Control = Owner

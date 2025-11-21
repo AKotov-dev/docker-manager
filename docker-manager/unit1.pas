@@ -142,6 +142,7 @@ resourcestring
     'Warning! Include the user in the docker group and restart the computer: usermod -aG docker $LOGNAME; reboot';
 
   SPauseLists = '(Pause lists...)';
+  SDockerfileSave = 'The Dockerfile has changed. Save?';
 
 implementation
 

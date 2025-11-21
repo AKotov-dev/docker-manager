@@ -24,6 +24,7 @@ type
     procedure BitBtn1Click(Sender: TObject);
     procedure BitBtn2Click(Sender: TObject);
     procedure DfDirBtnClick(Sender: TObject);
+    procedure DFileMemoChange(Sender: TObject);
     procedure FormClose(Sender: TObject; var CloseAction: TCloseAction);
     procedure FormCreate(Sender: TObject);
     procedure FormShow(Sender: TObject);
@@ -39,6 +40,7 @@ type
 
 var
   DFileForm: TDFileForm;
+  SaveFlag: boolean;
 
 implementation
 
@@ -62,6 +64,8 @@ begin
 
   TStartDockerCommand.Create(DockerCmd);
 
+  SaveFlag := False;
+
   DFileForm.Close;
 end;
 
@@ -76,9 +80,17 @@ begin
   FilesForm.Show;
 end;
 
+procedure TDFileForm.DFileMemoChange(Sender: TObject);
+begin
+    SaveFlag := True;
+end;
+
 procedure TDFileForm.FormClose(Sender: TObject; var CloseAction: TCloseAction);
 begin
   IniPropStorage1.Save;
+
+  if SaveFlag then if MessageDlg('Save,', mtConfirmation, [mbYes, mbNo], 0) = mrYes then
+  SaveBtn.Click;
 end;
 
 procedure TDFileForm.FormCreate(Sender: TObject);
@@ -97,6 +109,8 @@ begin
     DFileMemo.Lines.LoadFromFile(GetUserDir + 'DockerManager/Dockerfile')
   else
     DFileMemo.Lines.SaveToFile(GetUserDir + 'DockerManager/Dockerfile');
+
+  SaveFlag := False;
 end;
 
 //Имя_образа:тэг задаём обязательно
@@ -118,6 +132,7 @@ end;
 procedure TDFileForm.SaveBtnClick(Sender: TObject);
 begin
   DFileMemo.Lines.SaveToFile(GetUserDir + 'DockerManager/Dockerfile');
+  SaveFlag := False;
 end;
 
 end.

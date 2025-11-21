@@ -1,7 +1,7 @@
 object FilesForm: TFilesForm
-  Left = 534
+  Left = 516
   Height = 426
-  Top = 144
+  Top = 165
   Width = 322
   ActiveControl = FileListBox1
   Caption = 'Project files'
