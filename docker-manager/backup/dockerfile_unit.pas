@@ -80,23 +80,28 @@ begin
   FilesForm.Show;
 end;
 
+//Флаг редактирования
 procedure TDFileForm.DFileMemoChange(Sender: TObject);
 begin
-    SaveFlag := True;
+  SaveFlag := True;
 end;
 
 procedure TDFileForm.FormClose(Sender: TObject; var CloseAction: TCloseAction);
 begin
   IniPropStorage1.Save;
 
-  if SaveFlag then if MessageDlg('Save,', mtConfirmation, [mbYes, mbNo], 0) = mrYes then
-  SaveBtn.Click;
+  if SaveFlag then if MessageDlg(SDockerfileSave, mtConfirmation,
+      [mbYes, mbNo], 0) = mrYes then
+      SaveBtn.Click;
 end;
 
 procedure TDFileForm.FormCreate(Sender: TObject);
 begin
   //Файл конфигурации формы Dockerfile
   IniPropStorage1.IniFileName := MainForm.IniPropStorage1.IniFileName;
+
+  SaveBtn.Width := NewImageEdit.Height;
+  DfDirBtn.Width := SaveBtn.Width;
 end;
 
 //Восстанавливаем последний созданный Dockerfile

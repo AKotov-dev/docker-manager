@@ -1,7 +1,7 @@
 object DFileForm: TDFileForm
-  Left = 331
+  Left = 341
   Height = 639
-  Top = 132
+  Top = 128
   Width = 895
   Caption = '~/DockerManager/Dockerfile'
   ClientHeight = 639
@@ -16,8 +16,8 @@ object DFileForm: TDFileForm
     AnchorSideTop.Control = BitBtn1
     AnchorSideTop.Side = asrBottom
     Left = 0
-    Height = 593
-    Top = 46
+    Height = 592
+    Top = 47
     Width = 895
     Align = alBottom
     Anchors = [akTop, akLeft, akRight, akBottom]
@@ -30,17 +30,17 @@ object DFileForm: TDFileForm
     OnChange = DFileMemoChange
   end
   object BitBtn1: TBitBtn
+    AnchorSideTop.Control = NewImageEdit
     AnchorSideRight.Control = Owner
     AnchorSideRight.Side = asrBottom
-    AnchorSideBottom.Control = Owner
+    AnchorSideBottom.Control = NewImageEdit
     AnchorSideBottom.Side = asrBottom
     Left = 792
-    Height = 36
+    Height = 37
     Top = 5
     Width = 100
-    Anchors = [akTop, akRight]
+    Anchors = [akTop, akRight, akBottom]
     BorderSpacing.Right = 3
-    BorderSpacing.Bottom = 5
     Default = True
     DefaultCaption = True
     Kind = bkOK
@@ -49,16 +49,16 @@ object DFileForm: TDFileForm
     OnClick = BitBtn1Click
   end
   object BitBtn2: TBitBtn
+    AnchorSideTop.Control = NewImageEdit
     AnchorSideRight.Control = BitBtn1
-    AnchorSideBottom.Control = Owner
+    AnchorSideBottom.Control = NewImageEdit
     AnchorSideBottom.Side = asrBottom
     Left = 691
-    Height = 36
+    Height = 37
     Top = 5
     Width = 100
-    Anchors = [akTop, akRight]
+    Anchors = [akTop, akRight, akBottom]
     BorderSpacing.Right = 1
-    BorderSpacing.Bottom = 5
     Cancel = True
     DefaultCaption = True
     Kind = bkCancel
@@ -69,12 +69,13 @@ object DFileForm: TDFileForm
   object NewImageEdit: TEdit
     AnchorSideLeft.Control = Label1
     AnchorSideLeft.Side = asrBottom
-    AnchorSideTop.Control = BitBtn2
+    AnchorSideTop.Control = Owner
     Left = 106
     Height = 37
     Top = 5
     Width = 397
     BorderSpacing.Left = 2
+    BorderSpacing.Top = 5
     TabOrder = 0
     Text = 'new-image:tag'
     OnChange = NewImageEditChange
@@ -95,12 +96,14 @@ object DFileForm: TDFileForm
     AnchorSideLeft.Control = NewImageEdit
     AnchorSideLeft.Side = asrBottom
     AnchorSideTop.Control = NewImageEdit
+    AnchorSideBottom.Control = NewImageEdit
+    AnchorSideBottom.Side = asrBottom
     Left = 592
-    Height = 36
+    Height = 37
     Hint = 'Project files'
     Top = 5
     Width = 36
-    Anchors = [akTop]
+    Anchors = [akTop, akBottom]
     BorderSpacing.Left = 30
     Glyph.Data = {
       36090000424D3609000000000000360000002800000018000000180000000100
@@ -186,11 +189,14 @@ object DFileForm: TDFileForm
     AnchorSideLeft.Control = NewImageEdit
     AnchorSideLeft.Side = asrBottom
     AnchorSideTop.Control = NewImageEdit
+    AnchorSideBottom.Control = NewImageEdit
+    AnchorSideBottom.Side = asrBottom
     Left = 503
-    Height = 36
+    Height = 37
     Hint = 'Save Dockerfile'
     Top = 5
     Width = 36
+    Anchors = [akTop, akLeft, akBottom]
     Glyph.Data = {
       36090000424D3609000000000000360000002800000018000000180000000100
       200000000000000900006400000064000000000000000000000000000000CC99

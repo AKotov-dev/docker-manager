@@ -106,6 +106,9 @@ procedure TDFileForm.FormShow(Sender: TObject);
 begin
   IniPropStorage1.Restore;
 
+  SaveBtn.Width := NewImageEdit.Height;
+  DfDirBtn.Width := SaveBtn.Width;
+
   //Если Doсkerfile существует - показываем, иначе создаём новый
   if FileExists(GetUserDir + 'DockerManager/Dockerfile') then
     DFileMemo.Lines.LoadFromFile(GetUserDir + 'DockerManager/Dockerfile')
